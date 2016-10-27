@@ -11,7 +11,7 @@ namespace Jonghor.Controllers
         // GET: Jonghor
         public ActionResult Index()
         {
-            return View();
+            return View("Homepage");
         }
     }
 }
