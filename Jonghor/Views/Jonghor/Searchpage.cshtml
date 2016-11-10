@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Jonghor.Models
+@using Jonghor.ViewModel
+@model DormViewModel
+
+<!DOCTYPE html>
 <html>
 <style>
     /* Full-width input fields */
@@ -112,8 +116,10 @@
 </style>
 <body>
 
-    <h2><center>JongHor</center>
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right;">Login</button></h2>
+    <h2>
+        <center>JongHor</center>
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right;">Login</button>
+    </h2>
 
     <form>
         Search Dorm:
@@ -123,13 +129,12 @@
                border 2px solid: #ccc;
                border-radius: 4px;
                font-size: 16px;
-               background-color: white;   
-               background-image: url('http://www.freeiconspng.com/uploads/search-icon-png-0.png');      
+               background-color: white;
+               background-image: url('http://www.freeiconspng.com/uploads/search-icon-png-0.png');
                background-size: 5%;
                background-position: 10px 10px;
                background-repeat: no-repeat;
-               padding: 10px 20px 12px 40px;"
-        >
+               padding: 10px 20px 12px 40px;">
 
         <input type="submit" value="Search">
     </form>
