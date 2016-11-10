@@ -116,8 +116,8 @@
 
         .dormPic {
         
-        width: 180px;
-        height: 180px;
+        width: 100%;
+        height: 200px;
         }
 
        .dormDetail {
@@ -133,9 +133,10 @@
     </h2>
 
     <center>
+        
         <form>
             Search Dorm:
-            <input type="text" name="Dormname"
+            <input type="text" name="Dormsearch"
                    style=" width: 25%;
                    box-sizing: border-box;
                    border 2px solid: #ccc;
@@ -148,9 +149,24 @@
                    background-repeat: no-repeat;
                    padding: 10px 20px 12px 40px;">
 
-            <input type="submit" value="Search">
-        </form>
+            <select name="Dormoption"
+                    style=" width: 13%;
+                   font-size: 16px;
+                   background-color: white;
+                   background-repeat: no-repeat;
+                   padding: 8px 5px 12px 15px;">
 
+                <option value="pricemax">ราคามากไปน้อย </option>
+                <option value="pricemin">ราคาน้อยไปมาก</option>
+                <option value="near">บริเวณใกล้เคียง</option>
+
+            </select>
+
+            <input type="submit" value="Search">
+
+
+
+        </form>
 
         <div id="id01" class="modal">
 
@@ -180,16 +196,16 @@
 
 
         <div><br/>
-            <table style="width:50%;">
+            <table style="width:50%; ">
 
                 @foreach (Dorm val in Model.GetDormList())
                     {
 
                     <tr>
-                        <td style="width:40%;">
-                            <a href="google.com"><img class="dormPic" src="https://www.pindat.com/images/uploads/user.2384/pin.25764/vrmx0dkb.jpg"></a>
+                        <td style="width:30%; border:solid; ">
+                            <a href="google.com"><img class="dormPic" src="https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url=https%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fvr-splice-j%2F02%2Fba%2Ff2%2F29.jpg&container=focus&resize_w=700&refresh=31536000&no_expand=1&rewriteMime=image/*"></a>
                         </td>
-                        <td style="width:60%;">
+                        <td style="width:60%; padding:30px; border:solid ">
                             <font class="dormDetail">@val.Name</font><br />
                             <font class="dormDetail">1000-10000 บาท</font>
                         </td>
