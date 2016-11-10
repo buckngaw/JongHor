@@ -17,10 +17,18 @@ namespace Jonghor.Controllers
             return View("Homepage", dormViewModel);
         }
 
-        public ActionResult Searchpage()
+        public ActionResult Login(string uname, string psw)
         {
-            DormViewModel dormViewModel = new DormViewModel();
-            return View("Searchpage", dormViewModel);
+            System.Diagnostics.Debug.WriteLine(uname + " " + psw);
+            return View("Homepage");
+        }
+
+        public ActionResult Search(string text)
+        {
+            System.Diagnostics.Debug.WriteLine(text);
+
+            //var db = Database.
+            return View("Homepage");
         }
     }
 }
