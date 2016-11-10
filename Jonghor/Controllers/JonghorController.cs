@@ -16,5 +16,11 @@ namespace Jonghor.Controllers
             DormViewModel dormViewModel = new DormViewModel();
             return View("Homepage", dormViewModel);
         }
+
+        public ActionResult Searchpage()
+        {
+            DormViewModel dormViewModel = new DormViewModel();
+            return View("Searchpage", dormViewModel);
+        }
     }
 }
