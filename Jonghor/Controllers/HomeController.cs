@@ -10,21 +10,12 @@ namespace Jonghor.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("Homepage");
         }
 
-        public ActionResult About()
+        public ActionResult GetHome()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View("Homepage");
         }
     }
 }
