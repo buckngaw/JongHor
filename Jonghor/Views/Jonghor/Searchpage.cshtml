@@ -113,70 +113,107 @@
         margin: 4px 2px;
         cursor: pointer;
     }
+
+        .dormPic {
+        
+        width: 180px;
+        height: 180px;
+        }
+
+       .dormDetail {
+        
+         text-align:right;
+        }
 </style>
 <body>
 
     <h2>
-        <center>JongHor</center>
+        <center>ค้นหา</center>
         <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right;">Login</button>
     </h2>
 
-    <form>
-        Search Dorm:
-        <input type="text" name="Dormname"
-               style=" width: 25%;
-               box-sizing: border-box;
-               border 2px solid: #ccc;
-               border-radius: 4px;
-               font-size: 16px;
-               background-color: white;
-               background-image: url('http://www.freeiconspng.com/uploads/search-icon-png-0.png');
-               background-size: 5%;
-               background-position: 10px 10px;
-               background-repeat: no-repeat;
-               padding: 10px 20px 12px 40px;">
+    <center>
+        <form>
+            Search Dorm:
+            <input type="text" name="Dormname"
+                   style=" width: 25%;
+                   box-sizing: border-box;
+                   border 2px solid: #ccc;
+                   border-radius: 4px;
+                   font-size: 16px;
+                   background-color: white;
+                   background-image: url('http://www.freeiconspng.com/uploads/search-icon-png-0.png');
+                   background-size: 5%;
+                   background-position: 10px 10px;
+                   background-repeat: no-repeat;
+                   padding: 10px 20px 12px 40px;">
 
-        <input type="submit" value="Search">
-    </form>
-
-    <div id="id01" class="modal">
-
-        <form class="modal-content animate" action="action_page.php">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <img src="http://visualoop.com/wp-content/themes/visualoop/img/there-is-no-picture-for-this-user2.png" alt="Avatar" class="avatar">
-            </div>
-
-            <div class="container">
-                <label><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-
-                <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-
-                <button type="submit">Login</button>
-                <input type="checkbox" checked="checked"> Remember me
-            </div>
-
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
+            <input type="submit" value="Search">
         </form>
-    </div>
 
 
-    <script>
-// Get the modal
-var modal = document.getElementById('id01');
+        <div id="id01" class="modal">
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-    </script>
+            <form class="modal-content animate" action="action_page.php">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <img src="http://visualoop.com/wp-content/themes/visualoop/img/there-is-no-picture-for-this-user2.png" alt="Avatar" class="avatar">
+                </div>
+
+                <div class="container">
+                    <label><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <button type="submit">Login</button>
+                    <input type="checkbox" checked="checked"> Remember me
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+            </form>
+        </div>
+
+
+        <div><br/>
+            <table style="width:50%;">
+
+                @foreach (Dorm val in Model.GetDormList())
+                    {
+
+                    <tr>
+                        <td style="width:40%;">
+                            <a href="google.com"><img class="dormPic" src="https://www.pindat.com/images/uploads/user.2384/pin.25764/vrmx0dkb.jpg"></a>
+                        </td>
+                        <td style="width:60%;">
+                            <font class="dormDetail">@val.Name</font><br />
+                            <font class="dormDetail">1000-10000 บาท</font>
+                        </td>
+
+                    </tr>
+                   }
+
+              
+            </table>
+        </div>
+
+    </center>
+
+            <script>
+                // Get the modal
+                var modal = document.getElementById('id01');
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
 
 </body>
 
