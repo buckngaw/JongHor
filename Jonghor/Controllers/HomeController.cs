@@ -18,7 +18,7 @@ namespace Jonghor.Controllers
 
         public ActionResult GetHome()
         {
-            return View("Homepage");
+            return View("Host_Homepage");
         }
     }
 }
