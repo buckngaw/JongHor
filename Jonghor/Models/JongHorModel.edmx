@@ -35,7 +35,7 @@
           <Property Name="Label_text" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Dorm_Option' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Dorm_Option' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Dorm_Option">
           <Key>
             <PropertyRef Name="Dorm_ID" />
@@ -52,7 +52,7 @@ warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\J
           <Property Name="URL_Picture" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Dorm_Rate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Dorm_Rate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Dorm_Rate">
           <Key>
             <PropertyRef Name="Username" />
@@ -65,7 +65,7 @@ warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\J
           <Property Name="Text" Type="varchar" MaxLength="200" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Message' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Message' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Message">
           <Key>
             <PropertyRef Name="Sender_Username" />
@@ -86,11 +86,11 @@ warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\J
           </Key>
           <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Room_ID" Type="int" Nullable="false" />
+          <Property Name="Room_ID" Type="int" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Ssn" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="Ssn" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
@@ -103,7 +103,7 @@ warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\J
           <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Room_Option' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Room_Option' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Room_Option">
           <Key>
             <PropertyRef Name="Room_type" />
@@ -113,7 +113,7 @@ warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\J
           <Property Name="Option" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Room_Reserved' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Room_Reserved' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Room_Reserved">
           <Key>
             <PropertyRef Name="Username" />
@@ -243,7 +243,7 @@ warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\J
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Person_Room">
-          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
           <End Role="Person" Type="Self.Person" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Room">
@@ -453,11 +453,11 @@ warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\J
           </Key>
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Room_ID" Type="Int32" Nullable="false" />
+          <Property Name="Room_ID" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Ssn" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <Property Name="Ssn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Dorm" Relationship="Self.FK_Dorm_Person" FromRole="Person" ToRole="Dorm" />
           <NavigationProperty Name="Dorm_Rate" Relationship="Self.FK_Dorm_Rate_Person" FromRole="Person" ToRole="Dorm_Rate" />
           <NavigationProperty Name="Message" Relationship="Self.FK_Message_Person" FromRole="Person" ToRole="Message" />
@@ -658,7 +658,7 @@ warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\J
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Person_Room">
-          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
           <End Role="Person" Type="Self.Person" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Room">
@@ -717,7 +717,7 @@ warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\J
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="JongHorDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="JongHorDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Dorm" EntityType="Self.Dorm" />
           <EntitySet Name="Dorm_Label" EntityType="Self.Dorm_Label" />
           <EntitySet Name="Dorm_Picture" EntityType="Self.Dorm_Picture" />
@@ -788,7 +788,7 @@ warning 6002: The table/view 'D:\UNIVERSITY\YEAR3\DATABASE\PROJECT\GIT\JONGHOR\J
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="JongHorDBModelStoreContainer" CdmEntityContainer="JongHorDBEntities">
+        <EntityContainerMapping StorageEntityContainer="JongHorDBModelStoreContainer" CdmEntityContainer="JongHorDBEntities1">
           <EntitySetMapping Name="Dorm">
             <EntityTypeMapping TypeName="JongHorDBModel.Dorm">
               <MappingFragment StoreEntitySet="Dorm">
