@@ -29,7 +29,7 @@ namespace Jonghor.Controllers
             return Content(dorm_name.ToString());
         }
 
-        //// GET: Serach
+        ////// GET: Serach
         //public async Task<ActionResult> Index()
         //{
         //    var dorm = db.Dorm.Include(d => d.Dorm_Label).Include(d => d.Person).Include(d => d.Dorm_Picture);
