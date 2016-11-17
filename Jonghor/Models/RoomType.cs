@@ -13,4 +13,8 @@ namespace Jonghor.Models
         public int TypeId { get; set; }
         public string [] RoomOption { get; set; }
     }
+
+
+
+
 }

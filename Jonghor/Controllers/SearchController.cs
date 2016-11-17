@@ -151,5 +151,21 @@ namespace Jonghor.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        // Search Page MuMu Dont Touch = - =--------------------------------------
+        public ActionResult ViewSearch()
+        {
+            DormLayer DormDB = new DormLayer();
+            List<Dorm> DormList = DormDB.GetDorm();
+
+            foreach (Dorm dorm in DormList)
+            {
+                
+            }
+          
+            return View("Searchpage", DormList);
+        }
+        //---------------------------------------------------------------------------
     }
 }
