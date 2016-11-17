@@ -120,22 +120,27 @@
 
     <form action="Search" method="get">
         Search Dorm:
-        <input type="text" name="Dormname"
-               style=" width: 25%;
-               box-sizing: border-box;
-               border 2px solid: #ccc;
-               border-radius: 4px;
-               font-size: 16px;
-               background-color: white;   
-               background-image: url('http://www.freeiconspng.com/uploads/search-icon-png-0.png');      
-               background-size: 5%;
-               background-position: 10px 10px;
-               background-repeat: no-repeat;
-               padding: 10px 20px 12px 40px;"
-        >
+        @using (Html.BeginForm("Index","Dorm"))
+        {
+            @Html.ActionLink("Create New", "Create")
+            <p>
+                Title: @Html.TextBox("SearchString") <br />
+                <input type="text" name="Dormname"
+                       style=" width 25%;
+                       box-sizing border-box;
+                       border 2px solid #ccc;
+                       border-radius 4px;
+                       font-size 16px;
+                       background-color white;
+                       background-image url('http//www.freeiconspng.com/uploads/search-icon-png-0.png');
+                background-size: 5%;
+                background-position: 10px 10px;
+                background-repeat: no-repeat;
+                padding: 10px 20px 12px 40px;"
+                >
 
-        <input type="submit" value="Search">
-    </form>
+                <input type="submit" value="Search">
+</form>
 
   
 
