@@ -9,7 +9,6 @@ namespace Jonghor.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
         public ActionResult Index(string uname, string psw)
         {
             PersonBusinessLayer personBal = new PersonBusinessLayer();
