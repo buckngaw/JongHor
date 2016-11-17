@@ -161,7 +161,8 @@ namespace Jonghor.Controllers
 
             foreach (Dorm dorm in DormList)
             {
-                
+
+
             }
           
             return View("Searchpage", DormList);
