@@ -268,7 +268,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <None Include="Views\Shared\_Layout.cshtml" />
-    <None Include="Views\Host\Host_Homepage.cshtml" />
+    <None Include="Views\Home\Host_Homepage.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -276,11 +276,14 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Home\Homepage.cshtml" />
     <Content Include="Views\Search\Searchpage.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Host\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
