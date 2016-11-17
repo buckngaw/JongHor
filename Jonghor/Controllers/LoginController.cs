@@ -33,10 +33,6 @@ namespace Jonghor.Controllers
             
         }
 
-        public ActionResult Searchpage()
-        {
-            DormViewModel dormViewModel = new DormViewModel();
-            return View("Searchpage", dormViewModel);
-        }
+
     }
 }
