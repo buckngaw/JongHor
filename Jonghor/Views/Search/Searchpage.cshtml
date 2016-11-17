@@ -1,6 +1,6 @@
 ﻿@using Jonghor.Models
 @using Jonghor.ViewModel
-@model DormViewModel
+@model List<Dorm>
 
 <!DOCTYPE html>
 <html>
@@ -198,7 +198,7 @@
         <div><br/>
             <table style="width:50%; ">
 
-                @foreach (Dorm val in Model.GetDormList())
+                @foreach (Dorm val in Model)
                     {
 
                     <tr>
