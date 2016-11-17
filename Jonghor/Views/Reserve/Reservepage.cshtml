@@ -118,38 +118,29 @@
 
     </h2>
 
-    <center>
+  <div style="padding:30px;">
 
-        <form>
-           ประเภท : 
-            <input type="checkbox" name="vehicle" value="normal"> ธรรมดา<br>
-            <input type="checkbox" name="vehicle" value="roommate" checked> รูมเมท<br>
-         
-            </select>
+      <form>
+          ประเภท :
+          <br/>ธรรมดา<input type="radio" name="reserve" value="normal">   จำนวนคน 
+          <br/>รูมเมท<input type="radio" name="reserve" value="roommate" checked>
 
-            <input type="submit" value="Confirm">
+          </select>
 
-
-
-        </form>
+         <br /> <input type="submit" value="Confirm">
 
 
+
+      </form>
+
+
+  </div>
+
+      
 
 
      
-    </center>
-
-    <script>
-                // Get the modal
-                var modal = document.getElementById('id01');
-
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function (event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                }
-    </script>
+   
 
 </body>
 
