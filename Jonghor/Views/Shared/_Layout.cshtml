@@ -29,6 +29,14 @@ button {
     background-color: #f44336;
 }
 
+    .registerbtn {
+        width: 100%;
+        color: Red;
+        text-decoration: underline;
+        padding: 14px 20px;
+        background-color: #FFFFFF;
+    }
+
 /* Center the image and position the close button */
 .imgcontainer {
     text-align: center;
@@ -38,11 +46,10 @@ button {
 
 img.avatar {
     width: 40%;
-   
 }
 
 .container {
-    padding: 16px;
+        padding: 14px;
 }
 
 span.psw {
@@ -62,7 +69,7 @@ span.psw {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
+        padding-top: 5px;
 }
 
 /* Modal Content/Box */
@@ -70,7 +77,7 @@ span.psw {
     background-color: #fefefe;
     margin: auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 25%; /* Could be more or less, depending on screen size */
+        width: 30%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
@@ -92,7 +99,7 @@ span.psw {
 /* Add Zoom Animation */
 .animate {
     -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
+        animation: animatezoom 0.6s;
 }
 
 /*Background*/
@@ -101,7 +108,7 @@ body {
     background-color: White;
 }
 
-input[type=submit]{
+    input[type=submit] {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -113,7 +120,6 @@ input[type=submit]{
 
 /* User layout */
 div.container {
-    
 }
 
 section, footer {
@@ -143,7 +149,6 @@ nav ul a {
 article {
     overflow: hidden;
 }
-
 </style>
 <body>
 
@@ -153,7 +158,7 @@ article {
   <form class="modal-content animate" action="/Login" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="pic\male.jpg" alt="Avatar" class="avatar">
+                <img src="https://skincareayurveda.com/photos/kayakalp-global-featured-image-1468303717.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
@@ -171,17 +176,64 @@ article {
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
+        </form>
+    </div>
+
+    <div id="id02" class="modal">
+
+        <form class="modal-content animate">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            </div>
+
+            <div class="container">
+                <label><b>Username</b><font color="red">*</font></label>
+                <input type="text" placeholder="username" name="user" required>
+
+                <label><b>Password</b><font color="red" font-size="1px">* (upper than 6 characters)</font></label>
+                <input type="password" pattern=".{6,}" placeholder="password" name="pwd" required title="Password more than 6 characters">
+
+                <label><b>FirstName</b><font color="red">*</font></label>
+                <input type="text" placeholder="Enter FirstName" name="Fname" required>
+
+                <label><b>LastName</b><font color="red">*</font></label>
+                <input type="text" placeholder="Enter LastName" name="Lname" required>
+
+                <label><b>Gender</b></label><br>
+                <form>
+                    <input type="radio" name="gender" value="male" checked> Male<br>
+                    <input type="radio" name="gender" value="female"> Female<br>
   </form>
+
+                <label><b>SSID</b><font color="red">*</font></label>
+                <input type="text" name="ssid" maxlength="13" required>
+
+                <label><b>Phone Number</b></label>
+                <input type="text" name="phone" maxlength="10" required>
+
+                <label><b>Status</b></label>
+                <form>
+                    <input type="radio" name="status" checked>User<br>
+                    <input type="radio" name="status">Owner<br>
+                </form>
+
+
+                <button type="submit">Submit</button>
+            </div>
+
 </div>
 
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
-
+var modal2 = document.getElementById('id02');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+    }
+	else if (event.target == modal2) {
+        modal2.style.display = "none";
     }
 }
 </script>
@@ -194,8 +246,8 @@ window.onclick = function(event) {
   
 <nav>
   <ul>
-	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right;">Login</button><br>
-	<a href="" style="text-align:right">Register</a> 
+                <button type="button" onclick="document.getElementById('id02').style.display='block'" class="registerbtn" style="width:auto; float:right;">Register</button>
+                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right;">Login</button>
   </ul>
 </nav>
 
