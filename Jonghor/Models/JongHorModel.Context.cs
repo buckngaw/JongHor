@@ -13,10 +13,10 @@ namespace Jonghor.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class JongHorDBEntities : DbContext
+    public partial class JongHorDBEntities1 : DbContext
     {
-        public JongHorDBEntities()
-            : base("name=JongHorDBEntities")
+        public JongHorDBEntities1()
+            : base("name=JongHorDBEntities1")
         {
         }
     
