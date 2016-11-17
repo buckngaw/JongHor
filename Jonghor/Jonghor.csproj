@@ -200,6 +200,7 @@
     <Compile Include="Models\Person.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PersonBusinessLayer.cs" />
     <Compile Include="Models\Room.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
