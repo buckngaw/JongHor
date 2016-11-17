@@ -1,0 +1,170 @@
+﻿@model Jonghor.Models.Dorm
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Dorm</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Lat)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Lat)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Long)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Long)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.information)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.information)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Line)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Line)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Facebook)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Facebook)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Instagram)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Instagram)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Tel)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Tel)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Deposit)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Deposit)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.W_minimum)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.W_minimum)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.W_Per_Unit)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.W_Per_Unit)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Internet)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Internet)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.E_Minimum)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.E_Minimum)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.E_Per_Unit)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.E_Per_Unit)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Dorm_Label.Label_text)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Dorm_Label.Label_text)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Person.Password)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Person.Password)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Dorm_Picture.URL_Picture)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Dorm_Picture.URL_Picture)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Dorm_ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

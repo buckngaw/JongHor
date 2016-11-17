@@ -200,6 +200,7 @@
     <Compile Include="Models\Person.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PersonBusinessLayer.cs" />
     <Compile Include="Models\Room.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
@@ -267,6 +268,11 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Serach\Create.cshtml" />
+    <Content Include="Views\Serach\Delete.cshtml" />
+    <Content Include="Views\Serach\Details.cshtml" />
+    <Content Include="Views\Serach\Edit.cshtml" />
+    <Content Include="Views\Serach\Index.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Home\Host_Homepage.cshtml" />
     <Content Include="Web.config" />

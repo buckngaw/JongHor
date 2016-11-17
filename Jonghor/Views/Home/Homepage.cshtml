@@ -1,6 +1,4 @@
-﻿
-
-@{
+﻿@{
     Layout = "~/views/shared/_layout.cshtml";
 }
 
@@ -67,7 +65,7 @@
         overflow: auto; /* Enable scroll if needed */
         background-color: rgb(0,0,0); /* Fallback color */
         background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        padding-top: 10px;
+        padding-top: 60px;
     }
 
     /* Modal Content/Box */
@@ -75,7 +73,7 @@
         background-color: #fefefe;
         margin: auto; /* 5% from the top, 15% from the bottom and centered */
         border: 1px solid #888;
-        width: 30%; /* Could be more or less, depending on screen size */
+        width: 25%; /* Could be more or less, depending on screen size */
     }
 
     /* The Close Button (x) */
@@ -121,25 +119,35 @@
     <form action="Search" method="get">
         Search Dorm:
         <input type="text" name="Dormname"
-               style=" width: 25%;
-               box-sizing: border-box;
-               border 2px solid: #ccc;
-               border-radius: 4px;
-               font-size: 16px;
-               background-color: white;   
-               background-image: url('http://www.freeiconspng.com/uploads/search-icon-png-0.png');      
-               background-size: 5%;
-               background-position: 10px 10px;
-               background-repeat: no-repeat;
-               padding: 10px 20px 12px 40px;"
+               style=" width 25%;
+               box-sizing border-box;
+               border 2px solid #ccc;
+               border-radius 4px;
+               font-size 16px;
+               background-color white;
+               background-image url('http//www.freeiconspng.com/uploads/search-icon-png-0.png');
+        background-size: 5%;
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        padding: 10px 20px 12px 40px;"
         >
 
         <input type="submit" value="Search">
     </form>
 
-  
 
-    
+
+    <script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+    </script>
 
 </body>
 
