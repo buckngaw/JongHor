@@ -171,15 +171,19 @@
     <Compile Include="Models\Dorm_Label.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Dorm_LabelLayer.cs" />
     <Compile Include="Models\Dorm_Option.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Dorm_OptionLayer.cs" />
     <Compile Include="Models\Dorm_Picture.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Dorm_PictureLayer.cs" />
     <Compile Include="Models\Dorm_Rate.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Dorm_RateLayer.cs" />
     <Compile Include="Models\JongHorModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -198,21 +202,26 @@
     <Compile Include="Models\Message.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MessageLayer.cs" />
     <Compile Include="Models\Person.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PersonBusinessLayer.cs" />
+    <Compile Include="Models\PersonLayer.cs" />
     <Compile Include="Models\Room.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DormLayer.cs" />
-    <Compile Include="Models\RoomType.cs" />
+    <Compile Include="Models\RoomLayer.cs" />
+    <Compile Include="Models\Room_TypeLayer.cs" />
     <Compile Include="Models\Room_Option.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Room_OptionLayer.cs" />
     <Compile Include="Models\Room_Reserved.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Room_ReservedLayer.cs" />
     <Compile Include="Models\Room_Type.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
