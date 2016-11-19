@@ -16,6 +16,7 @@ namespace Jonghor.Controllers
 
         public ActionResult Reserve()
         {
+            //new
             return View("Reservepage");
         }
     }
