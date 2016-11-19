@@ -285,6 +285,7 @@
     <Content Include="Views\Serach\Edit.cshtml" />
     <Content Include="Views\Serach\Index.cshtml" />
     <Content Include="Views\Reserve\Reservepage.cshtml" />
+    <Content Include="Views\Reserve\Room.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Home\Host_Homepage.cshtml" />
     <Content Include="Web.config" />
