@@ -110,46 +110,58 @@
         cursor: pointer;
     }
 
+    .roomlist {
+        padding:20px;
+        width:200px;
+        height:100px;
+        background-color:darkcyan;
+        color:white;
+        margin:10px;
+    }
 </style>
 <body>
 
     <h2>
-        <center>Reserve</center>
-        <center>ห้อง A301 </center>
+        
+        <center> VK </center>
        
     </h2>
 
   <div style="padding:30px;">
+      
+      <div >   
+          <form>
 
-      <form action="sd">
-          <br /><br /> <b>สถานะห้องพัก :</b>
-          <br /><br />ห้องว่าง 0/2 คน
-          
-          <br /><br /> <b>ประเภท :</b>
-         
-          <br /><br /><input type="radio" name="reserve" value="normal">  เข้าพัก 1 คน
-          <input type="radio" name="reserve" value="normal">   เข้าพัก 2 คน
-          <input type="radio" name="reserve" value="normal"> เข้าพัก  3 คน 
-          <input type="radio" name="reserve" value="normal"> เข้าพัก  3 คน 
-          <br/><input type="radio" name="reserve" value="roommate" checked> รูมเมท
+            <select name="Dormoption"
+                    style=" width: 13%;
+                           font-size: 16px;
+                           background-color: white;
+                           background-repeat: no-repeat;
+                           padding: 8px 5px 12px 15px;">
 
-         <br/><br /><b>รายละเอียด :</b>
-          <br />
-          <ul>
-              <li>ห้องพัดลม</li>
-              <li>เตียงเล็กสองเตียง</li>
-              <li>3500 ต่อเดือน</li>
-          </ul>
+                <option value="small">ห้องเล็ก </option>
+                <option value="big">ห้องใหญ่</option>
+                <option value="fan">ห้องพัดลม</option>
+                <option value="near">ห้องแอร์</option>
+            </select>
 
-          <br /><b>ข้อมูลผู้ขอเข้าพัก</b>
-          <br /><br /> Name <input type="text" name="name">   
-          <br /> LastName <input type="text" name="lastname">
-          <br /> Personal ID <input type="text" name="pid">
-          <br /> Tel <input type="text" name="phone">
-          
-          <br />  <br />  <input type="submit" value="Confirm">
-      </form>
+            <input type="submit" value="Confirm">
+        </form>
+      </div>
+     
+      <br />
 
+      <div class="roomlist"> <br />401  
+          <br />ห้องใหญ่
+          <br /> 0/2
+        
+      </div>
+      <div class="roomlist">
+          <br />401
+          <br />ห้องใหญ่
+          <br /> 0/2
+
+      </div>
 
   </div>
 

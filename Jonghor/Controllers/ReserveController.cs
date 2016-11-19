@@ -11,6 +11,12 @@ namespace Jonghor.Controllers
         // GET: Reserve
         public ActionResult Index()
         {
+            return View("Room");
+        }
+
+        public ActionResult Reserve()
+        {
+            //new
             return View("Reservepage");
         }
     }
