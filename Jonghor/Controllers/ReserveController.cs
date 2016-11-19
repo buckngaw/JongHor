@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jonghor.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,5 +20,15 @@ namespace Jonghor.Controllers
             //new
             return View("Reservepage");
         }
+        public ActionResult Room(int dorm)
+        {
+
+            RoomViewLayer DormDB = new RoomViewLayer();
+            List<RoomViewLayer> DormViewList = DormDB.GetRoomViewByDorm(dorm);
+
+
+            return View("Room", DormViewList);
+        }
+
     }
 }
