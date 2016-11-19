@@ -213,6 +213,7 @@
     </Compile>
     <Compile Include="Models\DormLayer.cs" />
     <Compile Include="Models\RoomLayer.cs" />
+    <Compile Include="Models\RoomViewLayer.cs" />
     <Compile Include="Models\Room_TypeLayer.cs" />
     <Compile Include="Models\Room_Option.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>

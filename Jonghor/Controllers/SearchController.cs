@@ -167,6 +167,11 @@ namespace Jonghor.Controllers
           
             return View("Searchpage", DormList);
         }
+
+
+
+
+
         //---------------------------------------------------------------------------
     }
 }

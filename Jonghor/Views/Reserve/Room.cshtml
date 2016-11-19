@@ -1,7 +1,6 @@
 ﻿@using Jonghor.Models
 @using Jonghor.ViewModel
-
-
+@model List<RoomViewLayer>
 <!DOCTYPE html>
 <html>
 <style>
@@ -151,17 +150,19 @@
      
       <br />
 
-      <div class="roomlist"> <br />401  
-          <br />ห้องใหญ่
-          <br /> 0/2
-        
-      </div>
-      <div class="roomlist">
-          <br />401
-          <br />ห้องใหญ่
-          <br /> 0/2
+      @foreach (RoomViewLayer val in Model)
+      {
+        <div class="roomlist">
+            <br />@val.room.Room_ID
+            <br />@val.room_type.Type_Name
+            <br />@val.Reserved_num / @val.room_type.Max 
 
-      </div>
+        </div>
+
+
+      }
+
+
 
   </div>
 
