@@ -15,19 +15,22 @@ namespace Jonghor.Controllers
             return View("Room");
         }
 
-        public ActionResult Reserve()
+        public ActionResult Reserve(int room)
         {
             //new
-            return View("Reservepage");
+            RoomViewLayer RoomDB = new RoomViewLayer();
+            RoomDB = RoomDB.GetRoomViewByRoom(room);
+
+            return View("Reservepage", RoomDB);
         }
         public ActionResult Room(int dorm)
         {
 
-            RoomViewLayer DormDB = new RoomViewLayer();
-            List<RoomViewLayer> DormViewList = DormDB.GetRoomViewByDorm(dorm);
+            RoomViewLayer RoomDB = new RoomViewLayer();
+            List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm(dorm);
 
 
-            return View("Room", DormViewList);
+            return View("Room", RoomViewList);
         }
 
     }

@@ -152,19 +152,19 @@
 
       @foreach (RoomViewLayer val in Model)
       {
-        <div class="roomlist">
+        <a href="Reserve/Reserve?room=@val.room.Room_ID"><div class="roomlist">
             <br />@val.room.Room_ID
-            <br />@val.room_type.Type_Name
-            <br />@val.Reserved_num / @val.room_type.Max 
+            <br />@val.room.Room_Type.Type_Name
+            <br />@val.Reserved_num / @val.room.Room_Type.Max 
 
-        </div>
-
-
-      }
+        </div></a>
 
 
+    }
 
-  </div>
+
+
+</div>
 
       
 

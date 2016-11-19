@@ -1,6 +1,6 @@
 ﻿@using Jonghor.Models
 @using Jonghor.ViewModel
-
+@model RoomViewLayer
 
 <!DOCTYPE html>
 <html>
@@ -123,7 +123,7 @@
 
       <form action="sd">
           <br /><br /> <b>สถานะห้องพัก :</b>
-          <br /><br />ห้องว่าง 0/2 คน
+          <br /><br />ห้องว่าง @Model.Reserved_num / @Model.room.Room_Type.Max คน
           
           <br /><br /> <b>ประเภท :</b>
          
@@ -136,9 +136,8 @@
          <br/><br /><b>รายละเอียด :</b>
           <br />
           <ul>
-              <li>ห้องพัดลม</li>
-              <li>เตียงเล็กสองเตียง</li>
-              <li>3500 ต่อเดือน</li>
+              <li>@Model.room.Room_Type.Type_Name</li>
+              <li>@Model.room.Room_Type.Price</li>
           </ul>
           
           <br />  <br />  <input type="submit" value="Confirm">
