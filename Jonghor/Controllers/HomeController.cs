@@ -12,13 +12,10 @@ namespace Jonghor.Controllers
         // GET: Jonghor
         public ActionResult Index()
         {
-            
-            return View("Homepage");
-        }
-
-        public ActionResult GetHome()
-        {
-            return View("Host_Homepage");
+            if (Session["Status"] != null && Session["Status"].ToString() == "Owner")
+                return View("Host_Homepage");
+            else
+                return View("Homepage");
         }
     }
 }
