@@ -33,5 +33,14 @@ namespace Jonghor.Controllers
             return View("Room", RoomViewList);
         }
 
+        public ActionResult Submit(int room)
+        {
+            //new
+            RoomViewLayer RoomDB = new RoomViewLayer();
+            RoomDB = RoomDB.GetRoomViewByRoom(room);
+
+            return View("Reservepage", RoomDB);
+        }
+
     }
 }
