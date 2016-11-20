@@ -115,13 +115,13 @@
 
     <h2>
         <center>Reserve</center>
-        <center>ห้อง A301 </center>
+        <center>ห้อง @Session["room_id"] </center>
        
     </h2>
 
   <div style="padding:30px;">
      
-      <form method="post"  action="@Url.Action("Submit", "Reserve")" >
+      <form method="post"  action="@Url.Action("Submit", "Reserve" )" >
           <br /><br /> <b>สถานะห้องพัก :</b>
           <br /><br />ห้องว่าง @Model.Reserved_num / @Model.room.Room_Type.Max คน
           
