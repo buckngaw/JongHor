@@ -295,6 +295,7 @@
     <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\theme.css" />
     <Content Include="Database1.mdf" />
     <Content Include="Databases\JongHorDB.ldf">
       <DependentUpon>JongHorDB.mdf</DependentUpon>
@@ -357,6 +358,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <None Include="Views\Chat\Messenger.cshtml" />
+    <Content Include="Views\Host\Edit.html" />
     <Content Include="Views\Serach\Create.cshtml" />
     <Content Include="Views\Serach\Delete.cshtml" />
     <Content Include="Views\Serach\Details.cshtml" />
@@ -389,7 +391,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Host\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Message\" />
   </ItemGroup>

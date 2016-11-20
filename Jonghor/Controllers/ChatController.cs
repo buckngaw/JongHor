@@ -16,10 +16,10 @@ namespace Jonghor.Controllers
         {
             switch (checkblock)
             {
-                case "AllRoom":
-                    return CheckAllRoom(m);
-                case "SelectRoom":
-                    return CheckSpecificRoom(m);
+                //case "AllRoom":
+                //    return CheckAllRoom(m);
+                //case "SelectRoom":
+                //   return CheckSpecificRoom(m);
             }
             return new EmptyResult();
 
