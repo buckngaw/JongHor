@@ -127,7 +127,7 @@
     <Property Name="Floor" Type="nchar" Nullable="false" MaxLength="10" />
     <Property Name="Dorm_ID" Type="int" Nullable="false" />
     <Property Name="Type_ID" Type="int" Nullable="false" />
-    <Property Name="Status" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Status" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Room_Type">
     <Key>
@@ -177,12 +177,14 @@
       <PropertyRef Name="Title" />
       <PropertyRef Name="Date" />
       <PropertyRef Name="Text" />
+      <PropertyRef Name="MessageID" />
     </Key>
     <Property Name="Sender_Username" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Receiver_Username" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Date" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Text" Type="varchar" Nullable="false" MaxLength="1000" />
+    <Property Name="MessageID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Room_Option">
     <Key>
@@ -197,12 +199,10 @@
       <PropertyRef Name="Username" />
       <PropertyRef Name="Room_ID" />
       <PropertyRef Name="Count" />
-      <PropertyRef Name="Reserved_ID" />
     </Key>
     <Property Name="Username" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Room_ID" Type="int" Nullable="false" />
     <Property Name="Count" Type="int" Nullable="false" />
-    <Property Name="Reserved_ID" Type="nchar" Nullable="false" MaxLength="10" />
   </EntityType>
   <Association Name="FK_Dorm_Label_Dorm">
     <End Role="Dorm" Type="JongHorDBModel.Store.Dorm" Multiplicity="1" />
@@ -433,7 +433,7 @@
           <Property Name="Floor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Dorm_ID" Type="Int32" Nullable="false" />
           <Property Name="Type_ID" Type="Int32" Nullable="false" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Person" Relationship="Self.FK_Person_Room" FromRole="Room" ToRole="Person" />
           <NavigationProperty Name="Room_Type" Relationship="Self.FK_Room_Person" FromRole="Room" ToRole="Room_Type" />
           <NavigationProperty Name="Room_Reserved" Relationship="Self.FK_Room_Reserved_Room" FromRole="Room" ToRole="Room_Reserved" />
@@ -491,6 +491,7 @@
             <PropertyRef Name="Title" />
             <PropertyRef Name="Date" />
             <PropertyRef Name="Text" />
+            <PropertyRef Name="MessageID" />
           </Key>
           <Property Name="Sender_Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Receiver_Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -499,6 +500,7 @@
           <Property Name="Text" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Person" Relationship="Self.FK_Message_Person" FromRole="Message" ToRole="Person" />
           <NavigationProperty Name="Person1" Relationship="Self.FK_Message1_Person" FromRole="Message" ToRole="Person" />
+          <Property Name="MessageID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Room_Option">
           <Key>
@@ -514,14 +516,12 @@
             <PropertyRef Name="Username" />
             <PropertyRef Name="Room_ID" />
             <PropertyRef Name="Count" />
-            <PropertyRef Name="Reserved_ID" />
           </Key>
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Room_ID" Type="Int32" Nullable="false" />
           <Property Name="Count" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Person" Relationship="Self.FK_Room_Reserved_Person" FromRole="Room_Reserved" ToRole="Person" />
           <NavigationProperty Name="Room" Relationship="Self.FK_Room_Reserved_Room" FromRole="Room_Reserved" ToRole="Room" />
-          <Property Name="Reserved_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <Association Name="FK_Dorm_Label_Dorm">
           <End Role="Dorm" Type="Self.Dorm" Multiplicity="1" />
@@ -864,6 +864,7 @@
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -881,7 +882,6 @@
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
           <ScalarProperty Name="Count" ColumnName="Count" />
-          <ScalarProperty Name="Reserved_ID" ColumnName="Reserved_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

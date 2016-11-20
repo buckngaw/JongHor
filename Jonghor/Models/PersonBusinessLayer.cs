@@ -17,12 +17,21 @@ namespace Jonghor.Models
             return peopleDal.ToList<Person>();
         }
 
-        //public Employee SaveEmployee(Employee e)
-        //{
-        //    SalesERPDAL salesDal = new SalesERPDAL();
-        //    salesDal.Employees.Add(e);
-        //    salesDal.SaveChanges();
-        //    return e;
-        //}
+        public int GetDormId(string username)
+        {
+            JongHorDBEntities1 jonghor = new JongHorDBEntities1();
+
+            List<Dorm> dorms = jonghor.Dorm.ToList<Dorm>();
+
+            foreach (Dorm dorm in dorms)
+            {
+                if(dorm.M_username == username)
+                {
+                    return dorm.Dorm_ID;
+                }
+            }
+
+            return -1;
+        }
     }
 }
