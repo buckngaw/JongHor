@@ -14,6 +14,15 @@ namespace Jonghor.Controllers
     {
         private JongHorDBEntities1 db = new JongHorDBEntities1();
 
+
+        public ActionResult CreateUser(Person p)
+        {
+          
+            db.Person.Add(p);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         // GET: Register
         public ActionResult Index()
         {
