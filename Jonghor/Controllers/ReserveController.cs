@@ -59,12 +59,57 @@ namespace Jonghor.Controllers
             reserved_input.Username = Session["UserName"]+"";
             reserved_input.Count = count;
 
+            // CHeck login
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Reserve", new
+                {
+                    error = 1,
+                    room = int.Parse(Session["room_id"] + "")
+                });
+            }
+
+            //check Reserve More 1 room  // 1 คน มี ห้อง
+            Room_ReservedLayer RoomReservedLayer = new Room_ReservedLayer();
+           List<Room_Reserved> RoomReservedList = RoomReservedLayer.GetRoom_Reserved();
+            int ReserveCount = 0;
+            foreach(Room_Reserved room in RoomReservedList)
+            {
+                if(reserved_input.Username == room.Username)
+                {
+                    ReserveCount++;
+                }
+                
+
+            }
+            if (ReserveCount >= 2)
+            {
+                return RedirectToAction("Reserve", new
+                {
+                    error = 3,
+                    room = int.Parse(Session["room_id"] + "")
+                });
+            }
+
+            //check Count
+            RoomViewLayer Roomview = new RoomViewLayer();
+            Roomview = Roomview.GetRoomViewByRoom(int.Parse(Session["room_id"] + ""));
+              if (Roomview.room.Room_Type.Max < (Roomview.Reserved_num+count))
+            {
+                return RedirectToAction("Reserve", new
+                {
+                    error = 4,
+                    room = int.Parse(Session["room_id"] + "")
+                });
+            }
+
+
             //check Reserved_ID
             Room_ReservedLayer Room_ReservedDB = new Room_ReservedLayer();
-            List<Room_Reserved> RoomDBList = Room_ReservedDB.GetRoom_Reserved();
-            foreach(Room_Reserved Roomreserved in RoomDBList)
+            List<Room_Reserved> RoomReDBList = Room_ReservedDB.GetRoom_Reserved();
+            foreach(Room_Reserved Roomreserved in RoomReDBList)
             {
-                if(reserve_ID + "" == Roomreserved.Reserved_ID)
+                if(reserve_ID  == int.Parse(Roomreserved.Reserved_ID))
                 {
                     reserve_ID++;
                 }
@@ -73,15 +118,33 @@ namespace Jonghor.Controllers
 
             reserved_input.Reserved_ID = reserve_ID+"";
 
-            db.Room_Reserved.Add(reserved_input);
-            db.SaveChanges();
+            try
+            {
+                db.Room_Reserved.Add(reserved_input);
+                db.SaveChanges();
 
-           
-            RoomViewLayer RoomDB = new RoomViewLayer();
-            List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm(int.Parse(Session["dorm_id"] + ""));
+                RoomViewLayer RoomDB = new RoomViewLayer();
+                List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm(int.Parse(Session["dorm_id"] + ""));
 
-            return View("Room", RoomViewList);
-           // return reserve +;
+                return View("Room", RoomViewList);
+            }
+            catch
+            {
+               
+                
+                    return RedirectToAction("Reserve", new
+                    {
+                        error = 2,
+                        room = int.Parse(Session["room_id"] + "")
+                    });
+                
+                
+               
+            }
+
+            
+
+            // return reserve +;
         }
 
     }
