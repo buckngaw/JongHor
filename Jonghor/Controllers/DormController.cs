@@ -18,9 +18,18 @@ namespace Jonghor.Controllers
 
         public ActionResult Edit(Dorm dorm)
         {
+            Dorm dormSelect = db.Dorm.SingleOrDefault(d => d.Name == dorm.Name);
+            if (dormSelect == null)
+            {
+                db.Dorm.Add(dorm);
+                db.SaveChanges();
+            }
+            else
+            {
+                dormSelect = dorm;
+                db.SaveChanges();
+            }
             
-            db.Dorm.(dorm);
-            db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
     }
