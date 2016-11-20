@@ -68,7 +68,7 @@ namespace Jonghor.Controllers
                 }
                 
             }
-            return View(user);
+            return RedirectToAction("Index", "Home");
             //UserViewModel user = new UserViewModel(uname, psw, true);
             //if (ModelState.IsValid)
             //{
@@ -106,7 +106,7 @@ namespace Jonghor.Controllers
             List<Person> people = personBal.GetPeople();
             foreach (Person person in people)
             {
-                if (person.Name == uname)
+                if (person.Username == uname)
                 {
                     if (person.Password == psw)
                     {
