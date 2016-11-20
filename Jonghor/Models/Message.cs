@@ -19,6 +19,7 @@ namespace Jonghor.Models
         public string Title { get; set; }
         public string Date { get; set; }
         public string Text { get; set; }
+        public int MessageID { get; set; }
     
         public virtual Person Person { get; set; }
         public virtual Person Person1 { get; set; }
