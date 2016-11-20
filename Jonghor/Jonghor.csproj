@@ -251,6 +251,7 @@
       <LastGenOutput>JongHorModel.Context.cs</LastGenOutput>
       <DependentUpon>JongHorModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Models\JongHorModel.edmx.sql" />
     <Content Include="Models\JongHorModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>JongHorModel.edmx</DependentUpon>
