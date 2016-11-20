@@ -158,6 +158,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="Models\Message.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MessageHTML.cs" />
     <Compile Include="Models\MessageLayer.cs" />
     <Compile Include="Models\Person.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
@@ -354,7 +356,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Message\Messenger.html" />
+    <None Include="Views\Chat\Messenger.cshtml" />
     <Content Include="Views\Serach\Create.cshtml" />
     <Content Include="Views\Serach\Delete.cshtml" />
     <Content Include="Views\Serach\Details.cshtml" />
@@ -389,6 +391,7 @@
   <ItemGroup>
     <Folder Include="Views\Host\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
