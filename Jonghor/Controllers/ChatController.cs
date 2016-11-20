@@ -12,16 +12,21 @@ namespace Jonghor.Controllers
         private JongHorDBEntities1 db = new JongHorDBEntities1();
 
         // GET: Chat
-        public ActionResult Checkbox(MessageHTML m,string checkblock)
+        //String -> ActionResult
+        public String Checkbox(MessageHTML m,string checkblock)
         {
-            switch (checkblock)
-            {
-                case "AllRoom":
-                    return CheckAllRoom(m);
-                case "SelectRoom":
-                    return CheckSpecificRoom(m);
-            }
-            return new EmptyResult();
+           
+                switch (checkblock)
+                {
+                    case "AllRoom":
+                    // return CheckAllRoom(m);
+                    case "SelectRoom":
+                        return CheckSpecificRoom(m);
+                }
+                //return new EmptyResult();
+            
+
+            return "";
 
         }
 
@@ -40,6 +45,7 @@ namespace Jonghor.Controllers
         }
 
         //send message to specific room
+        //String -> ActionResult
         public String CheckSpecificRoom(MessageHTML m)
         {
             Message mem = new Message();
