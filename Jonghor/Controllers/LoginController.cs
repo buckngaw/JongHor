@@ -55,6 +55,15 @@ namespace Jonghor.Controllers
                 if (IsValid(uname, psw))
                 {
                     Session["UserName"] = user.UserName;
+                    if (!isOwner(uname))
+                    {   
+                        Session["Status"] = "User";
+                    }
+                    else
+                    {
+                        Session["Status"] = "Owner";
+                        
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 
@@ -75,6 +84,20 @@ namespace Jonghor.Controllers
             //    }
             //}
             //return View(user);
+        }
+
+        private bool isOwner(string name)
+        {
+            DormLayer dormBal = new DormLayer();
+            List<Dorm> dorms = dormBal.GetDorm();
+            foreach (Dorm dorm in dorms)
+            {
+                if(dorm.M_username == name)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private bool IsValid(string uname, string psw)
@@ -101,6 +124,7 @@ namespace Jonghor.Controllers
         public ActionResult DoLogout()
         {
             Session.Remove("UserName");
+            Session.Remove("Status");
             return RedirectToAction("Index", "Home");
         }
 
