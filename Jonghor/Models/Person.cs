@@ -9,9 +9,10 @@
 
 namespace Jonghor.Models
 {
+    using System.Web.Mvc;
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class Person
     {
        
@@ -24,13 +25,17 @@ namespace Jonghor.Models
             this.Message1 = new HashSet<Message>();
             this.Room_Reserved = new HashSet<Room_Reserved>();
         }
-    
         public string Username { get; set; }
+        [Required(ErrorMessage="Enter Password")]
         public string Password { get; set; }
         public Nullable<int> Room_ID { get; set; }
+        [Required(ErrorMessage = "Enter Name")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Enter Surname")]
         public string Surname { get; set; }
+
         public string Phone { get; set; }
+        [Required]
         public string Ssn { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -45,4 +50,5 @@ namespace Jonghor.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Room_Reserved> Room_Reserved { get; set; }
     }
+    
 }
