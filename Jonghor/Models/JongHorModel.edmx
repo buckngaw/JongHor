@@ -4,402 +4,363 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="JongHorDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Dorm">
-          <Key>
-            <PropertyRef Name="Dorm_ID" />
-          </Key>
-          <Property Name="Dorm_ID" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="M_username" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Lat" Type="varchar" MaxLength="50" />
-          <Property Name="Long" Type="varchar" MaxLength="50" />
-          <Property Name="information" Type="varchar" MaxLength="2000" />
-          <Property Name="Line" Type="varchar" MaxLength="50" />
-          <Property Name="Facebook" Type="varchar" MaxLength="50" />
-          <Property Name="Instagram" Type="varchar" MaxLength="50" />
-          <Property Name="Tel" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Address" Type="varchar" MaxLength="2000" Nullable="false" />
-          <Property Name="Deposit" Type="varchar" MaxLength="50" />
-          <Property Name="W_minimum" Type="int" />
-          <Property Name="W_Per_Unit" Type="int" />
-          <Property Name="Internet" Type="varchar" MaxLength="50" />
-          <Property Name="E_Minimum" Type="int" />
-          <Property Name="E_Per_Unit" Type="int" />
-        </EntityType>
-        <EntityType Name="Dorm_Label">
-          <Key>
-            <PropertyRef Name="Dorm_ID" />
-          </Key>
-          <Property Name="Dorm_ID" Type="int" Nullable="false" />
-          <Property Name="Label_text" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Dorm_Option' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Dorm_Option">
-          <Key>
-            <PropertyRef Name="Dorm_ID" />
-            <PropertyRef Name="Option" />
-          </Key>
-          <Property Name="Dorm_ID" Type="int" Nullable="false" />
-          <Property Name="Option" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Dorm_Picture">
-          <Key>
-            <PropertyRef Name="Dorm_ID" />
-          </Key>
-          <Property Name="Dorm_ID" Type="int" Nullable="false" />
-          <Property Name="URL_Picture" Type="varchar" MaxLength="200" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Dorm_Rate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Dorm_Rate">
-          <Key>
-            <PropertyRef Name="Username" />
-            <PropertyRef Name="Dorm_ID" />
-            <PropertyRef Name="Score" />
-          </Key>
-          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Dorm_ID" Type="int" Nullable="false" />
-          <Property Name="Score" Type="float" Nullable="false" />
-          <Property Name="Text" Type="varchar" MaxLength="200" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Message' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Message">
-          <Key>
-            <PropertyRef Name="Sender_Username" />
-            <PropertyRef Name="Receiver_Username" />
-            <PropertyRef Name="Title" />
-            <PropertyRef Name="Date" />
-            <PropertyRef Name="Text" />
-          </Key>
-          <Property Name="Sender_Username" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Receiver_Username" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Date" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Text" Type="varchar" MaxLength="1000" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Person">
-          <Key>
-            <PropertyRef Name="Username" />
-          </Key>
-          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Room_ID" Type="int" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Ssn" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Room">
-          <Key>
-            <PropertyRef Name="Room_ID" />
-          </Key>
-          <Property Name="Room_ID" Type="int" Nullable="false" />
-          <Property Name="Floor" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Dorm_ID" Type="int" Nullable="false" />
-          <Property Name="Type_ID" Type="int" Nullable="false" />
-          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Room_Option' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Room_Option">
-          <Key>
-            <PropertyRef Name="Room_type" />
-            <PropertyRef Name="Option" />
-          </Key>
-          <Property Name="Room_type" Type="int" Nullable="false" />
-          <Property Name="Option" Type="varchar" MaxLength="100" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Room_Reserved' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Room_Reserved">
-          <Key>
-            <PropertyRef Name="Username" />
-            <PropertyRef Name="Room_ID" />
-            <PropertyRef Name="Count" />
-          </Key>
-          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Room_ID" Type="int" Nullable="false" />
-          <Property Name="Count" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Room_Type">
-          <Key>
-            <PropertyRef Name="Type_Id" />
-          </Key>
-          <Property Name="Type_Id" Type="int" Nullable="false" />
-          <Property Name="Type_Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Price" Type="int" Nullable="false" />
-          <Property Name="Max" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Table">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Username" Type="varchar" MaxLength="50" />
-          <Property Name="Password" Type="varchar" MaxLength="50" />
-          <Property Name="Number" Type="nchar" MaxLength="10" />
-          <Property Name="Floor" Type="nchar" MaxLength="10" />
-          <Property Name="Name" Type="nchar" MaxLength="10" />
-          <Property Name="Surname" Type="nchar" MaxLength="10" />
-          <Property Name="Phone" Type="nchar" MaxLength="10" />
-        </EntityType>
-        <Association Name="FK_Dorm_Label_Dorm">
-          <End Role="Dorm" Type="Self.Dorm" Multiplicity="1" />
-          <End Role="Dorm_Label" Type="Self.Dorm_Label" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Dorm">
-              <PropertyRef Name="Dorm_ID" />
-            </Principal>
-            <Dependent Role="Dorm_Label">
-              <PropertyRef Name="Dorm_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Dorm_Option_Dorm">
-          <End Role="Dorm" Type="Self.Dorm" Multiplicity="1" />
-          <End Role="Dorm_Option" Type="Self.Dorm_Option" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dorm">
-              <PropertyRef Name="Dorm_ID" />
-            </Principal>
-            <Dependent Role="Dorm_Option">
-              <PropertyRef Name="Dorm_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Dorm_Person">
-          <End Role="Person" Type="Self.Person" Multiplicity="1" />
-          <End Role="Dorm" Type="Self.Dorm" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Person">
-              <PropertyRef Name="Username" />
-            </Principal>
-            <Dependent Role="Dorm">
-              <PropertyRef Name="M_username" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Dorm_Picture_Dorm">
-          <End Role="Dorm" Type="Self.Dorm" Multiplicity="1" />
-          <End Role="Dorm_Picture" Type="Self.Dorm_Picture" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Dorm">
-              <PropertyRef Name="Dorm_ID" />
-            </Principal>
-            <Dependent Role="Dorm_Picture">
-              <PropertyRef Name="Dorm_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Dorm_Rate_Dorm">
-          <End Role="Dorm" Type="Self.Dorm" Multiplicity="1" />
-          <End Role="Dorm_Rate" Type="Self.Dorm_Rate" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dorm">
-              <PropertyRef Name="Dorm_ID" />
-            </Principal>
-            <Dependent Role="Dorm_Rate">
-              <PropertyRef Name="Dorm_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Dorm_Rate_Person">
-          <End Role="Person" Type="Self.Person" Multiplicity="1" />
-          <End Role="Dorm_Rate" Type="Self.Dorm_Rate" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Person">
-              <PropertyRef Name="Username" />
-            </Principal>
-            <Dependent Role="Dorm_Rate">
-              <PropertyRef Name="Username" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Message_Person">
-          <End Role="Person" Type="Self.Person" Multiplicity="1" />
-          <End Role="Message" Type="Self.Message" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Person">
-              <PropertyRef Name="Username" />
-            </Principal>
-            <Dependent Role="Message">
-              <PropertyRef Name="Sender_Username" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Message1_Person">
-          <End Role="Person" Type="Self.Person" Multiplicity="1" />
-          <End Role="Message" Type="Self.Message" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Person">
-              <PropertyRef Name="Username" />
-            </Principal>
-            <Dependent Role="Message">
-              <PropertyRef Name="Receiver_Username" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Person_Room">
-          <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
-          <End Role="Person" Type="Self.Person" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Room">
-              <PropertyRef Name="Room_ID" />
-            </Principal>
-            <Dependent Role="Person">
-              <PropertyRef Name="Room_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Room_Option_Room_Type">
-          <End Role="Room_Type" Type="Self.Room_Type" Multiplicity="1" />
-          <End Role="Room_Option" Type="Self.Room_Option" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Room_Type">
-              <PropertyRef Name="Type_Id" />
-            </Principal>
-            <Dependent Role="Room_Option">
-              <PropertyRef Name="Room_type" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Room_Person">
-          <End Role="Room_Type" Type="Self.Room_Type" Multiplicity="1" />
-          <End Role="Room" Type="Self.Room" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Room_Type">
-              <PropertyRef Name="Type_Id" />
-            </Principal>
-            <Dependent Role="Room">
-              <PropertyRef Name="Type_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Room_Reserved_Person">
-          <End Role="Person" Type="Self.Person" Multiplicity="1" />
-          <End Role="Room_Reserved" Type="Self.Room_Reserved" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Person">
-              <PropertyRef Name="Username" />
-            </Principal>
-            <Dependent Role="Room_Reserved">
-              <PropertyRef Name="Username" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Room_Reserved_Room">
-          <End Role="Room" Type="Self.Room" Multiplicity="1" />
-          <End Role="Room_Reserved" Type="Self.Room_Reserved" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Room">
-              <PropertyRef Name="Room_ID" />
-            </Principal>
-            <Dependent Role="Room_Reserved">
-              <PropertyRef Name="Room_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="JongHorDBModelStoreContainer">
-          <EntitySet Name="Dorm" EntityType="Self.Dorm" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Dorm_Label" EntityType="Self.Dorm_Label" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Dorm_Picture" EntityType="Self.Dorm_Picture" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Room_Type" EntityType="Self.Room_Type" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Dorm_Option" EntityType="Self.Dorm_Option" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Dorm_Option].[Dorm_ID] AS [Dorm_ID], 
-    [Dorm_Option].[Option] AS [Option]
-    FROM [dbo].[Dorm_Option] AS [Dorm_Option]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Dorm_Rate" EntityType="Self.Dorm_Rate" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Dorm_Rate].[Username] AS [Username], 
-    [Dorm_Rate].[Dorm_ID] AS [Dorm_ID], 
-    [Dorm_Rate].[Score] AS [Score], 
-    [Dorm_Rate].[Text] AS [Text]
-    FROM [dbo].[Dorm_Rate] AS [Dorm_Rate]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Message" EntityType="Self.Message" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Message].[Sender_Username] AS [Sender_Username], 
-    [Message].[Receiver_Username] AS [Receiver_Username], 
-    [Message].[Title] AS [Title], 
-    [Message].[Date] AS [Date], 
-    [Message].[Text] AS [Text]
-    FROM [dbo].[Message] AS [Message]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Room_Option" EntityType="Self.Room_Option" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Room_Option].[Room_type] AS [Room_type], 
-    [Room_Option].[Option] AS [Option]
-    FROM [dbo].[Room_Option] AS [Room_Option]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Room_Reserved" EntityType="Self.Room_Reserved" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Room_Reserved].[Username] AS [Username], 
-    [Room_Reserved].[Room_ID] AS [Room_ID], 
-    [Room_Reserved].[Count] AS [Count]
-    FROM [dbo].[Room_Reserved] AS [Room_Reserved]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK_Dorm_Label_Dorm" Association="Self.FK_Dorm_Label_Dorm">
-            <End Role="Dorm" EntitySet="Dorm" />
-            <End Role="Dorm_Label" EntitySet="Dorm_Label" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Dorm_Option_Dorm" Association="Self.FK_Dorm_Option_Dorm">
-            <End Role="Dorm" EntitySet="Dorm" />
-            <End Role="Dorm_Option" EntitySet="Dorm_Option" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Dorm_Person" Association="Self.FK_Dorm_Person">
-            <End Role="Person" EntitySet="Person" />
-            <End Role="Dorm" EntitySet="Dorm" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Dorm_Picture_Dorm" Association="Self.FK_Dorm_Picture_Dorm">
-            <End Role="Dorm" EntitySet="Dorm" />
-            <End Role="Dorm_Picture" EntitySet="Dorm_Picture" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Dorm_Rate_Dorm" Association="Self.FK_Dorm_Rate_Dorm">
-            <End Role="Dorm" EntitySet="Dorm" />
-            <End Role="Dorm_Rate" EntitySet="Dorm_Rate" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Dorm_Rate_Person" Association="Self.FK_Dorm_Rate_Person">
-            <End Role="Person" EntitySet="Person" />
-            <End Role="Dorm_Rate" EntitySet="Dorm_Rate" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Message_Person" Association="Self.FK_Message_Person">
-            <End Role="Person" EntitySet="Person" />
-            <End Role="Message" EntitySet="Message" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Message1_Person" Association="Self.FK_Message1_Person">
-            <End Role="Person" EntitySet="Person" />
-            <End Role="Message" EntitySet="Message" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Person_Room" Association="Self.FK_Person_Room">
-            <End Role="Room" EntitySet="Room" />
-            <End Role="Person" EntitySet="Person" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Room_Option_Room_Type" Association="Self.FK_Room_Option_Room_Type">
-            <End Role="Room_Type" EntitySet="Room_Type" />
-            <End Role="Room_Option" EntitySet="Room_Option" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Room_Person" Association="Self.FK_Room_Person">
-            <End Role="Room_Type" EntitySet="Room_Type" />
-            <End Role="Room" EntitySet="Room" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Room_Reserved_Person" Association="Self.FK_Room_Reserved_Person">
-            <End Role="Person" EntitySet="Person" />
-            <End Role="Room_Reserved" EntitySet="Room_Reserved" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Room_Reserved_Room" Association="Self.FK_Room_Reserved_Room">
-            <End Role="Room" EntitySet="Room" />
-            <End Role="Room_Reserved" EntitySet="Room_Reserved" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="JongHorDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+  <EntityContainer Name="JongHorDBModelStoreContainer">
+    <EntitySet Name="Dorm" EntityType="JongHorDBModel.Store.Dorm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dorm_Label" EntityType="JongHorDBModel.Store.Dorm_Label" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dorm_Picture" EntityType="JongHorDBModel.Store.Dorm_Picture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Person" EntityType="JongHorDBModel.Store.Person" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="JongHorDBModel.Store.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room_Type" EntityType="JongHorDBModel.Store.Room_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="JongHorDBModel.Store.Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dorm_Option" EntityType="JongHorDBModel.Store.Dorm_Option" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dorm_Rate" EntityType="JongHorDBModel.Store.Dorm_Rate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Message" EntityType="JongHorDBModel.Store.Message" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room_Option" EntityType="JongHorDBModel.Store.Room_Option" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room_Reserved" EntityType="JongHorDBModel.Store.Room_Reserved" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Dorm_Label_Dorm" Association="JongHorDBModel.Store.FK_Dorm_Label_Dorm">
+      <End EntitySet="Dorm" Role="Dorm" />
+      <End EntitySet="Dorm_Label" Role="Dorm_Label" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dorm_Option_Dorm" Association="JongHorDBModel.Store.FK_Dorm_Option_Dorm">
+      <End EntitySet="Dorm" Role="Dorm" />
+      <End EntitySet="Dorm_Option" Role="Dorm_Option" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dorm_Person" Association="JongHorDBModel.Store.FK_Dorm_Person">
+      <End EntitySet="Person" Role="Person" />
+      <End EntitySet="Dorm" Role="Dorm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dorm_Picture_Dorm" Association="JongHorDBModel.Store.FK_Dorm_Picture_Dorm">
+      <End EntitySet="Dorm" Role="Dorm" />
+      <End EntitySet="Dorm_Picture" Role="Dorm_Picture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dorm_Rate_Dorm" Association="JongHorDBModel.Store.FK_Dorm_Rate_Dorm">
+      <End EntitySet="Dorm" Role="Dorm" />
+      <End EntitySet="Dorm_Rate" Role="Dorm_Rate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dorm_Rate_Person" Association="JongHorDBModel.Store.FK_Dorm_Rate_Person">
+      <End EntitySet="Person" Role="Person" />
+      <End EntitySet="Dorm_Rate" Role="Dorm_Rate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Message_Person" Association="JongHorDBModel.Store.FK_Message_Person">
+      <End EntitySet="Person" Role="Person" />
+      <End EntitySet="Message" Role="Message" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Message1_Person" Association="JongHorDBModel.Store.FK_Message1_Person">
+      <End EntitySet="Person" Role="Person" />
+      <End EntitySet="Message" Role="Message" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Room" Association="JongHorDBModel.Store.FK_Person_Room">
+      <End EntitySet="Room" Role="Room" />
+      <End EntitySet="Person" Role="Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_Reserved_Person" Association="JongHorDBModel.Store.FK_Room_Reserved_Person">
+      <End EntitySet="Person" Role="Person" />
+      <End EntitySet="Room_Reserved" Role="Room_Reserved" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_Person" Association="JongHorDBModel.Store.FK_Room_Person">
+      <End EntitySet="Room_Type" Role="Room_Type" />
+      <End EntitySet="Room" Role="Room" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_Reserved_Room" Association="JongHorDBModel.Store.FK_Room_Reserved_Room">
+      <End EntitySet="Room" Role="Room" />
+      <End EntitySet="Room_Reserved" Role="Room_Reserved" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_Option_Room_Type" Association="JongHorDBModel.Store.FK_Room_Option_Room_Type">
+      <End EntitySet="Room_Type" Role="Room_Type" />
+      <End EntitySet="Room_Option" Role="Room_Option" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Dorm">
+    <Key>
+      <PropertyRef Name="Dorm_ID" />
+    </Key>
+    <Property Name="Dorm_ID" Nullable="false" Type="int" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Nullable="false" MaxLength="10" Type="nchar" />
+    <Property Name="M_username" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Lat" Nullable="true" MaxLength="50" Type="varchar" />
+    <Property Name="Long" Nullable="true" MaxLength="50" Type="varchar" />
+    <Property Name="information" Nullable="true" MaxLength="2000" Type="varchar" />
+    <Property Name="Line" Nullable="true" MaxLength="50" Type="varchar" />
+    <Property Name="Facebook" Nullable="true" MaxLength="50" Type="varchar" />
+    <Property Name="Instagram" Nullable="true" MaxLength="50" Type="varchar" />
+    <Property Name="Tel" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Address" Nullable="false" MaxLength="2000" Type="varchar" />
+    <Property Name="Deposit" Nullable="true" MaxLength="50" Type="varchar" />
+    <Property Name="W_minimum" Nullable="true" Type="int" />
+    <Property Name="W_Per_Unit" Nullable="true" Type="int" />
+    <Property Name="Internet" Nullable="true" MaxLength="50" Type="varchar" />
+    <Property Name="E_Minimum" Nullable="true" Type="int" />
+    <Property Name="E_Per_Unit" Nullable="true" Type="int" />
+  </EntityType>
+  <EntityType Name="Dorm_Label">
+    <Key>
+      <PropertyRef Name="Dorm_ID" />
+    </Key>
+    <Property Name="Dorm_ID" Nullable="false" Type="int" />
+    <Property Name="Label_text" Nullable="false" MaxLength="50" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Dorm_Picture">
+    <Key>
+      <PropertyRef Name="Dorm_ID" />
+    </Key>
+    <Property Name="Dorm_ID" Nullable="false" Type="int" />
+    <Property Name="URL_Picture" Nullable="false" MaxLength="200" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Password" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Room_ID" Nullable="true" Type="int" />
+    <Property Name="Name" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Surname" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Phone" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Ssn" Nullable="false" MaxLength="50" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="Room_ID" />
+    </Key>
+    <Property Name="Room_ID" Nullable="false" Type="int" />
+    <Property Name="Floor" Nullable="false" MaxLength="10" Type="nchar" />
+    <Property Name="Dorm_ID" Nullable="false" Type="int" />
+    <Property Name="Type_ID" Nullable="false" Type="int" />
+    <Property Name="Status" Nullable="false" MaxLength="50" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Room_Type">
+    <Key>
+      <PropertyRef Name="Type_Id" />
+    </Key>
+    <Property Name="Type_Id" Nullable="false" Type="int" />
+    <Property Name="Type_Name" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Price" Nullable="false" Type="int" />
+    <Property Name="Max" Nullable="false" Type="int" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" Type="int" />
+    <Property Name="Username" Nullable="true" MaxLength="50" Type="varchar" />
+    <Property Name="Password" Nullable="true" MaxLength="50" Type="varchar" />
+    <Property Name="Number" Nullable="true" MaxLength="10" Type="nchar" />
+    <Property Name="Floor" Nullable="true" MaxLength="10" Type="nchar" />
+    <Property Name="Name" Nullable="true" MaxLength="10" Type="nchar" />
+    <Property Name="Surname" Nullable="true" MaxLength="10" Type="nchar" />
+    <Property Name="Phone" Nullable="true" MaxLength="10" Type="nchar" />
+  </EntityType>
+  <EntityType Name="Dorm_Option">
+    <Key>
+      <PropertyRef Name="Dorm_ID" />
+      <PropertyRef Name="Option" />
+    </Key>
+    <Property Name="Dorm_ID" Nullable="false" Type="int" />
+    <Property Name="Option" Nullable="false" MaxLength="50" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Dorm_Rate">
+    <Key>
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Dorm_ID" />
+      <PropertyRef Name="Score" />
+    </Key>
+    <Property Name="Username" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Dorm_ID" Nullable="false" Type="int" />
+    <Property Name="Score" Nullable="false" Type="float" />
+    <Property Name="Text" Nullable="true" MaxLength="200" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Sender_Username" />
+      <PropertyRef Name="Receiver_Username" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="Text" />
+    </Key>
+    <Property Name="Sender_Username" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Receiver_Username" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Title" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Date" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Text" Nullable="false" MaxLength="1000" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Room_Option">
+    <Key>
+      <PropertyRef Name="Room_type" />
+      <PropertyRef Name="Option" />
+    </Key>
+    <Property Name="Room_type" Nullable="false" Type="int" />
+    <Property Name="Option" Nullable="false" MaxLength="100" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Room_Reserved">
+    <Key>
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Room_ID" />
+      <PropertyRef Name="Count" />
+      <PropertyRef Name="Reserved_ID" />
+    </Key>
+    <Property Name="Username" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="Room_ID" Nullable="false" Type="int" />
+    <Property Name="Count" Nullable="false" Type="int" />
+    <Property Name="Reserved_ID" Nullable="false" MaxLength="10" Type="nchar" />
+  </EntityType>
+  <Association Name="FK_Dorm_Label_Dorm">
+    <End Type="JongHorDBModel.Store.Dorm" Multiplicity="1" Role="Dorm" />
+    <End Type="JongHorDBModel.Store.Dorm_Label" Multiplicity="0..1" Role="Dorm_Label" />
+    <ReferentialConstraint>
+      <Principal Role="Dorm">
+        <PropertyRef Name="Dorm_ID" />
+      </Principal>
+      <Dependent Role="Dorm_Label">
+        <PropertyRef Name="Dorm_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dorm_Option_Dorm">
+    <End Type="JongHorDBModel.Store.Dorm" Multiplicity="1" Role="Dorm" />
+    <End Type="JongHorDBModel.Store.Dorm_Option" Multiplicity="*" Role="Dorm_Option" />
+    <ReferentialConstraint>
+      <Principal Role="Dorm">
+        <PropertyRef Name="Dorm_ID" />
+      </Principal>
+      <Dependent Role="Dorm_Option">
+        <PropertyRef Name="Dorm_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dorm_Person">
+    <End Type="JongHorDBModel.Store.Person" Multiplicity="1" Role="Person" />
+    <End Type="JongHorDBModel.Store.Dorm" Multiplicity="*" Role="Dorm" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Dorm">
+        <PropertyRef Name="M_username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dorm_Picture_Dorm">
+    <End Type="JongHorDBModel.Store.Dorm" Multiplicity="1" Role="Dorm" />
+    <End Type="JongHorDBModel.Store.Dorm_Picture" Multiplicity="0..1" Role="Dorm_Picture" />
+    <ReferentialConstraint>
+      <Principal Role="Dorm">
+        <PropertyRef Name="Dorm_ID" />
+      </Principal>
+      <Dependent Role="Dorm_Picture">
+        <PropertyRef Name="Dorm_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dorm_Rate_Dorm">
+    <End Type="JongHorDBModel.Store.Dorm" Multiplicity="1" Role="Dorm" />
+    <End Type="JongHorDBModel.Store.Dorm_Rate" Multiplicity="*" Role="Dorm_Rate" />
+    <ReferentialConstraint>
+      <Principal Role="Dorm">
+        <PropertyRef Name="Dorm_ID" />
+      </Principal>
+      <Dependent Role="Dorm_Rate">
+        <PropertyRef Name="Dorm_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dorm_Rate_Person">
+    <End Type="JongHorDBModel.Store.Person" Multiplicity="1" Role="Person" />
+    <End Type="JongHorDBModel.Store.Dorm_Rate" Multiplicity="*" Role="Dorm_Rate" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Dorm_Rate">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Message_Person">
+    <End Type="JongHorDBModel.Store.Person" Multiplicity="1" Role="Person" />
+    <End Type="JongHorDBModel.Store.Message" Multiplicity="*" Role="Message" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="Sender_Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Message1_Person">
+    <End Type="JongHorDBModel.Store.Person" Multiplicity="1" Role="Person" />
+    <End Type="JongHorDBModel.Store.Message" Multiplicity="*" Role="Message" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="Receiver_Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Room">
+    <End Type="JongHorDBModel.Store.Room" Multiplicity="0..1" Role="Room" />
+    <End Type="JongHorDBModel.Store.Person" Multiplicity="*" Role="Person" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="Room_ID" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="Room_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_Reserved_Person">
+    <End Type="JongHorDBModel.Store.Person" Multiplicity="1" Role="Person" />
+    <End Type="JongHorDBModel.Store.Room_Reserved" Multiplicity="*" Role="Room_Reserved" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Room_Reserved">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_Person">
+    <End Type="JongHorDBModel.Store.Room_Type" Multiplicity="1" Role="Room_Type" />
+    <End Type="JongHorDBModel.Store.Room" Multiplicity="*" Role="Room" />
+    <ReferentialConstraint>
+      <Principal Role="Room_Type">
+        <PropertyRef Name="Type_Id" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_Reserved_Room">
+    <End Type="JongHorDBModel.Store.Room" Multiplicity="1" Role="Room" />
+    <End Type="JongHorDBModel.Store.Room_Reserved" Multiplicity="*" Role="Room_Reserved" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="Room_ID" />
+      </Principal>
+      <Dependent Role="Room_Reserved">
+        <PropertyRef Name="Room_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_Option_Room_Type">
+    <End Type="JongHorDBModel.Store.Room_Type" Multiplicity="1" Role="Room_Type" />
+    <End Type="JongHorDBModel.Store.Room_Option" Multiplicity="*" Role="Room_Option" />
+    <ReferentialConstraint>
+      <Principal Role="Room_Type">
+        <PropertyRef Name="Type_Id" />
+      </Principal>
+      <Dependent Role="Room_Option">
+        <PropertyRef Name="Room_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="JongHorDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -407,7 +368,7 @@ warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\
           <Key>
             <PropertyRef Name="Dorm_ID" />
           </Key>
-          <Property Name="Dorm_ID" Type="Int32" Nullable="false" />
+          <Property Name="Dorm_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="M_username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Lat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -553,12 +514,14 @@ warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\
             <PropertyRef Name="Username" />
             <PropertyRef Name="Room_ID" />
             <PropertyRef Name="Count" />
+            <PropertyRef Name="Reserved_ID" />
           </Key>
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Room_ID" Type="Int32" Nullable="false" />
           <Property Name="Count" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Person" Relationship="Self.FK_Room_Reserved_Person" FromRole="Room_Reserved" ToRole="Person" />
           <NavigationProperty Name="Room" Relationship="Self.FK_Room_Reserved_Room" FromRole="Room_Reserved" ToRole="Room" />
+          <Property Name="Reserved_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <Association Name="FK_Dorm_Label_Dorm">
           <End Role="Dorm" Type="Self.Dorm" Multiplicity="1" />
@@ -786,144 +749,144 @@ warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="JongHorDBModelStoreContainer" CdmEntityContainer="JongHorDBEntities1">
-          <EntitySetMapping Name="Dorm">
-            <EntityTypeMapping TypeName="JongHorDBModel.Dorm">
-              <MappingFragment StoreEntitySet="Dorm">
-                <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="M_username" ColumnName="M_username" />
-                <ScalarProperty Name="Lat" ColumnName="Lat" />
-                <ScalarProperty Name="Long" ColumnName="Long" />
-                <ScalarProperty Name="information" ColumnName="information" />
-                <ScalarProperty Name="Line" ColumnName="Line" />
-                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
-                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
-                <ScalarProperty Name="Tel" ColumnName="Tel" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Deposit" ColumnName="Deposit" />
-                <ScalarProperty Name="W_minimum" ColumnName="W_minimum" />
-                <ScalarProperty Name="W_Per_Unit" ColumnName="W_Per_Unit" />
-                <ScalarProperty Name="Internet" ColumnName="Internet" />
-                <ScalarProperty Name="E_Minimum" ColumnName="E_Minimum" />
-                <ScalarProperty Name="E_Per_Unit" ColumnName="E_Per_Unit" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dorm_Label">
-            <EntityTypeMapping TypeName="JongHorDBModel.Dorm_Label">
-              <MappingFragment StoreEntitySet="Dorm_Label">
-                <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
-                <ScalarProperty Name="Label_text" ColumnName="Label_text" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dorm_Picture">
-            <EntityTypeMapping TypeName="JongHorDBModel.Dorm_Picture">
-              <MappingFragment StoreEntitySet="Dorm_Picture">
-                <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
-                <ScalarProperty Name="URL_Picture" ColumnName="URL_Picture" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Person">
-            <EntityTypeMapping TypeName="JongHorDBModel.Person">
-              <MappingFragment StoreEntitySet="Person">
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Ssn" ColumnName="Ssn" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Room">
-            <EntityTypeMapping TypeName="JongHorDBModel.Room">
-              <MappingFragment StoreEntitySet="Room">
-                <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
-                <ScalarProperty Name="Floor" ColumnName="Floor" />
-                <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
-                <ScalarProperty Name="Type_ID" ColumnName="Type_ID" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Room_Type">
-            <EntityTypeMapping TypeName="JongHorDBModel.Room_Type">
-              <MappingFragment StoreEntitySet="Room_Type">
-                <ScalarProperty Name="Type_Id" ColumnName="Type_Id" />
-                <ScalarProperty Name="Type_Name" ColumnName="Type_Name" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Max" ColumnName="Max" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Table">
-            <EntityTypeMapping TypeName="JongHorDBModel.Table">
-              <MappingFragment StoreEntitySet="Table">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Floor" ColumnName="Floor" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dorm_Option">
-            <EntityTypeMapping TypeName="JongHorDBModel.Dorm_Option">
-              <MappingFragment StoreEntitySet="Dorm_Option">
-                <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
-                <ScalarProperty Name="Option" ColumnName="Option" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dorm_Rate">
-            <EntityTypeMapping TypeName="JongHorDBModel.Dorm_Rate">
-              <MappingFragment StoreEntitySet="Dorm_Rate">
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
-                <ScalarProperty Name="Score" ColumnName="Score" />
-                <ScalarProperty Name="Text" ColumnName="Text" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Message">
-            <EntityTypeMapping TypeName="JongHorDBModel.Message">
-              <MappingFragment StoreEntitySet="Message">
-                <ScalarProperty Name="Sender_Username" ColumnName="Sender_Username" />
-                <ScalarProperty Name="Receiver_Username" ColumnName="Receiver_Username" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Text" ColumnName="Text" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Room_Option">
-            <EntityTypeMapping TypeName="JongHorDBModel.Room_Option">
-              <MappingFragment StoreEntitySet="Room_Option">
-                <ScalarProperty Name="Room_type" ColumnName="Room_type" />
-                <ScalarProperty Name="Option" ColumnName="Option" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Room_Reserved">
-            <EntityTypeMapping TypeName="JongHorDBModel.Room_Reserved">
-              <MappingFragment StoreEntitySet="Room_Reserved">
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
-                <ScalarProperty Name="Count" ColumnName="Count" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JongHorDBModelStoreContainer" CdmEntityContainer="JongHorDBEntities1">
+    <EntitySetMapping Name="Dorm">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel.Dorm)">
+        <MappingFragment StoreEntitySet="Dorm">
+          <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="M_username" ColumnName="M_username" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="Long" ColumnName="Long" />
+          <ScalarProperty Name="information" ColumnName="information" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Deposit" ColumnName="Deposit" />
+          <ScalarProperty Name="W_minimum" ColumnName="W_minimum" />
+          <ScalarProperty Name="W_Per_Unit" ColumnName="W_Per_Unit" />
+          <ScalarProperty Name="Internet" ColumnName="Internet" />
+          <ScalarProperty Name="E_Minimum" ColumnName="E_Minimum" />
+          <ScalarProperty Name="E_Per_Unit" ColumnName="E_Per_Unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dorm_Label">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel.Dorm_Label)">
+        <MappingFragment StoreEntitySet="Dorm_Label">
+          <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
+          <ScalarProperty Name="Label_text" ColumnName="Label_text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dorm_Picture">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel.Dorm_Picture)">
+        <MappingFragment StoreEntitySet="Dorm_Picture">
+          <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
+          <ScalarProperty Name="URL_Picture" ColumnName="URL_Picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Person">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel.Person)">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Ssn" ColumnName="Ssn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel.Room)">
+        <MappingFragment StoreEntitySet="Room">
+          <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+          <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
+          <ScalarProperty Name="Type_ID" ColumnName="Type_ID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room_Type">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel.Room_Type)">
+        <MappingFragment StoreEntitySet="Room_Type">
+          <ScalarProperty Name="Type_Id" ColumnName="Type_Id" />
+          <ScalarProperty Name="Type_Name" ColumnName="Type_Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel.Table)">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dorm_Option">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel.Dorm_Option)">
+        <MappingFragment StoreEntitySet="Dorm_Option">
+          <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
+          <ScalarProperty Name="Option" ColumnName="Option" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dorm_Rate">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel.Dorm_Rate)">
+        <MappingFragment StoreEntitySet="Dorm_Rate">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Message">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel.Message)">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="Sender_Username" ColumnName="Sender_Username" />
+          <ScalarProperty Name="Receiver_Username" ColumnName="Receiver_Username" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room_Option">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel.Room_Option)">
+        <MappingFragment StoreEntitySet="Room_Option">
+          <ScalarProperty Name="Room_type" ColumnName="Room_type" />
+          <ScalarProperty Name="Option" ColumnName="Option" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room_Reserved">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel.Room_Reserved)">
+        <MappingFragment StoreEntitySet="Room_Reserved">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Reserved_ID" ColumnName="Reserved_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -937,7 +900,7 @@ warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

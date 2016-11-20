@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+@{
+    Layout = "~/views/shared/_layout.cshtml";
+}
+
 <html>
 <style>
 	h1{
@@ -23,20 +27,32 @@ button {
 
 }
 </style>
+<article>
+
 <Body>
 <h1>
 	Dorm
 </h1>
-	  Dorm name:<input type="text" name="Dormname"> Bath/month</br></br>
-	  Price:<input type="text" name="Price">Bath</br></br>
-	  Description:<input type="text" name="Description"></br></br>
-		Price per month:<input type="text" name="Dormname">Bath/month</br></br>
-		  Price per day:<input type="text" name="Dormname">Bath/day</br></br>
-			Bail:<input type="text" name="Dormname">Bath</br></br>
-		   Electric's cost/Month:<input type="text" name="Dormname">Bath/Unit</br></br>
-			Water's cost/Month:<input type="text" name="Dormname">Bath/Unit</br></br>
-			  Inernet cost:<input type="text" name="Dormname"></br></br>
+
+        <div>
+            <form action="/Dorm/Edit" method="post">
+                Dorm name:<input type="text" name="Name"> <br></br>
+                Description:<input type="text" name="information"></br></br>
+                Price per month:<input type="text" name="BahtPerMonth">Bath/month</br></br>
+                Price per day:<input type="text" name="BahtPerDay">Bath/day</br></br>
+                Bail:<input type="text" name="Deposit">Bath<br></br>
+                Electric's cost/Month:<input type="text" name="E_Per_Unit">Bath/Unit</br></br>
+                Water's cost/Month:<input type="text" name="W_Per_Unit">Bath/Unit</br></br>
+                Internet cost:<input type="text" name="Internet"></br></br>
 			  
 <button type="submit">Submit</button>   
+            </form>
+        </div>
+
+
+
+
 </Body>
+
+</article>
 </html>
