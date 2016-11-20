@@ -154,18 +154,30 @@ namespace Jonghor.Controllers
 
 
         // Search Page MuMu Dont Touch = - =--------------------------------------
-        public ActionResult ViewSearch()
+        public ActionResult ViewSearch(string dname)
         {
             DormLayer DormDB = new DormLayer();
             List<Dorm> DormList = DormDB.GetDorm();
+            List<Dorm> DormSearch = new List<Dorm>();
 
             foreach (Dorm dorm in DormList)
             {
+                if (dorm.Name == dname)
+                {
+                
+                   for (int i=0;i<DormList.Count; i++)
+                    {
+                        if (DormList[i].Name == dname)
+                        {
+                            DormSearch.Add(DormList[i]);
+                        }
+                    }
 
-
+                }
             }
-          
-            return View("Searchpage", DormList);
+
+            return View("Searchpage", DormSearch);
+
         }
 
 
@@ -173,5 +185,30 @@ namespace Jonghor.Controllers
 
 
         //---------------------------------------------------------------------------
+
+
+
+       /* public ActionResult ViewSearch1()
+        {
+            Room_TypeLayer RoomTypeDB = new Room_TypeLayer();
+            List<Room_Type> Room_TypeList = RoomTypeDB.GetRoom_Type();
+                      
+                Array.Sort<List<Room_Type>>(Room_TypeList);
+                foreach (Room_Type room in Room_TypeList)
+                {
+                    //if(room.Price)
+                    /*int[] array = new int[] { 3, 1, 4, 5, 2 };
+                    Array.Sort<int>(array,
+                                    new Comparison<int>(
+                                            (i1, i2) => i2.CompareTo(i1)
+                                    ));
+
+
+
+                }           
+            return View("Searchprice", Room_TypeList);
+        }*/
+
+        
     }
 }

@@ -1,3 +1,4 @@
+
 <html>
 <style>
 h1{
@@ -13,19 +14,20 @@ h1{
 
 <body>
 
-<form>
-  <center><input type="checkbox" name="dest1" value="Bike">All Room 
-  <input type="checkbox" name="dest2" value="Car">Select Room</center>
-</form>
+<form action="@Url.Action("Checkbox", "Chat")">
+  <center><input type="checkbox" name="checkblock" value="AllRoom">All Room 
+  <input type="checkbox" name="checkblock" value="SelectRoom" >Select Room</center>
+
 <center>
-<form>
+
   Subject:
   <input type="text" name="subject" size="50"><br>
   Message:
   <textarea rows="4" cols="50" name="message"> </textarea><br>
   <input type="submit" name="submit" value="Sent">
-</form>
 </center>
+</form>
+
 </body>
 
 </html>
