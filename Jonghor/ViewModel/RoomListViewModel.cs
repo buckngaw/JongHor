@@ -9,13 +9,13 @@ namespace Jonghor.ViewModel
 {
     public class RoomListViewModel
     {
+
+        public List<RoomViewModel> Rooms = new List<RoomViewModel>();
         public List<RoomViewModel> GetRoomListView(string userName)
         {
             //int RoomNo = 0;
             //List<string> PeopleNames = new List<string>();
             //string Status = "No";
-
-            List<RoomViewModel> rooms = new List<RoomViewModel>();
             PersonBusinessLayer personBal = new PersonBusinessLayer();
             List<Person> people = personBal.GetPeople();
             int dormId = personBal.GetDormId(userName);
@@ -26,7 +26,7 @@ namespace Jonghor.ViewModel
             {
                 if (room.Dorm_ID == dormId)
                 {
-                    rooms.Add(new RoomViewModel(room.Room_ID, room.Person, room.Status));
+                    Rooms.Add(new RoomViewModel(room.Room_ID, room.Person, room.Status));
                 }
             }
 
@@ -39,7 +39,7 @@ namespace Jonghor.ViewModel
             //    }
             //}
 
-            return rooms;
+            return Rooms;
         }
     }
 }

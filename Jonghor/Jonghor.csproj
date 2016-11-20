@@ -362,6 +362,8 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <None Include="Views\Chat\Messenger.cshtml" />
+    <None Include="Views\Host\Edit.cshtml" />
+    <None Include="Views\Host\RoomManagement_Host.cshtml" />
     <None Include="Views\Dorm\Edit.cshtml" />
     <Content Include="Views\Serach\Create.cshtml" />
     <Content Include="Views\Serach\Delete.cshtml" />
