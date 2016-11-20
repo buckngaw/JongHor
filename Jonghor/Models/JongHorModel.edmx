@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="JongHorDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="JongHorDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Dorm">
           <Key>
             <PropertyRef Name="Dorm_ID" />
@@ -35,7 +35,7 @@
           <Property Name="Label_text" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Dorm_Option' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Dorm_Option' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Dorm_Option">
           <Key>
             <PropertyRef Name="Dorm_ID" />
@@ -52,7 +52,7 @@ warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DA
           <Property Name="URL_Picture" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Dorm_Rate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Dorm_Rate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Dorm_Rate">
           <Key>
             <PropertyRef Name="Username" />
@@ -65,7 +65,7 @@ warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DA
           <Property Name="Text" Type="varchar" MaxLength="200" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Message' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Message' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Message">
           <Key>
             <PropertyRef Name="Sender_Username" />
@@ -103,7 +103,7 @@ warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DA
           <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Room_Option' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Room_Option' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Room_Option">
           <Key>
             <PropertyRef Name="Room_type" />
@@ -113,7 +113,7 @@ warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DA
           <Property Name="Option" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Room_Reserved' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'E:\COMPUTER ENGINEERING\ปี 3\DATABASE\PROJECT\JONGHOR\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Room_Reserved' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Room_Reserved">
           <Key>
             <PropertyRef Name="Username" />
@@ -399,8 +399,7 @@ warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DA
             <End Role="Room_Reserved" EntitySet="Room_Reserved" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="JongHorDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -457,7 +456,7 @@ warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DA
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Ssn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ssn" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="Dorm" Relationship="Self.FK_Dorm_Person" FromRole="Person" ToRole="Dorm" />
           <NavigationProperty Name="Dorm_Rate" Relationship="Self.FK_Dorm_Rate_Person" FromRole="Person" ToRole="Dorm_Rate" />
           <NavigationProperty Name="Message" Relationship="Self.FK_Message_Person" FromRole="Person" ToRole="Message" />
@@ -936,7 +935,7 @@ warning 6002: The table/view 'C:\USERS\JJSNB\SOURCE\REPOS\JONGHOR\JONGHOR\APP_DA
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
