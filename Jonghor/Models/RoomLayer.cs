@@ -16,5 +16,25 @@ namespace Jonghor.Models
 
             return dormDal.ToList<Room>();
         }
+
+        //for send message to unavailable room
+        public List<Room> GetStatusRoom()
+        {
+            JongHorDBEntities1 jonghor1 = new JongHorDBEntities1();            
+            DbSet<Room> RoomList = jonghor1.Room;
+
+            List<Room> status = new List<Room>();
+            foreach (Room r in RoomList)
+            {
+                if(r.Status == 1)
+                {
+                    status.Add(r);
+                }
+
+            }
+
+
+            return status.ToList<Room>();
+        }
     }
 }

@@ -16,18 +16,7 @@ namespace Jonghor.Controllers
         private JongHorDBEntities1 db = new JongHorDBEntities1();
 
 
-        public ActionResult Index(string Dormname)
-        {
-            var dorm_name = from d in db.Dorm
-                         select d;
-            
-            if (!String.IsNullOrEmpty(Dormname))
-            {
-                dorm_name = dorm_name.Where(s => s.Name.Contains(Dormname));
-            }
-            System.Diagnostics.Debug.WriteLine(Dormname);
-            return Content(dorm_name.ToString());
-        }
+       
 
         ////// GET: Serach
         //public async Task<ActionResult> Index()
@@ -181,34 +170,44 @@ namespace Jonghor.Controllers
         }
 
 
+        // Search Page MuMu Dont Touch = - =--------------------------------------
+        public ActionResult Index(string dname)
+        {
+            DormLayer DormDB = new DormLayer();
+            List<Dorm> DormList = DormDB.GetDorm();
+            
+          
 
+            return View("Searchpage", DormList);
+
+        }
 
 
         //---------------------------------------------------------------------------
 
 
 
-       /* public ActionResult ViewSearch1()
-        {
-            Room_TypeLayer RoomTypeDB = new Room_TypeLayer();
-            List<Room_Type> Room_TypeList = RoomTypeDB.GetRoom_Type();
-                      
-                Array.Sort<List<Room_Type>>(Room_TypeList);
-                foreach (Room_Type room in Room_TypeList)
-                {
-                    //if(room.Price)
-                    /*int[] array = new int[] { 3, 1, 4, 5, 2 };
-                    Array.Sort<int>(array,
-                                    new Comparison<int>(
-                                            (i1, i2) => i2.CompareTo(i1)
-                                    ));
+        /* public ActionResult ViewSearch1()
+         {
+             Room_TypeLayer RoomTypeDB = new Room_TypeLayer();
+             List<Room_Type> Room_TypeList = RoomTypeDB.GetRoom_Type();
+
+                 Array.Sort<List<Room_Type>>(Room_TypeList);
+                 foreach (Room_Type room in Room_TypeList)
+                 {
+                     //if(room.Price)
+                     /*int[] array = new int[] { 3, 1, 4, 5, 2 };
+                     Array.Sort<int>(array,
+                                     new Comparison<int>(
+                                             (i1, i2) => i2.CompareTo(i1)
+                                     ));
 
 
 
-                }           
-            return View("Searchprice", Room_TypeList);
-        }*/
+                 }           
+             return View("Searchprice", Room_TypeList);
+         }*/
 
-        
+
     }
 }
