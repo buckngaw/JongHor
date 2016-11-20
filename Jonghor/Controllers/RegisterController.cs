@@ -14,10 +14,21 @@ namespace Jonghor.Controllers
     {
         private JongHorDBEntities1 db = new JongHorDBEntities1();
 
+  
 
         public ActionResult CreateUser(Person p)
         {
-          
+      
+            PersonBusinessLayer personBal = new PersonBusinessLayer();
+            List<Person> people = personBal.GetPeople();
+            foreach (Person person in people)
+            {
+                if (person.Username == p.Username)
+                {
+                    return Content("Username already exits");
+                }
+               
+            }
             db.Person.Add(p);
             db.SaveChanges();
             return RedirectToAction("Index");

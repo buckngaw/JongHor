@@ -1,0 +1,33 @@
+
+<html>
+<style>
+h1{
+	text-align:center;
+	font-size:30px;
+	color:Orange;
+	font-weight:bold;
+}
+</style>
+<head>
+	<center><h1>MESSAGE</h1></center>	
+</head>
+
+<body>
+
+<form action="@Url.Action("Checkbox", "Chat")">
+  <center><input type="checkbox" name="checkblock" value="AllRoom">All Room 
+  <input type="checkbox" name="checkblock" value="SelectRoom" >Select Room</center>
+
+<center>
+
+  Subject:
+  <input type="text" name="subject" size="50"><br>
+  Message:
+  <textarea rows="4" cols="50" name="message"> </textarea><br>
+  <input type="submit" name="submit" value="Sent">
+</center>
+</form>
+
+</body>
+
+</html>
