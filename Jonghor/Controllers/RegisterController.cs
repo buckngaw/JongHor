@@ -15,7 +15,7 @@ namespace Jonghor.Controllers
     {
         private JongHorDBEntities1 db = new JongHorDBEntities1();
 
-     
+
 
         public ActionResult CreateUser(Person p)
         {

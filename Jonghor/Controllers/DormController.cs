@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Jonghor.Models;
 using System.Data.Entity.Validation;
+using Jonghor.ViewModel;
 
 namespace Jonghor.Controllers
 {
@@ -19,7 +20,7 @@ namespace Jonghor.Controllers
 
         public ActionResult Edit(Dorm dorm)
         {
-            if(Session["Status"] != null && Session["Status"].ToString() == "Owner")
+            if (Session["Status"] != null && Session["Status"].ToString() == "Owner")
             {
                 dorm.M_username = Session["UserName"].ToString();
                 dorm.Tel = "000";
@@ -57,6 +58,15 @@ namespace Jonghor.Controllers
             }
 
             return Content("Error cannot add new Dorm");
+        }
+        public ActionResult Roommanagement()
+        {
+            RoomListViewModel roomListview = new RoomListViewModel();
+            string name = Session["UserName"].ToString();
+            roomListview.GetRoomListView(name);
+
+            return View("../Host/RoomManagement_Host", roomListview);
+
         }
     }
 }
