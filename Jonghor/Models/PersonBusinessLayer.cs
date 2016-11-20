@@ -31,7 +31,7 @@ namespace Jonghor.Models
                 }
             }
 
-            return Dorm.NotFound;
+            return -1;
         }
     }
 }

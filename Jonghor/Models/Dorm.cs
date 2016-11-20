@@ -14,7 +14,6 @@ namespace Jonghor.Models
     
     public partial class Dorm
     {
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Dorm()
         {
@@ -47,6 +46,5 @@ namespace Jonghor.Models
         public virtual Dorm_Picture Dorm_Picture { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dorm_Rate> Dorm_Rate { get; set; }
-        public const int NotFound = -1;
-}
+    }
 }
