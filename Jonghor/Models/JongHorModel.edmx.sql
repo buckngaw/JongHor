@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/20/2016 20:21:05
--- Generated from EDMX file: C:\Users\WIN8.1\Source\Repos\JongHorGG\Jonghor\Models\JongHorModel.edmx
+-- Date Created: 11/20/2016 22:56:17
+-- Generated from EDMX file: D:\university\year3\database\project\Jonghor\Jonghor\Models\JongHorModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -20,8 +20,8 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Dorm_Label_Dorm]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Dorm_Label] DROP CONSTRAINT [FK_Dorm_Label_Dorm];
 GO
-IF OBJECT_ID(N'[JongHorDBModelStoreContainer].[FK_Dorm_Option_Dorm]', 'F') IS NOT NULL
-    ALTER TABLE [JongHorDBModelStoreContainer].[Dorm_Option] DROP CONSTRAINT [FK_Dorm_Option_Dorm];
+IF OBJECT_ID(N'[dbo].[FK_Dorm_Option_Dorm]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Dorm_Option] DROP CONSTRAINT [FK_Dorm_Option_Dorm];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Dorm_Person]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Dorm] DROP CONSTRAINT [FK_Dorm_Person];
@@ -29,32 +29,32 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Dorm_Picture_Dorm]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Dorm_Picture] DROP CONSTRAINT [FK_Dorm_Picture_Dorm];
 GO
-IF OBJECT_ID(N'[JongHorDBModelStoreContainer].[FK_Dorm_Rate_Dorm]', 'F') IS NOT NULL
-    ALTER TABLE [JongHorDBModelStoreContainer].[Dorm_Rate] DROP CONSTRAINT [FK_Dorm_Rate_Dorm];
+IF OBJECT_ID(N'[dbo].[FK_Dorm_Rate_Dorm]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Dorm_Rate] DROP CONSTRAINT [FK_Dorm_Rate_Dorm];
 GO
-IF OBJECT_ID(N'[JongHorDBModelStoreContainer].[FK_Dorm_Rate_Person]', 'F') IS NOT NULL
-    ALTER TABLE [JongHorDBModelStoreContainer].[Dorm_Rate] DROP CONSTRAINT [FK_Dorm_Rate_Person];
+IF OBJECT_ID(N'[dbo].[FK_Dorm_Rate_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Dorm_Rate] DROP CONSTRAINT [FK_Dorm_Rate_Person];
 GO
-IF OBJECT_ID(N'[JongHorDBModelStoreContainer].[FK_Message_Person]', 'F') IS NOT NULL
-    ALTER TABLE [JongHorDBModelStoreContainer].[Message] DROP CONSTRAINT [FK_Message_Person];
+IF OBJECT_ID(N'[dbo].[FK_Message_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Message] DROP CONSTRAINT [FK_Message_Person];
 GO
-IF OBJECT_ID(N'[JongHorDBModelStoreContainer].[FK_Message1_Person]', 'F') IS NOT NULL
-    ALTER TABLE [JongHorDBModelStoreContainer].[Message] DROP CONSTRAINT [FK_Message1_Person];
+IF OBJECT_ID(N'[dbo].[FK_Message1_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Message] DROP CONSTRAINT [FK_Message1_Person];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Person_Room]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Person] DROP CONSTRAINT [FK_Person_Room];
 GO
-IF OBJECT_ID(N'[JongHorDBModelStoreContainer].[FK_Room_Option_Room_Type]', 'F') IS NOT NULL
-    ALTER TABLE [JongHorDBModelStoreContainer].[Room_Option] DROP CONSTRAINT [FK_Room_Option_Room_Type];
+IF OBJECT_ID(N'[dbo].[FK_Room_Reserved_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Room_Reserved] DROP CONSTRAINT [FK_Room_Reserved_Person];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Room_Person]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Room] DROP CONSTRAINT [FK_Room_Person];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Room_Reserved_Person]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Room_Reserved] DROP CONSTRAINT [FK_Room_Reserved_Person];
-GO
 IF OBJECT_ID(N'[dbo].[FK_Room_Reserved_Room]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Room_Reserved] DROP CONSTRAINT [FK_Room_Reserved_Room];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Room_Option_Room_Type]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Room_Option] DROP CONSTRAINT [FK_Room_Option_Room_Type];
 GO
 
 -- --------------------------------------------------
@@ -76,26 +76,26 @@ GO
 IF OBJECT_ID(N'[dbo].[Room]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Room];
 GO
-IF OBJECT_ID(N'[dbo].[Room_Reserved]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Room_Reserved];
-GO
 IF OBJECT_ID(N'[dbo].[Room_Type]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Room_Type];
 GO
 IF OBJECT_ID(N'[dbo].[Table]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Table];
 GO
-IF OBJECT_ID(N'[JongHorDBModelStoreContainer].[Dorm_Option]', 'U') IS NOT NULL
-    DROP TABLE [JongHorDBModelStoreContainer].[Dorm_Option];
+IF OBJECT_ID(N'[dbo].[Dorm_Option]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Dorm_Option];
 GO
-IF OBJECT_ID(N'[JongHorDBModelStoreContainer].[Dorm_Rate]', 'U') IS NOT NULL
-    DROP TABLE [JongHorDBModelStoreContainer].[Dorm_Rate];
+IF OBJECT_ID(N'[dbo].[Dorm_Rate]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Dorm_Rate];
 GO
-IF OBJECT_ID(N'[JongHorDBModelStoreContainer].[Message]', 'U') IS NOT NULL
-    DROP TABLE [JongHorDBModelStoreContainer].[Message];
+IF OBJECT_ID(N'[dbo].[Message]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Message];
 GO
-IF OBJECT_ID(N'[JongHorDBModelStoreContainer].[Room_Option]', 'U') IS NOT NULL
-    DROP TABLE [JongHorDBModelStoreContainer].[Room_Option];
+IF OBJECT_ID(N'[dbo].[Room_Option]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Room_Option];
+GO
+IF OBJECT_ID(N'[dbo].[Room_Reserved]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Room_Reserved];
 GO
 
 -- --------------------------------------------------
@@ -156,7 +156,7 @@ CREATE TABLE [dbo].[Room] (
     [Floor] nchar(10)  NOT NULL,
     [Dorm_ID] int  NOT NULL,
     [Type_ID] int  NOT NULL,
-    [Status] varchar(50)  NOT NULL
+    [Status] int  NOT NULL
 );
 GO
 
@@ -204,7 +204,8 @@ CREATE TABLE [dbo].[Message] (
     [Receiver_Username] varchar(50)  NOT NULL,
     [Title] varchar(50)  NOT NULL,
     [Date] varchar(50)  NOT NULL,
-    [Text] varchar(1000)  NOT NULL
+    [Text] varchar(1000)  NOT NULL,
+    [MessageID] int  NOT NULL
 );
 GO
 
@@ -219,8 +220,7 @@ GO
 CREATE TABLE [dbo].[Room_Reserved] (
     [Username] varchar(50)  NOT NULL,
     [Room_ID] int  NOT NULL,
-    [Count] int  NOT NULL,
-    [Reserved_ID] nchar(10)  NOT NULL
+    [Count] int  NOT NULL
 );
 GO
 
@@ -282,10 +282,10 @@ ADD CONSTRAINT [PK_Dorm_Rate]
     PRIMARY KEY CLUSTERED ([Username], [Dorm_ID], [Score] ASC);
 GO
 
--- Creating primary key on [Sender_Username], [Receiver_Username], [Title], [Date], [Text] in table 'Message'
+-- Creating primary key on [Sender_Username], [Receiver_Username], [Title], [Date], [Text], [MessageID] in table 'Message'
 ALTER TABLE [dbo].[Message]
 ADD CONSTRAINT [PK_Message]
-    PRIMARY KEY CLUSTERED ([Sender_Username], [Receiver_Username], [Title], [Date], [Text] ASC);
+    PRIMARY KEY CLUSTERED ([Sender_Username], [Receiver_Username], [Title], [Date], [Text], [MessageID] ASC);
 GO
 
 -- Creating primary key on [Room_type], [Option] in table 'Room_Option'
@@ -294,10 +294,10 @@ ADD CONSTRAINT [PK_Room_Option]
     PRIMARY KEY CLUSTERED ([Room_type], [Option] ASC);
 GO
 
--- Creating primary key on [Username], [Room_ID], [Count], [Reserved_ID] in table 'Room_Reserved'
+-- Creating primary key on [Username], [Room_ID], [Count] in table 'Room_Reserved'
 ALTER TABLE [dbo].[Room_Reserved]
 ADD CONSTRAINT [PK_Room_Reserved]
-    PRIMARY KEY CLUSTERED ([Username], [Room_ID], [Count], [Reserved_ID] ASC);
+    PRIMARY KEY CLUSTERED ([Username], [Room_ID], [Count] ASC);
 GO
 
 -- --------------------------------------------------
