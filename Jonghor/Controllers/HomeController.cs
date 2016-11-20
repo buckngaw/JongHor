@@ -12,8 +12,8 @@ namespace Jonghor.Controllers
         // GET: Jonghor
         public ActionResult Index()
         {
-            DormViewModel dormViewModel = new DormViewModel();
-            return View("Homepage", dormViewModel);
+            
+            return View("Homepage");
         }
 
         public ActionResult GetHome()

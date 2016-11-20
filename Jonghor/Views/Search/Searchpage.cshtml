@@ -1,6 +1,6 @@
 ﻿@using Jonghor.Models
 @using Jonghor.ViewModel
-@model DormViewModel
+@model List<Dorm>
 
 <!DOCTYPE html>
 <html>
@@ -129,7 +129,7 @@
 
     <h2>
         <center>ค้นหา</center>
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right;">Login</button>
+       
     </h2>
 
     <center>
@@ -168,42 +168,18 @@
 
         </form>
 
-        <div id="id01" class="modal">
-
-            <form class="modal-content animate" action="action_page.php">
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                    <img src="http://visualoop.com/wp-content/themes/visualoop/img/there-is-no-picture-for-this-user2.png" alt="Avatar" class="avatar">
-                </div>
-
-                <div class="container">
-                    <label><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required>
-
-                    <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-
-                    <button type="submit">Login</button>
-                    <input type="checkbox" checked="checked"> Remember me
-                </div>
-
-                <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-            </form>
-        </div>
+       
 
 
         <div><br/>
             <table style="width:50%; ">
 
-                @foreach (Dorm val in Model.GetDormList())
+                @foreach (Dorm val in Model)
                     {
 
                     <tr>
                         <td style="width:30%; border:solid; ">
-                            <a href="google.com"><img class="dormPic" src="https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url=https%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fvr-splice-j%2F02%2Fba%2Ff2%2F29.jpg&container=focus&resize_w=700&refresh=31536000&no_expand=1&rewriteMime=image/*"></a>
+                            <a href="/Reserve/Room?dorm=@val.Dorm_ID"><img class="dormPic" src="https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url=https%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fvr-splice-j%2F02%2Fba%2Ff2%2F29.jpg&container=focus&resize_w=700&refresh=31536000&no_expand=1&rewriteMime=image/*"></a>
                         </td>
                         <td style="width:60%; padding:30px; border:solid ">
                             <font class="dormDetail">@val.Name</font><br />
