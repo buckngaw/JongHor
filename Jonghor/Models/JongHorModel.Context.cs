@@ -37,6 +37,5 @@ namespace Jonghor.Models
         public virtual DbSet<Message> Message { get; set; }
         public virtual DbSet<Room_Option> Room_Option { get; set; }
         public virtual DbSet<Room_Reserved> Room_Reserved { get; set; }
-
     }
 }
