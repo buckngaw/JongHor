@@ -154,18 +154,30 @@ namespace Jonghor.Controllers
 
 
         // Search Page MuMu Dont Touch = - =--------------------------------------
-        public ActionResult ViewSearch()
+        public ActionResult ViewSearch(string dname)
         {
             DormLayer DormDB = new DormLayer();
             List<Dorm> DormList = DormDB.GetDorm();
+            List<Dorm> DormSearch = new List<Dorm>();
 
             foreach (Dorm dorm in DormList)
             {
+                if (dorm.Name == dname)
+                {
+                
+                   for (int i=0;i<DormList.Count; i++)
+                    {
+                        if (DormList[i].Name == dname)
+                        {
+                            DormSearch.Add(DormList[i]);
+                        }
+                    }
 
-
+                }
             }
-          
-            return View("Searchpage", DormList);
+
+            return View("Searchpage", DormSearch);
+
         }
 
 
