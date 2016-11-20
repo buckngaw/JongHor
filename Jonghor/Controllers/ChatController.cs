@@ -9,30 +9,54 @@ namespace Jonghor.Controllers
 {
     public class ChatController : Controller
     {
+        private JongHorDBEntities1 db = new JongHorDBEntities1();
+
         // GET: Chat
-        public ActionResult Index(MessageHTML m,string Checkbox)
+        public ActionResult Checkbox(MessageHTML m,string checkblock)
         {
-            switch (Checkbox)
+            switch (checkblock)
             {
-                case "all room":
-                    return CheckAllRoom();
-                case "specific room":
-                    return CheckSpecificRoom();
+                case "AllRoom":
+                    return CheckAllRoom(m);
+                case "SelectRoom":
+                    return CheckSpecificRoom(m);
             }
             return new EmptyResult();
 
         }
 
         //send message to all room
-        public  ActionResult CheckAllRoom()
+        public  ActionResult CheckAllRoom(MessageHTML m)
         {
-            return View("gg");
+            Message mem = new Message();
+            mem.Sender_Username = "Host";
+            mem.Receiver_Username = "";
+            mem.Title = m.Subject;
+            mem.Text = m.Message;
+            mem.Date = "1/1/2559";  //Real Time
+
+            db.Message.Add(mem);
+            return View("Messenger");
         }
 
         //send message to specific room
-        public ActionResult CheckSpecificRoom()
+        public String CheckSpecificRoom(MessageHTML m)
         {
-            return View("gg");
+            Message mem = new Message();
+            mem.Sender_Username = "Host";
+            mem.Receiver_Username = "";
+            mem.Title = m.Subject;
+            mem.Text = m.Message;
+            mem.Date = "1/1/2559";  //Real Time
+
+            db.Message.Add(mem);
+            return m.Message + " " + m.Subject;
+            //return View("Messenger");
+        }
+
+        public ActionResult Index()
+        {
+            return View("Messenger");
         }
     }
 }
