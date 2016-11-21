@@ -4,32 +4,33 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3b55ba79c6304f80b6330231fd60a808" Name="Diagram1" ZoomLevel="72">
-        <EntityTypeShape EntityType="JongHorDBModel.Dorm" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="JongHorDBModel.Dorm_Label" Width="1.5" PointX="9.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="JongHorDBModel.Dorm_Picture" Width="1.5" PointX="9.75" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="JongHorDBModel.Person" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="JongHorDBModel.Room" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="JongHorDBModel.Room_Type" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="JongHorDBModel.Table" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="JongHorDBModel.Dorm_Option" Width="1.5" PointX="9.75" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="JongHorDBModel.Dorm_Rate" Width="1.5" PointX="12.75" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="JongHorDBModel.Message" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="JongHorDBModel.Room_Option" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="JongHorDBModel.Room_Reserved" Width="1.5" PointX="10.5" PointY="12.25" IsExpanded="true" />
-        <AssociationConnector Association="JongHorDBModel.FK_Dorm_Label_Dorm" ManuallyRouted="false" />
-        <AssociationConnector Association="JongHorDBModel.FK_Dorm_Option_Dorm" ManuallyRouted="false" />
-        <AssociationConnector Association="JongHorDBModel.FK_Dorm_Person" ManuallyRouted="false" />
-        <AssociationConnector Association="JongHorDBModel.FK_Dorm_Picture_Dorm" ManuallyRouted="false" />
-        <AssociationConnector Association="JongHorDBModel.FK_Dorm_Rate_Dorm" ManuallyRouted="false" />
-        <AssociationConnector Association="JongHorDBModel.FK_Dorm_Rate_Person" ManuallyRouted="false" />
-        <AssociationConnector Association="JongHorDBModel.FK_Message_Person" ManuallyRouted="false" />
-        <AssociationConnector Association="JongHorDBModel.FK_Message1_Person" ManuallyRouted="false" />
-        <AssociationConnector Association="JongHorDBModel.FK_Person_Room" ManuallyRouted="false" />
-        <AssociationConnector Association="JongHorDBModel.FK_Room_Reserved_Person" ManuallyRouted="false" />
-        <AssociationConnector Association="JongHorDBModel.FK_Room_Person" ManuallyRouted="false" />
-        <AssociationConnector Association="JongHorDBModel.FK_Room_Reserved_Room" ManuallyRouted="false" />
-        <AssociationConnector Association="JongHorDBModel.FK_Room_Option_Room_Type" ManuallyRouted="false" />
+      <Diagram DiagramId="9999941dd3a74372b4a6c733a937e89e" Name="Diagram1">
+        <EntityTypeShape EntityType="JongHorDBModel1.Dorm" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JongHorDBModel1.Dorm_Label" Width="1.5" PointX="9.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JongHorDBModel1.Dorm_Picture" Width="1.5" PointX="9.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="JongHorDBModel1.Message" Width="1.5" PointX="7.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JongHorDBModel1.Person" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JongHorDBModel1.Room" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JongHorDBModel1.Room_Reserved" Width="1.5" PointX="10.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JongHorDBModel1.Room_Type" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JongHorDBModel1.Table" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JongHorDBModel1.Dorm_Option" Width="1.5" PointX="9.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JongHorDBModel1.Dorm_Rate" Width="1.5" PointX="12.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JongHorDBModel1.Room_Option" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Dorm_Label_Dorm" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Dorm_Option_Dorm" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Dorm_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Dorm_Picture_Dorm" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Dorm_Rate_Dorm" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Person_Dorm" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Message_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Message1_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Dorm_Rate_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Person_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Room_Reserved_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Room_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Room_Reserved_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Room_Option_Room_Type" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

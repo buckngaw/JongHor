@@ -16,7 +16,7 @@ namespace Jonghor.Models
     public partial class JongHorDBEntities1 : DbContext
     {
         public JongHorDBEntities1()
-            : base("name=JongHorDBEntities1")
+            : base("name=JongHorDBEntities3")
         {
         }
     
@@ -28,14 +28,14 @@ namespace Jonghor.Models
         public virtual DbSet<Dorm> Dorm { get; set; }
         public virtual DbSet<Dorm_Label> Dorm_Label { get; set; }
         public virtual DbSet<Dorm_Picture> Dorm_Picture { get; set; }
+        public virtual DbSet<Message> Message { get; set; }
         public virtual DbSet<Person> Person { get; set; }
         public virtual DbSet<Room> Room { get; set; }
+        public virtual DbSet<Room_Reserved> Room_Reserved { get; set; }
         public virtual DbSet<Room_Type> Room_Type { get; set; }
         public virtual DbSet<Table> Table { get; set; }
         public virtual DbSet<Dorm_Option> Dorm_Option { get; set; }
         public virtual DbSet<Dorm_Rate> Dorm_Rate { get; set; }
-        public virtual DbSet<Message> Message { get; set; }
         public virtual DbSet<Room_Option> Room_Option { get; set; }
-        public virtual DbSet<Room_Reserved> Room_Reserved { get; set; }
     }
 }
