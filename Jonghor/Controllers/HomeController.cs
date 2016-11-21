@@ -17,5 +17,13 @@ namespace Jonghor.Controllers
             else
                 return View("Homepage");
         }
+        public ActionResult Roommanage()
+        {
+            return View("../Host/RoomManagement_Host");
+        }
+        public ActionResult Host()
+        {
+            return View("Host_Homepage");
+        }
     }
 }
