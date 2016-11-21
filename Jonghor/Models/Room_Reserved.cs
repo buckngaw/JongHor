@@ -17,7 +17,7 @@ namespace Jonghor.Models
         public string Username { get; set; }
         public int Room_ID { get; set; }
         public int Count { get; set; }
-        public string Reserved_ID { get; set; }
+        public int Reserve_ID { get; set; }
     
         public virtual Person Person { get; set; }
         public virtual Room Room { get; set; }
