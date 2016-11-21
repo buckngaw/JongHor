@@ -9,45 +9,42 @@
 
 namespace Jonghor.Models
 {
-    using System.Web.Mvc;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class Person
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Person()
         {
             this.Dorm = new HashSet<Dorm>();
-            this.Dorm_Rate = new HashSet<Dorm_Rate>();
             this.Message = new HashSet<Message>();
             this.Message1 = new HashSet<Message>();
+            this.Dorm_Rate = new HashSet<Dorm_Rate>();
             this.Room_Reserved = new HashSet<Room_Reserved>();
         }
+    
         public string Username { get; set; }
-        [Required(ErrorMessage="Enter Password")]
         public string Password { get; set; }
         public Nullable<int> Room_ID { get; set; }
-        [Required(ErrorMessage = "Enter Name")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Enter Surname")]
         public string Surname { get; set; }
-
         public string Phone { get; set; }
-        [Required]
         public string Ssn { get; set; }
+        public Nullable<int> Dorm_ID { get; set; }
+        public Nullable<int> Sex { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dorm> Dorm { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dorm_Rate> Dorm_Rate { get; set; }
+        public virtual Dorm Dorm1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Message> Message { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Message> Message1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dorm_Rate> Dorm_Rate { get; set; }
         public virtual Room Room { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Room_Reserved> Room_Reserved { get; set; }
     }
-    
 }

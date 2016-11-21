@@ -109,14 +109,14 @@ namespace Jonghor.Controllers
             List<Room_Reserved> RoomReDBList = Room_ReservedDB.GetRoom_Reserved();
             foreach(Room_Reserved Roomreserved in RoomReDBList)
             {
-                if(reserve_ID  == int.Parse(Roomreserved.Reserved_ID))
+                if(reserve_ID  == Roomreserved.Reserve_ID)
                 {
                     reserve_ID++;
                 }
 
             }
 
-            reserved_input.Reserved_ID = reserve_ID+"";
+            reserved_input.Reserve_ID = reserve_ID;
 
             try
             {
