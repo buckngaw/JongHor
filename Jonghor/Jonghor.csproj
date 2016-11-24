@@ -161,6 +161,7 @@
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\DormController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JongHorDBEntities1.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ReserveController.cs" />
