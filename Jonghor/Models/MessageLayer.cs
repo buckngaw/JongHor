@@ -16,5 +16,14 @@ namespace Jonghor.Models
 
             return dormDal.ToList<Message>();
         }
+
+        public IQueryable<Message> GetMessage(string name)
+        {
+            JongHorDBEntities1 jonghor = new JongHorDBEntities1();
+
+            IQueryable<Message> messages = jonghor.Message.Where(m => m.Sender_Username == name);
+
+            return messages;
+        }
     }
 }

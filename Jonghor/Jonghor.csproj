@@ -162,9 +162,11 @@
     <Compile Include="Controllers\DormController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ReserveController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -233,6 +235,7 @@
     <Compile Include="Models\Table.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\UserMessengerViewModel.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -298,6 +301,7 @@
     <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\noti_message.png" />
     <Content Include="Content\theme.css" />
     <Content Include="Database1.mdf" />
     <Content Include="Databases\JongHorDB.ldf">
@@ -363,6 +367,7 @@
     <None Include="Views\Chat\Messenger.cshtml" />
     <None Include="Views\Dorm\Edit.cshtml" />
     <None Include="Views\Host\RoomManagement_Host.cshtml" />
+    <None Include="Views\Message\Message_Host.cshtml" />
     <Content Include="Views\Serach\Create.cshtml" />
     <Content Include="Views\Serach\Delete.cshtml" />
     <Content Include="Views\Serach\Details.cshtml" />
@@ -375,7 +380,6 @@
     <Content Include="Views\Register\Details.cshtml" />
     <Content Include="Views\Register\Edit.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
-    <Content Include="Views\Jonghor\Searchpage.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Home\Host_Homepage.cshtml" />
@@ -394,10 +398,10 @@
     <Content Include="Views\Home\Homepage.cshtml" />
     <Content Include="Views\Search\Searchpage.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\User\User.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Login\" />
-    <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
