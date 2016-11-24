@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html>
+
 <style>
     /* Full-width input fields */
     input[type=text], input[type=password] {
@@ -109,18 +110,53 @@
         cursor: pointer;
     }
 
+     button {
+        background-color: #FF8000;
+        color: white;
+        padding: 10px ;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
 </style>
 <body>
 
     <h2>
-        <center>User</center>
+        <center><h1>User</h1>
+            <button type="submit" style="width:10%;">เปิดระบบมองหาเมท</button><br />
+            <button type="submit" style="width:10%;">ปิดระบบมองหาเมท</button>
+        </center>
         
        
+
     </h2>
 
   <div style="padding:30px;">
      
    <h1>Status</h1>
+      <p> มีห้องอยู่คนเดียว และกำลังมองหาเมทอยู่</p>
+
+                                        
+
+      <h1>Feedback</h1>
+      <form>
+          <textarea style="width:40%;" rows="6" cols="50" name="detail_feedback">
+             
+          </textarea><br />
+          <button type="submit" style="width:40%;">Send</button><br />
+      </form>
+     
+
+      <h1>Findmate</h1>
+      <form>
+          <textarea style="width:40%;" rows="6" cols="50" name="detail_feedback"></textarea><br />
+          <button type="submit" style="width:40%;">Send</button><br />
+      </form>
+
+      @{
+
+
+      }
 
   </div>
 
