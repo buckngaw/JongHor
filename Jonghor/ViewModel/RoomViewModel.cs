@@ -6,6 +6,11 @@ using Jonghor.Models;
 
 namespace Jonghor.ViewModel
 {
+    public enum Status
+    {
+        NotAvaliable, Avaliable, WaitRoomMate
+    }
+
     public class RoomViewModel
     {
         public RoomViewModel(int room_ID, ICollection<Person> person, int status)

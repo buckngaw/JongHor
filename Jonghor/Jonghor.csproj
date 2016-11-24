@@ -212,24 +212,24 @@
     </Compile>
     <Compile Include="Models\PersonBusinessLayer.cs" />
     <Compile Include="Models\PersonLayer.cs" />
+    <Compile Include="Models\DormLayer.cs" />
     <Compile Include="Models\Room.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DormLayer.cs" />
     <Compile Include="Models\RoomLayer.cs" />
     <Compile Include="Models\RoomViewLayer.cs" />
-    <Compile Include="Models\Room_TypeLayer.cs" />
     <Compile Include="Models\Room_Option.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Room_OptionLayer.cs" />
     <Compile Include="Models\Room_Reserved.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Room_ReservedLayer.cs" />
     <Compile Include="Models\Room_Type.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Room_TypeLayer.cs" />
+    <Compile Include="Models\Room_OptionLayer.cs" />
+    <Compile Include="Models\Room_ReservedLayer.cs" />
     <Compile Include="Models\Table.cs">
       <DependentUpon>JongHorModel.tt</DependentUpon>
     </Compile>
@@ -310,10 +310,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\JongHorModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>JongHorModel.Context.cs</LastGenOutput>
       <DependentUpon>JongHorModel.edmx</DependentUpon>
+      <LastGenOutput>JongHorModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\JongHorModel.edmx.sql" />
     <Content Include="Models\JongHorModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>JongHorModel.edmx</DependentUpon>
@@ -332,13 +331,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\JongHorModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>JongHorModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\JongHorModel.edmx.diagram">
-      <DependentUpon>JongHorModel.edmx</DependentUpon>
-    </Content>
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\edmxResourcesToEmbed\Models\JongHorModel.csdl" />
     <Content Include="obj\Debug\edmxResourcesToEmbed\Models\JongHorModel.msl" />
@@ -349,6 +341,13 @@
     <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
     <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <EntityDeploy Include="Models\JongHorModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>JongHorModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\JongHorModel.edmx.diagram">
+      <DependentUpon>JongHorModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -363,6 +362,7 @@
     <Content Include="Scripts\_references.js" />
     <None Include="Views\Chat\Messenger.cshtml" />
     <None Include="Views\Dorm\Edit.cshtml" />
+    <None Include="Views\Host\RoomManagement_Host.cshtml" />
     <Content Include="Views\Serach\Create.cshtml" />
     <Content Include="Views\Serach\Delete.cshtml" />
     <Content Include="Views\Serach\Details.cshtml" />
@@ -376,6 +376,7 @@
     <Content Include="Views\Register\Edit.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Jonghor\Searchpage.cshtml" />
+    <Content Include="Views\Register\Register.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Home\Host_Homepage.cshtml" />
     <Content Include="Web.config">

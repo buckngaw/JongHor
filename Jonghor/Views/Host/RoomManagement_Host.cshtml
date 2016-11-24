@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+@using Jonghor.ViewModel
+@model RoomListViewModel
+<html>
+<style>
+    h1 {
+        text-align: center;
+        font-size: 30px;
+        color: Orange;
+        font-weight: bold;
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 2px solid #dddddd;
+        text-align: left;
+        padding: 20px;
+    }
+
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<article>
+    <head>
+        <center><h1>Room Management</h1></center>
+        <form>
+            <center>
+                <select name="option">
+                    <option value="Avaliable">Avaliable</option>
+                    <option value="Wait">Wait Roommate </option>
+                    <option value="Not">Not Avaliable</option>
+                    <option value="All" select>All Room</option>
+                </select>
+            </center>
+        </form>
+
+        <body>
+
+            <table>
+                <tr>
+                    <th width="10px"><center>Room Number</center></th>
+                    <th>Name</th>
+                    <th>Status</th>
+                </tr>
+@foreach (RoomViewModel item in Model.Rooms)
+{
+                <tr>
+                    <td>@item.RoomNo</td>
+                    <td>
+                    @foreach (string name in item.PeopleNames)
+                    {
+                        
+                        @name <br />
+                           
+                    }
+                    </td>
+                    <td>@item.Status</td>
+                </tr>
+}
+               
+               
+            </table>
+
+        </body>
+</article>
+</html>
+

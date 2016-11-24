@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Jonghor.Models;
+using System.Threading.Tasks;
 
 namespace Jonghor.Controllers
 {
@@ -14,24 +15,31 @@ namespace Jonghor.Controllers
     {
         private JongHorDBEntities1 db = new JongHorDBEntities1();
 
-  
+        [HttpGet]
+        public JsonResult IsUserExists(String Username)
+        {
+            return Json(!db.Person.Any(x => x.Username == Username), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Registation()
+        {
+            return View("Register");
+        }
 
         public ActionResult CreateUser(Person p)
         {
-      
-            PersonBusinessLayer personBal = new PersonBusinessLayer();
-            List<Person> people = personBal.GetPeople();
-            foreach (Person person in people)
+            PersonBusinessLayer bal = new PersonBusinessLayer();
+            if (bal.IsValidUser(p))
             {
-                if (person.Username == p.Username)
-                {
-                    return Content("Username already exits");
-                }
-               
+                ModelState.AddModelError("CredentialError", "Username is Exits");
+                return View("Register");
             }
-            db.Person.Add(p);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            else
+            {
+                db.Person.Add(p);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }      
         }
 
         // GET: Register

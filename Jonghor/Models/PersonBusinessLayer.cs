@@ -33,5 +33,19 @@ namespace Jonghor.Models
 
             return -1;
         }
+
+        public bool IsValidUser(Person p)
+        {
+            PersonBusinessLayer personBal = new PersonBusinessLayer();
+            List<Person> people = personBal.GetPeople();
+            foreach (Person person in people)
+            {
+             if (person.Username == p.Username)
+                {
+                    return true;
+                }            
+            }           
+                return false;   
+        }
     }
 }
