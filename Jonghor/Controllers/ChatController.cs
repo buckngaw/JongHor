@@ -20,8 +20,8 @@ namespace Jonghor.Controllers
             {
                 case "AllRoom":
                     return CheckAllRoom(m);
-                    //case "SelectRoom":
-                     //return CheckSpecificRoom(m,receiver);
+                    case "SelectRoom":
+                    return CheckSpecificRoom(m,receiver);
             }
              return "";
            // return new EmptyResult();
@@ -66,12 +66,12 @@ namespace Jonghor.Controllers
                       }
                   }
 
+                Console.WriteLine(mem.Receiver_Username + " " + mem.Sender_Username + " " +
+                 " " + mem.Text + " " + mem.MessageID);
+            }
 
-              }
 
-
-            return mem.Receiver_Username + " " + mem.Sender_Username + " " +
-                 " " + mem.Text + " " + mem.MessageID;
+            return "";
             //return View("Messenger");
         }
 
@@ -79,11 +79,11 @@ namespace Jonghor.Controllers
 
         //send message to specific room
 
-         public ActionResult CheckSpecificRoom(MessageHTML m,string receiver)
+         public string CheckSpecificRoom(MessageHTML m,string receiver)
          {
              Message mem = new Message();
              bool CheckRoom = false;
-             //string NotFoundRoom = "This room is available";
+             string NotFoundRoom = "This room is available";
             MessageLayer memlayer = new MessageLayer();
             List<Message> mlist = memlayer.GetMessage();
 
@@ -123,16 +123,16 @@ namespace Jonghor.Controllers
                  db.Message.Add(mem);
                  db.SaveChanges();
 
-                 return View("Messenger");
+                 //return View("Messenger");
              }
              else
              {
-                return View("Messenger");
-                //return NotFoundRoom;
+                //return View("Messenger");
+                return NotFoundRoom;
             }
 
-            // return mem.Sender_Username+" send message to   "+ mem.Receiver_Username
-                // +" subject :  "+ mem.Title+"  "+mem.Text+" when  :"+mem.Date;
+            return mem.Sender_Username+" send message to   "+ mem.Receiver_Username
+                 +" subject :  "+ mem.Title+"  "+mem.Text+" when  :"+mem.Date;
 
 
 
