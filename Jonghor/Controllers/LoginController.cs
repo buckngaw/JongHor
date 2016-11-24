@@ -64,6 +64,10 @@ namespace Jonghor.Controllers
                         Session["Status"] = "Owner";
                         
                     }
+
+                    UserMessengerViewModel msgViewModel = new UserMessengerViewModel(user.UserName);
+                    Session["Notify"] = msgViewModel.hasNotify;
+                    ViewBag.Message = msgViewModel;
                     return RedirectToAction("Index", "Home");
                 }
                 
