@@ -12,14 +12,16 @@ h1{
 	<center><h1>MESSAGE</h1></center>	
 </head>
 
-<body>
+<article>
 
 <form action="@Url.Action("Checkbox", "Chat")">
   <center><input type="checkbox" name="checkblock" value="AllRoom">All Room 
   <input type="checkbox" name="checkblock" value="SelectRoom" >Select Room<br>
       No.<style type="text/css">
           input[type="text"] {
-              border: none;
+              align-content:flex-start;
+              border: 1px solid black;
+              width : 400px;
               background: transparent;
           }
       </style>
@@ -36,6 +38,6 @@ h1{
 </center>
 </form>
 
-</body>
+</article>
 
 </html>
