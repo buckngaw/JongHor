@@ -193,8 +193,6 @@ article {
 </style>
 
 <body>
-
-
 <div id="id01" class="modal">
   
         <form class="modal-content animate" action="/Login/DoLogin" method="post">
@@ -296,8 +294,15 @@ var modal2 = document.getElementById('id02');
                 {
                     <ul>                   
                         <button type="button" onclick="location.href='@Url.Action("DoLogout", "Login")' " style="width:auto; float:right;">Logout</button>                         
-                        <input type="image" src="http://image.flaticon.com/icons/png/512/3/3513.png" name="notification" width="20px" height="20px" style="float:right; margin:10px;">
-                        <input type="image" src="http://www.free-icons-download.net/images/new-message-icon-75691.png" name="notification" width="20px" height="20px" style="float:right; margin:10px;">
+                        @if ((bool)Session["Notify"] == true)
+                        {
+                            <input type="image" src="http://image.flaticon.com/icons/png/512/3/3513.png" name="notification" width="20px" height="20px" style="float:right; margin:10px;">
+                        }
+                        else
+                        {
+                            <input type="image" src="http://www.free-icons-download.net/images/new-message-icon-75691.png" name="notification" width="20px" height="20px" style="float:right; margin:10px;">
+                        }
+                        
                     </ul>
                     <img class="user_photo" src="https://skincareayurveda.com/photos/kayakalp-global-featured-image-1468303717.png">
                     <label class="user_info_header">Welcome @Session["Username"].ToString()</label>

@@ -16,7 +16,7 @@ namespace Jonghor.Models
     public partial class JongHorDBEntities1 : DbContext
     {
         public JongHorDBEntities1()
-            : base("name=JongHorDBEntities1")
+            : base("name=JongHorDBEntities3")
         {
         }
     
