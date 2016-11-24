@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-@Html.ValidationSummary(true)
 <html>
+
 <style>
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -191,6 +191,7 @@ article {
 }
 
 </style>
+
 <body>
 
 
@@ -220,9 +221,9 @@ article {
         </form>
     </div>
 
-    <div id="id02" class="modal">
-
-        <form class="modal-content animate" action="/Register/CreateUser" method="post">
+    <div id="id02" class="modal" >
+<!--
+        <form name="Regis" class="modal-content animate" action="/Register/CreateUser" method="post">
             <div class="imgcontainer">
                 <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
             </div>
@@ -231,9 +232,12 @@ article {
                
                 <label><b>Username</b><font color="red">*</font></label>
                 <input type="text" placeholder="username" name="Username" required>
-                @Html.ValidationMessage("Username")
-                <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-                <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+                   @Html.ValidationMessage("CredentialError", new { style = "color:red;" })
+                <script src="~/Scripts/jquery-1.10.2.js"></script>
+                <script src="~/Scripts/jquery.validate.js"></script>
+                <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>  
+                </br>
+
                 <label><b>Password</b><font color="red" font-size="1px">* (upper than 6 characters)</font></label>
                 <input type="password" pattern=".{6,}" placeholder="password" name="Password" required title="Password more than 6 characters">
 
@@ -245,26 +249,20 @@ article {
 
                 <label><b>Gender</b></label><br>
                 <form>
-                    <input type="radio" name="gender" value="male" checked> Male<br>
-                    <input type="radio" name="gender" value="female"> Female<br>
-  </form>
+                    <input type="radio" name="Sex" value="0" checked>Male<br>
+                    <input type="radio" name="Sex" value="1">Female<br>
+                </form>
 
                 <label><b>SSID</b><font color="red">*</font></label>
                 <input type="text" name="Ssn" maxlength="13" required>
 
                 <label><b>Phone Number</b></label>
                 <input type="text" name="Phone" maxlength="10" required>
-
-                <label><b>Status</b></label>
-                <form>
-                    <input type="radio" name="status" checked>User<br>
-                    <input type="radio" name="status">Owner<br>
-                </form>
-
-
-                <button type="submit">Submit</button>
+                
+                <button onclick="document.getElementById('id02').style.display='block'" type="submit">Submit</button>
+            
             </div>
-
+            </form> -->
 </div>
 
 
@@ -279,8 +277,9 @@ var modal2 = document.getElementById('id02');
     }
 	else if (event.target == modal2) {
         modal2.style.display = "none";
+	}
+
     }
-}
 
 
 </script>
@@ -293,7 +292,7 @@ var modal2 = document.getElementById('id02');
   
 <nav>
   <ul>
-                @if (Session["UserName"] != null)
+                @if (Session["Username"] != null)
                 {
                     <ul>                   
                         <button type="button" onclick="location.href='@Url.Action("DoLogout", "Login")' " style="width:auto; float:right;">Logout</button>                         
@@ -301,25 +300,21 @@ var modal2 = document.getElementById('id02');
                         <input type="image" src="http://www.free-icons-download.net/images/new-message-icon-75691.png" name="notification" width="20px" height="20px" style="float:right; margin:10px;">
                     </ul>
                     <img class="user_photo" src="https://skincareayurveda.com/photos/kayakalp-global-featured-image-1468303717.png">
-                    <label class="user_info_header">Welcome @Session["UserName"].ToString()</label>
-                    
-}
-else
-{
-                    <button type="button" onclick="document.getElementById('id02').style.display='block'" class="registerbtn" style="width:auto; float:right;">Register</button>
-                    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right;">Login</button>
+                    <label class="user_info_header">Welcome @Session["Username"].ToString()</label>
+
                 }
-
-  
+                else
+                {
+                    <button type="button" onclick="location.href='@Url.Action("Registation", "Register")' " style="width:auto; float:right;">Register</button>
+                     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right;">Login</button>
+                }
+      </ul>
 </nav>
-
-
-
 
 </div>
 
     @RenderBody()
- 
+   
     
 
 </body>
