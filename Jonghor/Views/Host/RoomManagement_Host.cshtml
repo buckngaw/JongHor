@@ -13,7 +13,9 @@
     table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
-        width: 100%;
+        width: 90%;
+        padding:50px
+        
     }
 
     td, th {
@@ -28,9 +30,9 @@
     }
 </style>
 <article>
-    <head>
+ 
         <center><h1>Room Management</h1></center>
-        <form>
+     
             <center>
                 <select name="option">
                     <option value="Avaliable">Avaliable</option>
@@ -39,36 +41,37 @@
                     <option value="All" select>All Room</option>
                 </select>
             </center>
-        </form>
+    
 
-        <body>
-
+   
+        <center>
             <table>
                 <tr>
                     <th width="10px"><center>Room Number</center></th>
                     <th>Name</th>
                     <th>Status</th>
                 </tr>
-@foreach (RoomViewModel item in Model.Rooms)
-{
-                <tr>
-                    <td>@item.RoomNo</td>
-                    <td>
-                    @foreach (string name in item.PeopleNames)
-                    {
-                        
-                        @name <br />
-                           
-                    }
-                    </td>
-                    <td>@item.Status</td>
-                </tr>
-}
-               
-               
-            </table>
+                @foreach (RoomViewModel item in Model.Rooms)
+                {
+                    <tr>
+                        <td>@item.RoomNo</td>
+                        <td>
+                            @foreach (string name in item.PeopleNames)
+                            {
 
-        </body>
+                                @name <br />
+
+                            }
+                        </td>
+                        <td>@item.Status</td>
+                    </tr>
+                }
+
+
+            </table>
+        </center>
+
+       
 </article>
 </html>
 

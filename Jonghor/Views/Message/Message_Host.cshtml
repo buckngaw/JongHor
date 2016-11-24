@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+@using Jonghor.Models
+@using Jonghor.ViewModel
+@model UserMessengerViewModel
+
+<html>
+<style>
+    h1 {
+        text-align: center;
+        font-size: 30px;
+        color: Orange;
+        font-weight: bold;
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 90%;
+        padding:50px
+        
+    }
+
+    td, th {
+        border: 2px solid #dddddd;
+        text-align: left;
+        padding: 20px;
+    }
+
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+	<center><h1>Inbox Message</h1></center>
+<table>
+    
+    @foreach (Message item in Model.Messages)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>
+               @item.Date
+            </td>
+           
+        </tr>
+    }
+
+
+</table>
+
+
+
+</html>
