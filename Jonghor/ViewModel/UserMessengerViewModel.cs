@@ -15,7 +15,7 @@ namespace Jonghor.ViewModel
         public UserMessengerViewModel(string name)
         {
             SetMessages(name);
-            //hasNotify = Messages.Select(m => m.isRead).Contain(0);
+            hasNotify = Messages.Select(m => m.Isread).Contains(0);
         }
 
         public void SetMessages(string name)
