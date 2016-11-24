@@ -147,7 +147,7 @@ nav {
 	bottom:0;
 	top:0;
     float: right;
-    max-width: 20%;
+    max-width: 15%;
     margin: 5px 0px;
     padding: 1em;
 	background-color : #FFCD90;
@@ -290,14 +290,12 @@ var modal2 = document.getElementById('id02');
                 {
                     <ul>                   
                         <button type="button" onclick="location.href='@Url.Action("DoLogout", "Login")' " style="width:auto; float:right;">Logout</button>                         
-                        <input type="image" src="http://image.flaticon.com/icons/png/512/3/3513.png" name="notification" width="20px" height="20px" style="float:left; margin:10px;">
+                  <!--    <input type="image" src="http://image.flaticon.com/icons/png/512/3/3513.png" name="notification" width="20px" height="20px" style="float:left; margin:10px;">-->  
                         <input type="image" src="http://www.free-icons-download.net/images/new-message-icon-75691.png" name="message" width="20px" height="20px" style="float:left; margin:10px;">
-                        <input type="image" src="http://findicons.com/files/icons/1580/devine_icons_part_2/256/home.png" name="home" width="20px" height="20px" style="float:left; margin:10px;">
-                        
+                        <input type="image" src="http://findicons.com/files/icons/1580/devine_icons_part_2/256/home.png" name="home" width="20px" height="20px" style="float:left; margin:10px;"> 
                     </ul>
                     <img class="user_photo" src="https://skincareayurveda.com/photos/kayakalp-global-featured-image-1468303717.png">
                     <label class="user_info_header">Welcome @Session["Username"].ToString()</label>
-
                 }
                 else
                 {
