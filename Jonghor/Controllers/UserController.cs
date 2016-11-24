@@ -11,7 +11,7 @@ namespace Jonghor.Controllers
         // GET: User
         public ActionResult Index()
         {
-            return View();
+            return View("User");
         }
     }
 }
