@@ -26,7 +26,7 @@ namespace Jonghor.Models
             List<Room> status = new List<Room>();
             foreach (Room r in RoomList)
             {
-                if(r.Status == "1")
+                if(r.Status == 1)
                 {
                     status.Add(r);
                 }
