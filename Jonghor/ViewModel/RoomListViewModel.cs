@@ -26,7 +26,7 @@ namespace Jonghor.ViewModel
             {
                 if (room.Dorm_ID == dormId)
                 {
-                    Rooms.Add(new RoomViewModel(room.Room_ID, room.Person,room.Status+""));
+                    Rooms.Add(new RoomViewModel(room.Room_ID, room.Person,room.Status));
                 }
             }
 

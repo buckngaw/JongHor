@@ -375,7 +375,6 @@
     <Content Include="Views\Register\Details.cshtml" />
     <Content Include="Views\Register\Edit.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
-    <Content Include="Views\Jonghor\Searchpage.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Home\Host_Homepage.cshtml" />
     <Content Include="Web.config">
