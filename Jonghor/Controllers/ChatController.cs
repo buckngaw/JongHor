@@ -19,24 +19,29 @@ namespace Jonghor.Controllers
             switch (checkblock)
             {
                 case "AllRoom":
-                   // return CheckAllRoom(m);
-                    case "SelectRoom":
-                     return CheckSpecificRoom(m,receiver);
+                    return CheckAllRoom(m);
+                    //case "SelectRoom":
+                     //return CheckSpecificRoom(m,receiver);
             }
              return "";
-            //return new EmptyResult();
+           // return new EmptyResult();
 
         }
 
+
+
         //send message to all room
-       public ActionResult CheckAllRoom(MessageHTML m)
+       public string CheckAllRoom(MessageHTML m)
         {
             MessageLayer memlayer = new MessageLayer();
             List<Message> mlist = memlayer.GetMessage();
+           
 
+
+            int mlistid = mlist.Count;
             Message mem = new Message();
             RoomLayer RoomDB = new RoomLayer();
-            List<Room> RoomList = RoomDB.GetStatusRoom();
+            List<Room> RoomList = RoomDB.GetStatusRoom(); //only room that have person live
                foreach (Room r in RoomList)
               {
                   PersonLayer PL = new PersonLayer();
@@ -47,14 +52,16 @@ namespace Jonghor.Controllers
                       {
                           mem.Receiver_Username = person.Username;
                           mem.Sender_Username = "host";                      
-                          mem.MessageID = mlist.Count + 1;
+                          mem.MessageID = mlistid  + 1;
                           mem.Title = m.Subject;
                           mem.Text = m.Message;
                           mem.Date = DateTime.Now.ToString("dd-MM-yyyy") + " " +
                               DateTime.Today.ToString("HH:mm:ss tt");  //Date + Time
-
+                        
                           db.Message.Add(mem);
-                          db.SaveChanges();
+                         //db.SaveChanges();
+                        mlistid++;
+                       
 
                       }
                   }
@@ -63,17 +70,20 @@ namespace Jonghor.Controllers
               }
 
 
-
-            return View("Messenger");
+            return mem.Receiver_Username + " " + mem.Sender_Username + " " +
+                 " " + mem.Text + " " + mem.MessageID;
+            //return View("Messenger");
         }
+
+
 
         //send message to specific room
 
-         public String CheckSpecificRoom(MessageHTML m,string receiver)
+         public ActionResult CheckSpecificRoom(MessageHTML m,string receiver)
          {
              Message mem = new Message();
              bool CheckRoom = false;
-             string NotFoundRoom = "This room is available";
+             //string NotFoundRoom = "This room is available";
             MessageLayer memlayer = new MessageLayer();
             List<Message> mlist = memlayer.GetMessage();
 
@@ -113,15 +123,16 @@ namespace Jonghor.Controllers
                  db.Message.Add(mem);
                  db.SaveChanges();
 
-                 //return View("Messenger");
+                 return View("Messenger");
              }
              else
              {
-                 return NotFoundRoom;
-             }
+                return View("Messenger");
+                //return NotFoundRoom;
+            }
 
-             return mem.Sender_Username+" send message to   "+ mem.Receiver_Username
-                 +" subject :  "+ mem.Title+"  "+mem.Text+" when  :"+mem.Date;
+            // return mem.Sender_Username+" send message to   "+ mem.Receiver_Username
+                // +" subject :  "+ mem.Title+"  "+mem.Text+" when  :"+mem.Date;
 
 
 
