@@ -11,10 +11,7 @@ namespace Jonghor.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
-
-    [MetadataType(typeof(Person))]
+    
     public partial class Person
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -26,8 +23,7 @@ namespace Jonghor.Models
             this.Dorm_Rate = new HashSet<Dorm_Rate>();
             this.Room_Reserved = new HashSet<Room_Reserved>();
         }
-
-        [Remote("IsUserExists", "Register", ErrorMessage = "User Name already in use")]
+    
         public string Username { get; set; }
         public string Password { get; set; }
         public Nullable<int> Room_ID { get; set; }
@@ -51,5 +47,4 @@ namespace Jonghor.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Room_Reserved> Room_Reserved { get; set; }
     }
-  
 }
