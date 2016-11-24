@@ -17,11 +17,11 @@ namespace Jonghor.ViewModel
         {
             RoomNo = room_ID + "";
             PeopleNames = person.ToList<Person>().Select(p => p.Name).ToList<string>();
-            Status = ((Status)status).ToString();
+            Status = status;
         }
 
         public string RoomNo { get; set; }
         public List<string> PeopleNames { get; set; }
-        public string Status { get; set; }
+        public int Status { get; set; }
     }
 }
