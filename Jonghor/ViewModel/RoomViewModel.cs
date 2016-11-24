@@ -8,7 +8,7 @@ namespace Jonghor.ViewModel
 {
     public class RoomViewModel
     {
-        public RoomViewModel(int room_ID, ICollection<Person> person, string status)
+        public RoomViewModel(int room_ID, ICollection<Person> person, int status)
         {
             RoomNo = room_ID + "";
             PeopleNames = person.ToList<Person>().Select(p => p.Name).ToList<string>();
@@ -17,6 +17,6 @@ namespace Jonghor.ViewModel
 
         public string RoomNo { get; set; }
         public List<string> PeopleNames { get; set; }
-        public string Status { get; set; }
+        public int Status { get; set; }
     }
 }
