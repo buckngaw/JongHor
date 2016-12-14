@@ -21,7 +21,7 @@ namespace Jonghor.Models
         {
             JongHorDBEntities1 jonghor = new JongHorDBEntities1();
 
-            IQueryable<Message> messages = jonghor.Message.Where(m => m.Sender_Username == name);
+            IQueryable<Message> messages = jonghor.Message.Where(m => m.Receiver_Username == name);
 
             return messages;
         }
