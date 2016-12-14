@@ -68,5 +68,6 @@ namespace Jonghor.Controllers
             return View("../Host/RoomManagement_Host", roomListview);
 
         }
+       
     }
 }
