@@ -47,5 +47,18 @@ namespace Jonghor.Models
             }           
                 return false;   
         }
+        public bool IsValidSsn(Person p)
+        {
+            PersonBusinessLayer personBal = new PersonBusinessLayer();
+            List<Person> people = personBal.GetPeople();
+            foreach (Person person in people)
+            {
+             if (person.Ssn == p.Ssn)
+                {
+                    return true;
+                }            
+            }           
+                return false;   
+        }
     }
 }
