@@ -13,5 +13,10 @@ namespace Jonghor.Controllers
         {
             return View("User");
         }
+
+        public ActionResult UserDetail()
+        {
+            return View("UserDetail");
+        }
     }
 }

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+@{
+    Layout = "~/views/shared/_layout.cshtml";
+}
+
+<html>
+<style>
+    h1 {
+        text-align: center;
+        font-size: 30px;
+        color: Orange;
+        font-weight: bold;
+    }
+
+    .photo_1 {
+        margin: auto;
+        width: 50% 500px;
+        height: 50% 500px;
+    }
+
+    .b {
+        background-color: #FF8000;
+        color: white;
+        padding: 10px;
+        margin: 10px 20px;
+        border: none;
+        cursor: pointer;
+        width: auto;
+    }
+</style>
+<article>
+
+    <Body>
+        <h1>
+            User
+        </h1>
+
+        <div>
+            <form action="/User/UserDetail" method="post">
+                Name:<input type="text" name="Namse" required> <br></br>
+                Surname:<input type="text" name="information"></br></br>
+                identification card
+:<input type="text" name="BahtPerMonth"><font color="red">**** 13-character ; case sensitive</font></br></br>
+                Sex:<input type="text" name="BahtPerDay"></br></br>
+                Dorm Name:<input type="text" name="Deposit"><br></br>
+                Phone:<input type="text" name="E_Per_Unit"></br><font color="grey">10-character</font></br></br>               
+                Username:<input type="text" name="BahtPerMonth"></br></br>
+                Password:<input type="text" name="BahtPerDay"><font color="grey">6-character minimum; case sensitive</font></br></br>
+
+                <button class="b" type="submit">Submit</button>
+            </form>
+        </div>
+
+
+
+
+    </Body>
+
+</article>
+</html>
