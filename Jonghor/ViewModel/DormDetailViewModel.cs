@@ -11,6 +11,8 @@ namespace Jonghor.ViewModel
         public Dorm dorm { get; set; }
         public int maxPrice { get; set; }
         public int minPrice { get; set; }
+        //public List<string> imageUrls = new List<string>();
+        public string imageUrl { get; set; }
 
         public void SetDorm(int id)
         {
@@ -29,6 +31,11 @@ namespace Jonghor.ViewModel
             }
             maxPrice = prices.Max();
             minPrice = prices.Min();
+        }
+
+        public void SetImage()
+        {
+            imageUrl = dorm.Dorm_Picture.URL_Picture;
         }
     }
 }
