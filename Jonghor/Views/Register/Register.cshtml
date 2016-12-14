@@ -195,39 +195,56 @@ article {
 <form name="Regis" class="modal-content animate" action="/Register/CreateUser" method="post">
 
 
-<div class="container">
+    <div class="container">
 
-    <label><b>Username</b><font color="red">*</font></label>
-    <input type="text" placeholder="username" name="Username" required>
-    @Html.ValidationMessage("CredentialError", new { style = "color:red;" })
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="~/Scripts/jquery.validate.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-    </br>
+        <label><b>Username</b><font color="red">*</font></label>
+        <input type="text" placeholder="username" name="Username" required>
+        @Html.ValidationMessage("CredentialError", new { style = "color:red;" })
+        <script src="~/Scripts/jquery-1.10.2.js"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+        </br>
 
-    <label><b>Password</b><font color="red" font-size="1px">* (upper than 6 characters)</font></label>
-    <input type="password" pattern=".{6,}" placeholder="password" name="Password" required title="Password more than 6 characters">
+        <label><b>Password</b><font color="red" font-size="1px">* (upper than 6 characters)</font></label>
+        <input type="password" pattern=".{6,}" placeholder="password" name="Password" required title="Password more than 6 characters">
 
-    <label><b>FirstName</b><font color="red">*</font></label>
-    <input type="text" placeholder="Enter FirstName" name="Name" required>
+        <label><b>FirstName</b><font color="red">*</font></label>
+        <input type="text" placeholder="Enter FirstName" name="Name" required>
 
-    <label><b>LastName</b><font color="red">*</font></label>
-    <input type="text" placeholder="Enter LastName" name="Surname" required>
+        <label><b>LastName</b><font color="red">*</font></label>
+        <input type="text" placeholder="Enter LastName" name="Surname" required>
 
-    <label><b>Gender</b></label><br>
-  
+        <label><b>Gender</b></label><br>
+
         <input type="radio" name="Sex" value="0" checked>Male<br>
-        <input type="radio" name="Sex" value="1" >Female<br>
-    
-    <label><b>SSID</b><font color="red">*</font></label>
-    <input type="text" name="Ssn" maxlength="13" required>
+        <input type="radio" name="Sex" value="1">Female<br>
 
-    <label><b>Phone Number</b></label>
-    <input type="text" name="Phone" maxlength="10" required>
+        <label><b>SSID</b><font color="red">*</font></label>
+        <input type="text" name="Ssn" maxlength="13" pattern=".{13,13}" required placeholder="only 13 Digit" onkeypress="return onlyNumbers();">
+        @Html.ValidationMessage("CredentialError2", new { style = "color:red;" })
+        <script src="~/Scripts/jquery-1.10.2.js"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+        </br>
 
-    <button type="submit">Submit</button>
+        <label><b>Phone Number</b></label>
+        <input type="text" name="Phone" pattern=".{10,10}" maxlength="10" required placeholder="only 10 Digit" onkeypress="return onlyNumbers();">
 
-</div>
+        <button type="submit">Submit</button>
+
+
+        <script language="JavaScript">
+            function onlyNumbers(evt)
+            {
+                var e = event || evt; // for trans-browser compatibility
+                var charCode = e.which || e.keyCode;
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                    return false;
+                return true;
+            }
+        </script>
+
+    </div>
 </form>
     </article>
 </html>
