@@ -13,30 +13,35 @@ namespace Jonghor.Controllers
 
         // GET: Chat
         //String -> ActionResult
-        public string Checkbox(MessageHTML m, string checkblock, string receiver)
+        public ActionResult Checkbox(MessageHTML m, string checkblock, string receiver)
         {
 
             switch (checkblock)
             {
                 case "AllRoom":
-                   // return CheckAllRoom(m);
+                    return CheckAllRoom(m);
                     case "SelectRoom":
-                     return CheckSpecificRoom(m,receiver);
+                    return CheckSpecificRoom(m,receiver);
             }
-             return "";
-            //return new EmptyResult();
+           //  return "";
+            return new EmptyResult();
 
         }
+
+
 
         //send message to all room
        public ActionResult CheckAllRoom(MessageHTML m)
         {
             MessageLayer memlayer = new MessageLayer();
             List<Message> mlist = memlayer.GetMessage();
+           
 
+
+            int mlistid = mlist.Count;
             Message mem = new Message();
             RoomLayer RoomDB = new RoomLayer();
-            List<Room> RoomList = RoomDB.GetStatusRoom();
+            List<Room> RoomList = RoomDB.GetStatusRoom(); //only room that have person live
                foreach (Room r in RoomList)
               {
                   PersonLayer PL = new PersonLayer();
@@ -45,31 +50,41 @@ namespace Jonghor.Controllers
                   {
                       if (person.Room_ID == r.Room_ID)
                       {
-                          mem.Receiver_Username = person.Username;
+                        mem = new Message();
+                        mem.Receiver_Username = person.Username;
                           mem.Sender_Username = "host";                      
-                          mem.MessageID = mlist.Count + 1;
+                          mem.MessageID = mlistid + 1;
                           mem.Title = m.Subject;
                           mem.Text = m.Message;
-                          mem.Date = DateTime.Now.ToString("dd-MM-yyyy") + " " +
+                        mem.Isread = 0;
+                        mem.Date = DateTime.Now.ToString("dd-MM-yyyy") + " " +
                               DateTime.Today.ToString("HH:mm:ss tt");  //Date + Time
-
+                        
                           db.Message.Add(mem);
-                          db.SaveChanges();
-
+                         db.SaveChanges();
+                        mlistid++;
+                       
                       }
                   }
 
+                
+            }
 
-              }
 
+            //return mem.Receiver_Username + " " + mem.Sender_Username + " " +
+            //   " " + mem.Date ;
+            return RedirectToAction("Index", new
+            {
+                action = 1
 
-
-            return View("Messenger");
+            });
         }
+
+
 
         //send message to specific room
 
-         public String CheckSpecificRoom(MessageHTML m,string receiver)
+         public ActionResult CheckSpecificRoom(MessageHTML m,string receiver)
          {
              Message mem = new Message();
              bool CheckRoom = false;
@@ -105,7 +120,8 @@ namespace Jonghor.Controllers
                  mem.Sender_Username = "Host"; 
                  mem.MessageID = mlist.Count + 1;       
                  mem.Title = m.Subject;
-                 mem.Text = m.Message;
+                mem.Isread = 0;
+                mem.Text = m.Message;
                  mem.Date = DateTime.Now.ToString("dd-MM-yyyy") + " " +
                      DateTime.Today.ToString("HH:mm:ss tt");  //Date + Time
              if(CheckRoom == true)
@@ -113,15 +129,22 @@ namespace Jonghor.Controllers
                  db.Message.Add(mem);
                  db.SaveChanges();
 
-                 //return View("Messenger");
+                return RedirectToAction("Index", new
+                {
+                    action = 1
+                    
+                });
+
+                
              }
              else
              {
-                 return NotFoundRoom;
-             }
+                return View("Messenger");
+                //return NotFoundRoom;
+            }
 
-             return mem.Sender_Username+" send message to   "+ mem.Receiver_Username
-                 +" subject :  "+ mem.Title+"  "+mem.Text+" when  :"+mem.Date;
+           // return mem.Receiver_Username + " " + mem.Sender_Username + " " +
+             //    " " + mem.Date;
 
 
 

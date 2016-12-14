@@ -1,3 +1,5 @@
+@using Jonghor.Models;
+@using Jonghor.ViewModel;
 
 <html>
 <style>
@@ -34,6 +36,22 @@ h1{
   <input type="text" name="subject" size="50"><br>
   Message:
   <textarea rows="4" cols="50" name="message"> </textarea><br>
+    @{ 
+        string txt = "";
+        int action = 0;
+
+        try {
+              action = int.Parse(Request.QueryString["action"]);
+
+        } catch { }
+
+
+        if( action == 1)
+        {
+            txt = "Sent Commmm";
+
+        }
+    } @txt
   <input type="submit" name="submit" value="Sent">
 </center>
 </form>
