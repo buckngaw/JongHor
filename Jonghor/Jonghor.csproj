@@ -399,6 +399,7 @@
     <Content Include="Views\Search\Searchpage.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\User\User.cshtml" />
+    <Content Include="Views\User\UserDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Login\" />
