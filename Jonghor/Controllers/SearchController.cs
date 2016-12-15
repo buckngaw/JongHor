@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Jonghor.Models;
+using Jonghor.ViewModel;
 
 namespace Jonghor.Controllers
 {
@@ -170,13 +171,24 @@ namespace Jonghor.Controllers
         {
             DormLayer DormDB = new DormLayer();
             List<Dorm> DormList = DormDB.GetDorm();
-            
-          
+            List<DormDetailViewModel> Dormviewmodel = new List<DormDetailViewModel>();
 
-            return View("Searchpage", DormList);
+            foreach(Dorm dorm in DormList)
+            {
+                DormDetailViewModel dormview = new DormDetailViewModel();
+                dormview.SetDorm(dorm.Dorm_ID);
+                Dormviewmodel.Add(dormview);
+            }
+
+            return View("Searchpage", Dormviewmodel);
 
         }
 
+        public ActionResult Dormdetail(int dorm)
+        {
+
+            return View("Dormdetail");
+        }
 
         //---------------------------------------------------------------------------
 
