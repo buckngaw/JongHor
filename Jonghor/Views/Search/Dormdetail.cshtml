@@ -124,82 +124,59 @@
         
          text-align:right;
         }
+
+       .textonimage { 
+           position: relative; 
+           width: 100%; /* for IE 6 */
+        }
+
+       .textonimage_h2 { 
+           position: absolute; 
+           top: 540px; 
+           left: 0; 
+           width: 100%; 
+        }
+        .textonimage_h2_span { 
+           color: white; 
+           font: bold 24px/45px Helvetica, Sans-Serif; 
+           letter-spacing: -1px;  
+           background: rgb(0, 0, 0); /* fallback color */
+           background: rgba(0, 0, 0, 0.7);
+           padding: 10px; 
+          
+        }
 </style>
 <body>
 
+    <br /><br /><br />
     <h2>
-        <center>ค้นหา</center>
-       
+        <center>
+           <div >
+               <img class="textonimage" style="width:100%; height:400px;" src="http://hpc-spain.com/img/mar-menor-golf-ich-poolarea.jpg" />
+               <h1 class=" textonimage_h2"><span class="textonimage_h2_span">VK</span></h1>
+           </div>
+        </center>
     </h2>
 
-    <center>
-        
-        <form action="@Url.Action("ViewSearch","Search")" method="post">
-            Search Dorm:
-            <input type="text" name="dname"
-                   style=" width: 25%;
-                   box-sizing: border-box;
-                   border 2px solid: #ccc;
-                   border-radius: 4px;
-                   font-size: 16px;
-                   background-color: white;
-                   background-image: url('http://www.freeiconspng.com/uploads/search-icon-png-0.png');
-                   background-size: 5%;
-                   background-position: 10px 10px;
-                   background-repeat: no-repeat;
-                   padding: 10px 20px 12px 40px;">
 
-            <select name="Dormoption"
-                    style=" width: 13%;
-                   font-size: 16px;
-                   background-color: white;
-                   background-repeat: no-repeat;
-                   padding: 8px 5px 12px 15px;">
+    <table border="0">
+        <tr >
+            <td><img style="width:50px; height:50px;" src="http://icons.iconarchive.com/icons/martz90/hex/512/line-icon.png" /></td>
+            <td><div><font style=" font-size:100%;">MyVKDorm</font></div></td>
+                          </tr>
+        <tr>
+            <td><img style="width:50px; height:50px;" src="http://icons.iconarchive.com/icons/martz90/hex/128/facebook-icon.png" /></td>
+            <td><div><font style=" font-size:100%;">ILoveVK</font></div></td>
 
-                <option value="pricemax">ราคามากไปน้อย </option>
-                <option value="pricemin">ราคาน้อยไปมาก</option>
-                <option value="near">บริเวณใกล้เคียง</option>
+        </tr>
 
-            </select>
-
-            <input type="submit" value="Search">
+        <tr>
+            <td><img style="width:50px; height:50px;" src="http://icons.iconarchive.com/icons/martz90/hex/512/instagram-2-icon.png" /></td>
+            <td><div><font style=" font-size:100%;">VKIneIne</font></div></td>
+        </tr>
+</table>
 
 
-
-        </form>
-
-       
-
-
-        <div><br/>
-            <table style="width:60%; ">
-
-                @foreach (Dorm val in Model)
-                    {
-
-                    <tr>
-                        <td style="width:30%; border:solid; ">
-                           <img style="width:100%;" class="dormPic" src="https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url=https%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fvr-splice-j%2F02%2Fba%2Ff2%2F29.jpg&container=focus&resize_w=700&refresh=31536000&no_expand=1&rewriteMime=image/*">
-                        </td>
-                        <td style="width:60%; padding:30px; border:solid ">
-                            <font style="font-size:160%;" class="dormDetail">@val.Name</font><br />
-                            <font style="margin-bottom:10px;" class="dormDetail">1000-10000 บาท</font><br />
-                            
-                            <br /><br /><br />
-                            <div align="right">
-                                <a href="/Reserve/Room?dorm=@val.Dorm_ID"><button style="width:150px; height:40px;"> จองห้องพัก </button></a>
-                                <a href="/Search/Dormdetail?dorm=@val.Dorm_ID"><button style="width:150px; height:40px;"> ดูรายละเอียด </button></a>
-                            </div>
-                        </td>
-
-                    </tr>
-                   }
-
-              
-            </table>
-        </div>
-
-    </center>
 
             <script>
                 // Get the modal

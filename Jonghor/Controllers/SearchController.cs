@@ -171,12 +171,17 @@ namespace Jonghor.Controllers
             DormLayer DormDB = new DormLayer();
             List<Dorm> DormList = DormDB.GetDorm();
             
-          
+           
 
             return View("Searchpage", DormList);
 
         }
 
+        public ActionResult Dormdetail(int dorm)
+        {
+
+            return View("Dormdetail");
+        }
 
         //---------------------------------------------------------------------------
 

@@ -381,6 +381,7 @@
     <Content Include="Views\Register\Edit.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
+    <Content Include="Views\Search\Dormdetail.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Home\Host_Homepage.cshtml" />
     <Content Include="Web.config">
