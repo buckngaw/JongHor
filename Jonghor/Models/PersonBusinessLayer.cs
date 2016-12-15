@@ -60,5 +60,12 @@ namespace Jonghor.Models
             }           
                 return false;   
         }
+
+        public Person GetUser(string name)
+        {
+            JongHorDBEntities1 db = new JongHorDBEntities1();
+            Person user = db.Person.Where(u => u.Username == name).First();
+            return user;
+        }
     }
 }

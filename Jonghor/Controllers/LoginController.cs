@@ -65,9 +65,9 @@ namespace Jonghor.Controllers
                         
                     }
 
-                    UserMessengerViewModel msgViewModel = new UserMessengerViewModel(user.UserName);
-                    Session["Notify"] = msgViewModel.hasNotify;
-                    ViewBag.Message = msgViewModel;
+                    UserShortProfileViewModel msgViewModel = new UserShortProfileViewModel(user.UserName);
+                    Session["Notify"] = msgViewModel.HasNotify;
+                    Session["UserShortProfile"] = msgViewModel;
                     return RedirectToAction("Index", "Home");
                 }
                 else
