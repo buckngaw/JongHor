@@ -16,7 +16,7 @@ namespace Jonghor.ViewModel
         {
             PersonBusinessLayer layer = new PersonBusinessLayer();
             Person user = layer.GetUser(name);
-            isRoomMateMode = (Status)user.Room.Status == Status.WaitRoomMate;
+          //  isRoomMateMode = (Status)user.Room.Status == Status.WaitRoomMate;
             hasDorm = user.Dorm_ID != null;
             if (hasDorm)
             {
