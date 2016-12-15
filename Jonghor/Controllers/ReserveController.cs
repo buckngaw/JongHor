@@ -21,7 +21,17 @@ namespace Jonghor.Controllers
         // GET: Reserve
         public ActionResult Index()
         {
-            return View("Room");
+            RoomViewLayer RoomDB = new RoomViewLayer();
+            List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm(0);
+            List<RoomViewLayer> rooms = new List<RoomViewLayer>();
+            foreach (RoomViewLayer room in RoomViewList)
+            {
+                if (room.room.Status == (int)Status.Avaliable)
+                {
+                    rooms.Add(room);
+                }
+            }
+            return View("Room", rooms);
         }
 
         public ActionResult Reserve(int room)
@@ -36,17 +46,24 @@ namespace Jonghor.Controllers
         public ActionResult Room(int dorm)
         {
 
+
             RoomViewLayer RoomDB = new RoomViewLayer();
             List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm(dorm);
-            Session["dorm_id"] = dorm;
-
-            return View("Room", RoomViewList);
+            List<RoomViewLayer> rooms = new List<RoomViewLayer>();
+            foreach (RoomViewLayer room in RoomViewList)
+            {
+                if (room.room.Status == (int)Status.Avaliable)
+                {
+                    rooms.Add(room);
+                }
+            }
+            return View("Room", rooms);
         }
         
-        public ActionResult Filter(int Dormoption)
+        public ActionResult Filter(int dorm,int Dormoption)
         {
             RoomViewLayer RoomDB = new RoomViewLayer();
-            List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm((int)Session["dorm_id"]);
+            List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm(dorm);
             List<RoomViewLayer> rooms = new List<RoomViewLayer>();
             foreach (RoomViewLayer room in RoomViewList)
             {
@@ -113,13 +130,20 @@ namespace Jonghor.Controllers
                     error = 4,
                     room = int.Parse(Session["room_id"] + "")
                 });
-             // check full
-            }else if(Roomview.room.Room_Type.Max == (Roomview.Reserved_num + count)) // เท่ากัน
+            
+            }
+            
+            /*
+            // check full
+            else if (Roomview.room.Room_Type.Max == (Roomview.Reserved_num + count)) // เท่ากัน
             {
                 db.Room.Find(Roomview.room.Room_ID).Status = (int)Status.NotAvaliable;
                 
-            }
+            }*/
 
+
+            // change status to reserve
+            db.Room.Find(Roomview.room.Room_ID).Status = (int)Status.Reserved;
 
             //check Reserved_ID
             Room_ReservedLayer Room_ReservedDB = new Room_ReservedLayer();
@@ -144,7 +168,7 @@ namespace Jonghor.Controllers
 
 
 
-                    db.Room_Reserved.Add(reserved_input);
+                db.Room_Reserved.Add(reserved_input);
                 db.SaveChanges();
 
                 RoomViewLayer RoomDB = new RoomViewLayer();
