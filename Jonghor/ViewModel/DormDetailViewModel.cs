@@ -64,8 +64,16 @@ namespace Jonghor.ViewModel
 
         public void SetRate()
         {
-            dormRates = dorm.Dorm_Rate.ToList<Dorm_Rate>();
-            avgRate = dormRates.Select(d => d.Score).Average();
+            try
+            {
+                dormRates = dorm.Dorm_Rate.ToList<Dorm_Rate>();
+                avgRate = dormRates.Select(d => d.Score).Average();
+            }
+            catch
+            {
+                avgRate = 0;
+            }
+           
         }
     }
 }
