@@ -18,6 +18,7 @@ namespace Jonghor.Models
         public int Dorm_ID { get; set; }
         public double Score { get; set; }
         public string Text { get; set; }
+        public int Rate_id { get; set; }
     
         public virtual Dorm Dorm { get; set; }
         public virtual Person Person { get; set; }

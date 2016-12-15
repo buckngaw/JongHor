@@ -51,18 +51,15 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <Property Name="Dorm_ID" Type="int" Nullable="false" />
           <Property Name="URL_Picture" Type="varchar" MaxLength="600" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Dorm_Rate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Dorm_Rate">
           <Key>
-            <PropertyRef Name="Username" />
-            <PropertyRef Name="Dorm_ID" />
-            <PropertyRef Name="Score" />
+            <PropertyRef Name="Rate_id" />
           </Key>
           <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Dorm_ID" Type="int" Nullable="false" />
           <Property Name="Score" Type="float" Nullable="false" />
           <Property Name="Text" Type="varchar" MaxLength="200" />
+          <Property Name="Rate_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Message">
           <Key>
@@ -327,6 +324,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <EntitySet Name="Dorm" EntityType="Self.Dorm" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dorm_Label" EntityType="Self.Dorm_Label" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dorm_Picture" EntityType="Self.Dorm_Picture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dorm_Rate" EntityType="Self.Dorm_Rate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
@@ -338,14 +336,6 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
     [Dorm_Option].[Dorm_ID] AS [Dorm_ID], 
     [Dorm_Option].[Option] AS [Option]
     FROM [dbo].[Dorm_Option] AS [Dorm_Option]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Dorm_Rate" EntityType="Self.Dorm_Rate" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Dorm_Rate].[Username] AS [Username], 
-    [Dorm_Rate].[Dorm_ID] AS [Dorm_ID], 
-    [Dorm_Rate].[Score] AS [Score], 
-    [Dorm_Rate].[Text] AS [Text]
-    FROM [dbo].[Dorm_Rate] AS [Dorm_Rate]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Room_Option" EntityType="Self.Room_Option" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -563,6 +553,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
             <PropertyRef Name="Username" />
             <PropertyRef Name="Dorm_ID" />
             <PropertyRef Name="Score" />
+            <PropertyRef Name="Rate_id" />
           </Key>
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Dorm_ID" Type="Int32" Nullable="false" />
@@ -570,6 +561,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <Property Name="Text" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Dorm" Relationship="Self.FK_Dorm_Rate_Dorm" FromRole="Dorm_Rate" ToRole="Dorm" />
           <NavigationProperty Name="Person" Relationship="Self.FK_Dorm_Rate_Person" FromRole="Dorm_Rate" ToRole="Person" />
+          <Property Name="Rate_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="Room_Option">
           <Key>
@@ -965,7 +957,8 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
     <EntitySetMapping Name="Dorm_Rate">
       <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel1.Dorm_Rate)">
         <MappingFragment StoreEntitySet="Dorm_Rate">
-          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Rate_id" ColumnName="Rate_id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
           <ScalarProperty Name="Score" ColumnName="Score" />
           <ScalarProperty Name="Text" ColumnName="Text" />
