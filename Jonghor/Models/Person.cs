@@ -33,6 +33,7 @@ namespace Jonghor.Models
         public string Ssn { get; set; }
         public Nullable<int> Dorm_ID { get; set; }
         public Nullable<int> Sex { get; set; }
+        public int Find_Mate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dorm> Dorm { get; set; }

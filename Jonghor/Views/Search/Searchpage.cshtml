@@ -1,6 +1,6 @@
 ﻿@using Jonghor.Models
 @using Jonghor.ViewModel
-@model List<Dorm>
+@model List<DormDetailViewModel>
 
 <!DOCTYPE html>
 <html>
@@ -172,18 +172,24 @@
 
 
         <div><br/>
-            <table style="width:50%; ">
+            <table style="width:60%; ">
 
-                @foreach (Dorm val in Model)
+                @foreach (DormDetailViewModel val in Model)
                     {
 
                     <tr>
                         <td style="width:30%; border:solid; ">
-                            <a href="/Reserve/Room?dorm=@val.Dorm_ID"><img class="dormPic" src="https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url=https%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fvr-splice-j%2F02%2Fba%2Ff2%2F29.jpg&container=focus&resize_w=700&refresh=31536000&no_expand=1&rewriteMime=image/*"></a>
+                           <img style="width:100%;" class="dormPic" src="@val.imageUrl">
                         </td>
                         <td style="width:60%; padding:30px; border:solid ">
-                            <font class="dormDetail">@val.Name</font><br />
-                            <font class="dormDetail">1000-10000 บาท</font>
+                            <font style="font-size:160%;" class="dormDetail">@val.dorm.Name</font><br />
+                            <font style="margin-bottom:10px;" class="dormDetail">@val.minPrice - @val.maxPrice บาท</font><br />
+                            
+                            <br /><br /><br />
+                            <div align="right">
+                                <a href="/Reserve/Room?dorm=@val.dorm.Dorm_ID"><button style="width:150px; height:40px;"> จองห้องพัก </button></a>
+                                <a href="/Search/Dormdetail?dorm=@val.dorm.Dorm_ID"><button style="width:150px; height:40px;"> ดูรายละเอียด </button></a>
+                            </div>
                         </td>
 
                     </tr>

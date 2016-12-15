@@ -49,7 +49,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
             <PropertyRef Name="Dorm_ID" />
           </Key>
           <Property Name="Dorm_ID" Type="int" Nullable="false" />
-          <Property Name="URL_Picture" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="URL_Picture" Type="varchar" MaxLength="600" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Dorm_Rate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -74,7 +74,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <Property Name="Date" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Text" Type="varchar" MaxLength="1000" Nullable="false" />
           <Property Name="MessageID" Type="int" Nullable="false" />
-          <Property Name="Isread" Type="int" />
+          <Property Name="Isread" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
@@ -89,6 +89,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <Property Name="Ssn" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Dorm_ID" Type="int" />
           <Property Name="Sex" Type="int" />
+          <Property Name="Find_Mate" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
@@ -309,6 +310,18 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Room_ToDorm">
+          <End Role="Dorm" Type="Self.Dorm" Multiplicity="1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dorm">
+              <PropertyRef Name="Dorm_ID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="Dorm_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="JongHorDBModel1StoreContainer">
           <EntitySet Name="Dorm" EntityType="Self.Dorm" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dorm_Label" EntityType="Self.Dorm_Label" Schema="dbo" store:Type="Tables" />
@@ -395,6 +408,10 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
             <End Role="Room" EntitySet="Room" />
             <End Role="Room_Reserved" EntitySet="Room_Reserved" />
           </AssociationSet>
+          <AssociationSet Name="FK_Room_ToDorm" Association="Self.FK_Room_ToDorm">
+            <End Role="Dorm" EntitySet="Dorm" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -427,6 +444,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <NavigationProperty Name="Dorm_Picture" Relationship="Self.FK_Dorm_Picture_Dorm" FromRole="Dorm" ToRole="Dorm_Picture" />
           <NavigationProperty Name="Dorm_Rate" Relationship="Self.FK_Dorm_Rate_Dorm" FromRole="Dorm" ToRole="Dorm_Rate" />
           <NavigationProperty Name="Person1" Relationship="Self.FK_Person_Dorm" FromRole="Dorm" ToRole="Person" />
+          <NavigationProperty Name="Room" Relationship="JongHorDBModel1.FK_Room_ToDorm" FromRole="Dorm" ToRole="Room" />
         </EntityType>
         <EntityType Name="Dorm_Label">
           <Key>
@@ -441,7 +459,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
             <PropertyRef Name="Dorm_ID" />
           </Key>
           <Property Name="Dorm_ID" Type="Int32" Nullable="false" />
-          <Property Name="URL_Picture" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="URL_Picture" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Dorm" Relationship="Self.FK_Dorm_Picture_Dorm" FromRole="Dorm_Picture" ToRole="Dorm" />
         </EntityType>
         <EntityType Name="Message">
@@ -456,7 +474,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <Property Name="MessageID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Person" Relationship="Self.FK_Message_Person" FromRole="Message" ToRole="Person" />
           <NavigationProperty Name="Person1" Relationship="Self.FK_Message1_Person" FromRole="Message" ToRole="Person" />
-          <Property Name="Isread" Type="Int32" />
+          <Property Name="Isread" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
@@ -478,6 +496,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <NavigationProperty Name="Dorm_Rate" Relationship="Self.FK_Dorm_Rate_Person" FromRole="Person" ToRole="Dorm_Rate" />
           <NavigationProperty Name="Room" Relationship="Self.FK_Person_Room" FromRole="Person" ToRole="Room" />
           <NavigationProperty Name="Room_Reserved" Relationship="Self.FK_Room_Reserved_Person" FromRole="Person" ToRole="Room_Reserved" />
+          <Property Name="Find_Mate" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
@@ -491,6 +510,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <NavigationProperty Name="Person" Relationship="Self.FK_Person_Room" FromRole="Room" ToRole="Person" />
           <NavigationProperty Name="Room_Type" Relationship="Self.FK_Room_Person" FromRole="Room" ToRole="Room_Type" />
           <NavigationProperty Name="Room_Reserved" Relationship="Self.FK_Room_Reserved_Room" FromRole="Room" ToRole="Room_Reserved" />
+          <NavigationProperty Name="Dorm" Relationship="JongHorDBModel1.FK_Room_ToDorm" FromRole="Room" ToRole="Dorm" />
         </EntityType>
         <EntityType Name="Room_Reserved">
           <Key>
@@ -795,7 +815,23 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
             <End Role="Room_Type" EntitySet="Room_Type" />
             <End Role="Room_Option" EntitySet="Room_Option" />
           </AssociationSet>
+          <AssociationSet Name="FK_Room_ToDorm" Association="JongHorDBModel1.FK_Room_ToDorm">
+            <End Role="Dorm" EntitySet="Dorm" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Room_ToDorm">
+          <End Type="JongHorDBModel1.Dorm" Role="Dorm" Multiplicity="1" />
+          <End Type="JongHorDBModel1.Room" Role="Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dorm">
+              <PropertyRef Name="Dorm_ID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="Dorm_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -857,6 +893,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <EntitySetMapping Name="Person">
             <EntityTypeMapping TypeName="JongHorDBModel1.Person">
               <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="Find_Mate" ColumnName="Find_Mate" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />

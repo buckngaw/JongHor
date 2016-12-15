@@ -70,6 +70,11 @@ namespace Jonghor.Controllers
                     ViewBag.Message = msgViewModel;
                     return RedirectToAction("Index", "Home");
                 }
+                else
+                {
+                    Response.Write("<script>alert('Username or Password is not correct')</script>");
+                    return View("../Home/Homepage");
+                }
                 
             }
             return RedirectToAction("Index", "Home");
