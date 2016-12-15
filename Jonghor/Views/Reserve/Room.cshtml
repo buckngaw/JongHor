@@ -129,18 +129,19 @@
   <div style="padding:30px;">
       
       <div >   
-          <form action="" method="post">
-            <select name="Dormoption" onchange="this.form.submit()"
-                    style=" width: 13%;
-                           font-size: 16px;
-                           background-color: white;
-                           background-repeat: no-repeat;
-                           padding: 8px 5px 12px 15px;">
+          <form action="/Reserve/Filter?dorm=@Request.Params["dorm"]" method="post">
+
+              <select name="Dormoption"
+                      style=" width: 13%;
+                      font-size: 16px;
+                      background-color: white;
+                      background-repeat: no-repeat;
+                      padding: 8px 5px 12px 15px;">
                   <option value="0">Avaiable </option>
                   <option value="1">NotAvaiable</option>
                   <option value="2">WaitRoommate</option>
-            </select>
-        </form>
+              </select>
+          </form>
       </div>
      
       <br />
