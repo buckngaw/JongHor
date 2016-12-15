@@ -10,7 +10,7 @@ namespace Jonghor.ViewModel
     {
         public List<Message> Messages { get; set; }
         public bool HasNotify { get; set; }
-        public bool HasDorm { get; set; }
+        public bool OwnDorm { get; set; }
 
         public UserShortProfileViewModel(string name)
         {
@@ -23,7 +23,7 @@ namespace Jonghor.ViewModel
         {
             PersonBusinessLayer layer = new PersonBusinessLayer();
             Person user = layer.GetUser(name);
-            hasDorm = user.Dorm_ID != null;
+            OwnDorm = user.Dorm.Count > 0;
         }
 
         public void SetMessages(string name)
