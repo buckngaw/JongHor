@@ -129,23 +129,21 @@
   <div style="padding:30px;">
       
       <div >   
-          <form>
+          <form action="/Reserve/Filter" method="post">
 
-            <select name="Dormoption"
-                    style=" width: 13%;
-                           font-size: 16px;
-                           background-color: white;
-                           background-repeat: no-repeat;
-                           padding: 8px 5px 12px 15px;">
+              <select name="Dormoption"
+                      style=" width: 13%;
+                      font-size: 16px;
+                      background-color: white;
+                      background-repeat: no-repeat;
+                      padding: 8px 5px 12px 15px;">
+                  <option value="0">Avaiable </option>
+                  <option value="1">NotAvaiable</option>
+                  <option value="2">WaitRoommate</option>
+              </select>
 
-                <option value="small">ห้องเล็ก </option>
-                <option value="big">ห้องใหญ่</option>
-                <option value="fan">ห้องพัดลม</option>
-                <option value="near">ห้องแอร์</option>
-            </select>
-
-            <input type="submit" value="Confirm">
-        </form>
+              <input type="submit" value="Confirm">
+          </form>
       </div>
      
       <br />
