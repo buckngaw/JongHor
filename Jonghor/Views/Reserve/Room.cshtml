@@ -129,7 +129,7 @@
   <div style="padding:30px;">
       
       <div >   
-          <form action="/Reserve/Filter" method="post">
+          <form action="/Reserve/Filter?dorm=@Request.Params["dorm"]" method="post">
 
               <select name="Dormoption"
                       style=" width: 13%;
