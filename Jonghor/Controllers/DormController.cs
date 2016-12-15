@@ -17,6 +17,10 @@ namespace Jonghor.Controllers
         {
             return View("Edit");
         }
+        public ActionResult Add()
+        {
+            return View("Add");
+        }
 
         public ActionResult Edit(Dorm dorm)
         {

@@ -13,7 +13,11 @@ namespace Jonghor.Controllers
         public ActionResult Index()
         {
             if (Session["Status"] != null && Session["Status"].ToString() == "Owner")
+            {
+               
                 return View("Host_Homepage");
+            }
+               
             else if (Session["Status"] != null && Session["Status"].ToString() == "User")
                 return View("../User/User");
             else
@@ -25,6 +29,7 @@ namespace Jonghor.Controllers
         }
         public ActionResult Host()
         {
+
             return View("Host_Homepage");
         }
     }

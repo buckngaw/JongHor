@@ -9,52 +9,61 @@ h1{
 	color:Orange;
 	font-weight:bold;
 }
+h2{
+    color:white;
+    font-size: 20px;
+}
 </style>
 <head>
 	<center><h1>MESSAGE</h1></center>	
 </head>
 
 <article>
+    <h2>
+        <form action="@Url.Action("Checkbox", "Chat")">
+            <center>
+                <input type="checkbox" name="checkblock" value="AllRoom">All Room
+                <input type="checkbox" name="checkblock" value="SelectRoom">Select Room<br>
+                Room NO.
+                <style type="text/css">
+                    input[type="text"] {
+                        align-content: flex-start;
+                        border: 1px solid orange;
+                        width: 400px;
+                        background: transparent;
+                    }
+                </style>
+                <input type="text" name="receiver" size="5">
+            </center>
 
-<form action="@Url.Action("Checkbox", "Chat")">
-  <center><input type="checkbox" name="checkblock" value="AllRoom">All Room 
-  <input type="checkbox" name="checkblock" value="SelectRoom" >Select Room<br>
-      Room NO.<style type="text/css">
-          input[type="text"] {
-              align-content:flex-start;
-              border: 1px solid black;
-              width : 400px;
-              background: transparent;
-          }
-      </style>
-      <input type="text" name="receiver" size="5">
-    </center>
+            <center>
+                Subject:
+                <input type="text" name="subject" size="50"><br>
+                Message:
+                <textarea rows="4" cols="50" name="message" style="background:transparent; border: 1px solid orange;"> </textarea><br>
+                @{
+                    string txt = "";
+                    int action = 0;
 
-<center>
+                    try
+                    {
+                        action = int.Parse(Request.QueryString["action"]);
 
-  Subject:
-  <input type="text" name="subject" size="50"><br>
-  Message:
-  <textarea rows="4" cols="50" name="message"> </textarea><br>
-    @{ 
-        string txt = "";
-        int action = 0;
-
-        try {
-              action = int.Parse(Request.QueryString["action"]);
-
-        } catch { }
+                    }
+                    catch { }
 
 
-        if( action == 1)
-        {
-            txt = "Sent Commmm";
+                    if (action == 1)
+                    {
+                        txt = "Sent Commmm";
 
-        }
-    } @txt
-  <input type="submit" name="submit" value="Sent">
-</center>
-</form>
+                    }
+                } @txt
+                <input type="submit" name="submit" value="Sent">
+
+            </center>
+    </h2>
+    </form>
 
 </article>
 
