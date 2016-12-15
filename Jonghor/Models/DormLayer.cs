@@ -30,6 +30,14 @@ namespace Jonghor.Models
             }
         }
 
+        public Dorm GetDorm(string name)
+        {
+            JongHorDBEntities1 jonghor = new JongHorDBEntities1();
+
+            Dorm dorm = jonghor.Dorm.Where(d => d.Person.Username == name).First();
+            return dorm;
+        }
+
         public List<Room_Type> GetRoomTypes(Dorm dorm)
         {
             JongHorDBEntities1 db = new JongHorDBEntities1();
