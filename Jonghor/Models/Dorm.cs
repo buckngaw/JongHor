@@ -22,7 +22,7 @@ namespace Jonghor.Models
             this.Person1 = new HashSet<Person>();
             this.Room = new HashSet<Room>();
         }
-
+    
         public int Dorm_ID { get; set; }
         public string Name { get; set; }
         public string M_username { get; set; }
