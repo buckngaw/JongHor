@@ -1,5 +1,5 @@
-﻿@using Jonghor.Models
-@using Jonghor.ViewModel
+﻿@using Jonghor.ViewModel
+@model UserProfileViewModel
 
 <!DOCTYPE html>
 <html>
@@ -123,8 +123,14 @@
 
     <h2>
         <center><h1>User</h1>
-            <button type="submit" style="width:10%;">เปิดระบบมองหาเมท</button><br />
-            <button type="submit" style="width:10%;">ปิดระบบมองหาเมท</button>
+            @if (Model.isRoomMateMode)
+            {
+                <button type="submit" style="width:10%;">เปิดระบบมองหาเมท</button><br />
+            }
+            else
+            {
+                <button type="submit" style="width:10%;">ปิดระบบมองหาเมท</button>
+            } 
         </center>
         
        
@@ -139,16 +145,16 @@
    <h1>Room Rate</h1>
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
       <div class="stars">         
-          <form action="">             
-              <input class="star star-5" id="star-5" type="radio" name="star" />             
+          <form action="@Url.Action("StarCheck","User")">             
+              <input class="star star-5" id="star-5" @((Model.rate == 5)?"checked='checked'": "") type="radio" name="star" />             
               <label class="star star-5" for="star-5"></label>             
-              <input class="star star-4" id="star-4" type="radio" name="star" />             
+              <input class="star star-4" id="star-4" @((Model.rate == 4)?"checked='checked'": "") type="radio" name="star" />             
               <label class="star star-4" for="star-4"></label>             
-              <input class="star star-3" id="star-3" checked="checked" type="radio" name="star" />             
+              <input class="star star-3" id="star-3" @((Model.rate == 3)?"checked='checked'": "") type="radio" name="star" />             
               <label class="star star-3" for="star-3"></label>             
-              <input class="star star-2" id="star-2" type="radio" name="star" />             
+              <input class="star star-2" id="star-2" @((Model.rate == 2)?"checked='checked'": "") type="radio" name="star" />             
               <label class="star star-2" for="star-2"></label>             
-              <input class="star star-1" id="star-1" type="radio" name="star" />              
+              <input class="star star-1" id="star-1" @((Model.rate == 1)?"checked='checked'": "") type="radio" name="star" />              
               <label class="star star-1" for="star-1"></label>             
           </form>         
       </div>
