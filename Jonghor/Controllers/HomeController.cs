@@ -14,8 +14,9 @@ namespace Jonghor.Controllers
         {
             if (Session["Status"] != null && Session["Status"].ToString() == "Owner")
             {
-               
-                return View("Host_Homepage");
+                DormDetailViewModel dormview = new DormDetailViewModel();
+                dormview.SetDorm(Session["Username"].ToString());
+                return View("Host_Homepage",dormview);
             }
                
             else if (Session["Status"] != null && Session["Status"].ToString() == "User")

@@ -14,6 +14,8 @@ namespace Jonghor.ViewModel
         //public List<string> imageUrls = new List<string>();
         public string imageUrl { get; set; }
 
+        
+
         public void SetDorm(int id)
         {
             DormLayer layer = new DormLayer();
