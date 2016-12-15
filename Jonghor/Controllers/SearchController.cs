@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Jonghor.Models;
 using Jonghor.ViewModel;
+using System.Linq;
 
 namespace Jonghor.Controllers
 {
@@ -150,6 +151,7 @@ namespace Jonghor.Controllers
             List<Dorm> DormList = DormDB.GetDorm();
             List<Dorm> DormSearch = new List<Dorm>();
 
+
             foreach (Dorm dorm in DormList)
             {
                 if (dorm.Name.Contains(dname))
@@ -157,22 +159,36 @@ namespace Jonghor.Controllers
 
                     DormSearch.Add(dorm);
                
-
+                    
                 }
             }
 
             List<DormDetailViewModel> Dormviewmodel = new List<DormDetailViewModel>();
-
             foreach (Dorm dorm in DormSearch)
             {
                 DormDetailViewModel dormview = new DormDetailViewModel();
                 dormview.SetDorm(dorm.Dorm_ID);
                 Dormviewmodel.Add(dormview);
+              
             }
+
+
+
+
+           
+            //man->max
+                Dormviewmodel.Sort(delegate (DormDetailViewModel c1, DormDetailViewModel c2) { return c1.minPrice.CompareTo(c2.minPrice); });
+            //max->min
+                Dormviewmodel.Sort(delegate (DormDetailViewModel c1, DormDetailViewModel c2) { return c1.minPrice.CompareTo(c2.minPrice); });
+
+
+
 
             return View("Searchpage", Dormviewmodel);
 
         }
+
+
 
 
         // Search Page MuMu Dont Touch = - =--------------------------------------
@@ -195,8 +211,10 @@ namespace Jonghor.Controllers
 
         public ActionResult Dormdetail(int dorm)
         {
-
-            return View("Dormdetail");
+            DormDetailViewModel dormview = new DormDetailViewModel();
+            dormview.SetDorm(dorm);
+           
+            return View("Dormdetail", dormview);
         }
 
         //---------------------------------------------------------------------------

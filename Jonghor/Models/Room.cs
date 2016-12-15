@@ -26,6 +26,7 @@ namespace Jonghor.Models
         public int Dorm_ID { get; set; }
         public int Type_ID { get; set; }
         public int Status { get; set; }
+        public string Room_number { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Person> Person { get; set; }

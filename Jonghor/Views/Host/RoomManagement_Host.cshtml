@@ -32,15 +32,19 @@
 <article>
  
         <center><h1>Room Management</h1></center>
-     
-            <center>
-                <select name="option">
-                    <option value="Avaliable">Avaliable</option>
-                    <option value="Wait">Wait Roommate </option>
-                    <option value="Not">Not Avaliable</option>
-                    <option value="All" select>All Room</option>
-                </select>
-            </center>
+         <form action="/Dorm/Roomsort" method="post">
+             <center>
+                 <select name="option" onchange="this.form.submit()">
+                     <option value="Avaliable">Avaliable</option>
+                     <option value="Wait">Wait Roommate </option>
+                     <option value="Not">Not Avaliable</option>
+                     <option value="All" select>All Room</option>
+                 </select>
+             </center>
+            
+
+         </form>
+           
     
 
    
