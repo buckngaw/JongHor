@@ -370,6 +370,8 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <None Include="Views\Chat\Messenger.cshtml" />
+    <Content Include="Views\Dorm\Add.cshtml" />
+    <Content Include="Views\Dorm\Addroom.cshtml" />
     <None Include="Views\Dorm\Edit.cshtml" />
     <None Include="Views\Host\RoomManagement_Host.cshtml" />
     <None Include="Views\Message\Message_Host.cshtml" />
