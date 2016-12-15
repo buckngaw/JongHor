@@ -72,8 +72,8 @@ namespace Jonghor.Controllers
                 }
                 else
                 {
-                    
 
+                    Response.Write("<script>alert('Username or Password is incorrect')</script>");
                     return View("../Home/Homepage");
                 }
                 
