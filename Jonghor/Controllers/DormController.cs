@@ -17,6 +17,10 @@ namespace Jonghor.Controllers
         {
             return View("Edit");
         }
+        public ActionResult Add()
+        {
+            return View("Add");
+        }
 
         public ActionResult Add(Dorm dorm)
         {
@@ -113,6 +117,9 @@ namespace Jonghor.Controllers
             return View("../Host/RoomManagement_Host", roomListview);
 
         }
-       
+        public ActionResult Roomsort(string option)
+        {
+            return Content(option);
+        }
     }
 }

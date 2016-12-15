@@ -16,6 +16,8 @@ namespace Jonghor.ViewModel
         public double avgRate { get; set; }
         public List<Dorm_Rate> dormRates = new List<Dorm_Rate>();
 
+        
+
         public void SetDorm(int id)
         {
             DormLayer layer = new DormLayer();
