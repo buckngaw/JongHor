@@ -24,7 +24,19 @@ namespace Jonghor.Controllers
                 return View("../Home/Homepage");
             }
         }
+        public ActionResult isroommate(int roommate)
+        {
+            JongHorDBEntities1 db = new JongHorDBEntities1();
+            if(roommate == 1)
+            {
+                
+            }
+            else
+            {
 
+            }
+            return View("Room");
+        }
         public ActionResult UserDetail()
         {
             return View("UserDetail");
