@@ -211,8 +211,10 @@ namespace Jonghor.Controllers
 
         public ActionResult Dormdetail(int dorm)
         {
-
-            return View("Dormdetail");
+            DormDetailViewModel dormview = new DormDetailViewModel();
+            dormview.SetDorm(dorm);
+           
+            return View("Dormdetail", dormview);
         }
 
         //---------------------------------------------------------------------------
