@@ -25,7 +25,7 @@ namespace Jonghor.ViewModel
             {
                 if (room.Dorm_ID == dormId)
                 {
-                    Rooms.Add(new RoomViewModel(room.Room_ID, room.Person,room.Status));
+                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person,room.Status));
                 }
             }
 
@@ -39,6 +39,19 @@ namespace Jonghor.ViewModel
             //}
 
             return Rooms;
+        }
+
+        public void GetRoomListView(string name, Status status)
+        {
+            PersonBusinessLayer userBa = new PersonBusinessLayer();
+            Person user = userBa.GetUser(name);
+            foreach (var room in user.Dorm.First().Room)
+            {
+                if(room.Status == (int)status)
+                {
+                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status));
+                }
+            }
         }
     }
 }

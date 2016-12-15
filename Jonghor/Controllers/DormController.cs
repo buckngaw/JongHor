@@ -15,11 +15,21 @@ namespace Jonghor.Controllers
         // GET: Dorm
         public ActionResult Index()
         {
-            return View("Edit");
-        }
-        public ActionResult Add()
-        {
-            return View("Add");
+            if (Session["Status"] != null)
+            {
+                if(Session["Status"].ToString() == "Owner")
+                {
+                    return View("Edit");
+                }
+                else
+                {
+                    return View("Add");
+                }
+            }
+            else
+            {
+                return Content("Error");
+            }
         }
 
         public ActionResult Add(Dorm dorm,String floorcount,String roomcount)
@@ -35,9 +45,18 @@ namespace Jonghor.Controllers
                     db.Dorm.Add(dorm);
                     for(int i=0;i< Int32.Parse(floorcount);i++)
                     {
-                        for(int j=0;j< Int32.Parse(roomcount);j++)
+                        for(int j=1;j<= Int32.Parse(roomcount);j++)
                         {
-                            
+                            Room r = new Room();
+                            r.Dorm_ID = dorm.Dorm_ID;
+                            r.Floor = (i+1).ToString();
+                            r.Room_number = (j).ToString();
+                            r.Type_ID = 1;
+                            if(j<10)
+                            {
+                                r.Room_number = '0' + r.Room_number;
+                            }
+                            db.Room.Add(r);
                         }
                     }
 
@@ -128,6 +147,32 @@ namespace Jonghor.Controllers
         }
         public ActionResult Roomsort(string option)
         {
+            if (option == "All")
+            {
+                return RedirectToAction("Roommanagement", "Dorm");
+            }
+            else if (option == "Wait")
+            {
+                RoomListViewModel roomListview = new RoomListViewModel();
+                string name = Session["UserName"].ToString();
+                roomListview.GetRoomListView(name, Status.WaitRoomMate);
+                return View("../Host/RoomManagement_Host", roomListview);
+            }
+            else if (option == "Avaliable")
+            {
+                RoomListViewModel roomListview = new RoomListViewModel();
+                string name = Session["UserName"].ToString();
+                roomListview.GetRoomListView(name, Status.Avaliable);
+                return View("../Host/RoomManagement_Host", roomListview);
+            }
+            else if (option == "Not")
+            {
+                RoomListViewModel roomListview = new RoomListViewModel();
+                string name = Session["UserName"].ToString();
+                roomListview.GetRoomListView(name, Status.NotAvaliable);
+                return View("../Host/RoomManagement_Host", roomListview);
+            }
+
             return Content(option);
         }
     }

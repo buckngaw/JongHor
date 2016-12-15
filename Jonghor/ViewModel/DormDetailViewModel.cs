@@ -35,6 +35,7 @@ namespace Jonghor.ViewModel
             SetImage();
         }
 
+        
 
         public void SetPrice()
         {
