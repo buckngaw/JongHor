@@ -43,12 +43,12 @@ namespace Jonghor.Controllers
             return View("Room", RoomViewList);
         }
 
-        public ActionResult Submit(int reserve)
+        public ActionResult Submit()
         {
             int count = 0;
             int reserve_ID = 0;
             //new
-            count = reserve;
+            count = 1;
 
 
             Room_Reserved reserved_input = new Room_Reserved();
@@ -79,7 +79,7 @@ namespace Jonghor.Controllers
                 
 
             }
-            if (ReserveCount >= 2)
+            if (ReserveCount >= 1)
             {
                 return RedirectToAction("Reserve", new
                 {
