@@ -129,7 +129,7 @@
   <div style="padding:30px;">
       
       <div >   
-          <form action="/Reserve/Filter" method="post">
+          <form action="/Reserve/Filter?dorm=@Request.Params["dorm"]" method="post">
 
               <select name="Dormoption"
                       style=" width: 13%;
@@ -141,8 +141,6 @@
                   <option value="1">NotAvaiable</option>
                   <option value="2">WaitRoommate</option>
               </select>
-
-              <input type="submit" value="Confirm">
           </form>
       </div>
      
@@ -159,19 +157,6 @@
 
 
     }
-
-
-
 </div>
-
-      
-
-
-     
-   
-
 </body>
-
-
-
 </html>

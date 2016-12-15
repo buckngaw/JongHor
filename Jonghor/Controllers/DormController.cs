@@ -32,7 +32,13 @@ namespace Jonghor.Controllers
             }
         }
 
-        public ActionResult Add(Dorm dorm,String floorcount,String roomcount)
+        public ActionResult addroom(Room room)
+        {
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Add(Dorm dorm,String floorcount,String roomcount,string url_picture)
         {
             if (Session["Status"] != null && Session["Status"].ToString() == "User")
             {
@@ -40,9 +46,16 @@ namespace Jonghor.Controllers
                 dorm.Tel = "000";
                 dorm.Address = "111";
                 Dorm dormSelect = db.Dorm.SingleOrDefault(d => d.Name == dorm.Name);
+
+
                 if (dormSelect == null)
                 {
+                    Dorm_Picture dormpic = new Dorm_Picture();
+                    dormpic.Dorm_ID = dorm.Dorm_ID;
+                    dormpic.URL_Picture = url_picture;
+                    db.Dorm_Picture.Add(dormpic);
                     db.Dorm.Add(dorm);
+    
                     for(int i=0;i< Int32.Parse(floorcount);i++)
                     {
                         for(int j=1;j<= Int32.Parse(roomcount);j++)
@@ -96,7 +109,7 @@ namespace Jonghor.Controllers
 
 
 
-        public ActionResult Edit(Dorm dorm)
+        public ActionResult Edit(Dorm dorm,string url_picture)
         {
             if (Session["Status"] != null && Session["Status"].ToString() == "Owner")
             {
@@ -109,7 +122,7 @@ namespace Jonghor.Controllers
                     db.Dorm.Add(dorm);
                 }
                 else
-                {
+                {              
                     dormSelect = dorm;
                 }
                 try
@@ -132,10 +145,11 @@ namespace Jonghor.Controllers
                     // Throw a new DbEntityValidationException with the improved exception message.
                     throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
                 }
-                return Content("New dorm added");
+                Response.Write("<script>alert('New Dorm Added')</script>");
+                return View("../Home/Homepage");
             }
-
-            return Content("Error cannot add new Dorm");
+            Response.Write("<script>alert('Error cannot add new Dorm')</script>");
+            return View("Edit");
         }
         public ActionResult Roommanagement()
         {

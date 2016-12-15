@@ -54,6 +54,8 @@
                     <th width="10px"><center>Room Number</center></th>
                     <th>Name</th>
                     <th>Status</th>
+                    <th>Person Reserve</th>
+                    <th>Response</th>
                 </tr>
                 @foreach (RoomViewModel item in Model.Rooms)
                 {
@@ -62,12 +64,18 @@
                         <td>
                             @foreach (string name in item.PeopleNames)
                             {
-
-                                @name <br />
-
+                                @name <br />                       
                             }
                         </td>
                         <td>@item.Status</td>
+                        <td></td>
+                        <td><center>
+                                <form action="/Home/Index">
+                                    <button type="submit" style="width:auto;">Accept</button>
+                                    <button type="submit" style="width:auto;">Decline</button>
+                                </form>
+                            </center>
+                        </td>
                     </tr>
                 }
 
