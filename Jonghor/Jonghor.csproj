@@ -374,7 +374,6 @@
     <Content Include="Views\Dorm\Addroom.cshtml" />
     <None Include="Views\Dorm\Edit.cshtml" />
     <None Include="Views\Host\RoomManagement_Host.cshtml" />
-    <Content Include="Views\Host\Roomop.cshtml" />
     <None Include="Views\Message\Message_Host.cshtml" />
     <Content Include="Views\Serach\Create.cshtml" />
     <Content Include="Views\Serach\Delete.cshtml" />
