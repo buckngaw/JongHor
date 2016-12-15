@@ -168,24 +168,34 @@
 
     <h2>
         <center><h1>User</h1>
-            @if (Model.isRoomMateMode)
-            {
-                <button type="submit" style="width:10%;">เปิดระบบมองหาเมท</button><br />
-            }
-            else
-            {
-                <button type="submit" style="width:10%;">ปิดระบบมองหาเมท</button>
-            } 
+            <form action="/User/isroommate" >
+
+
+                @if (Model.isRoomMateMode)
+                {
+                    <button type="submit" name="roommate" value="1" style="width:10%;">เปิดระบบมองหาเมท</button><br />
+                }
+                else
+                {
+                    <button type="submit" name="roommate" value="0" style="width:10%;">ปิดระบบมองหาเมท</button>
+                }
+            </form>  
         </center>
         
-       
-
     </h2>
 
   <div style="padding:30px;">
      
    <h1>Status</h1>
-      <p> มีห้องอยู่คนเดียว และกำลังมองหาเมทอยู่</p>
+    @if (Model.isRoomMateMode)
+    {
+        <p> มีห้องอยู่คนเดียว และกำลังมองหาเมทอยู่</p>
+    }
+    else
+    {
+        <p>ไม่ต้องการรูมเมท</p>
+    }
+      
 
    <h1>Room Rate</h1>
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -211,29 +221,13 @@
           <textarea style="width:40%;" rows="6" cols="50" name="detail_feedback"></textarea><br />
           <button type="submit" style="width:40%;">Send</button><br />
       </form>
-     
 
       <h1>Findmate</h1>
       <form>
           <textarea style="width:40%;" rows="6" cols="50" name="detail_feedback"></textarea><br />
           <button type="submit" style="width:40%;">Send</button><br />
       </form>
-
-      @{
-
-
-      }
-
   </div>
 
-      
-
-
-     
-   
-
 </body>
-
-
-
 </html>
