@@ -127,13 +127,21 @@
           
           <br /><br /> <b>ประเภท :</b>
          
-          <br /><br /><input type="radio" name="reserve" value="add1">  เข้าพัก 1 คน
-          <input type="radio" name="reserve" value="add2">   เข้าพัก 2 คน
-          <input type="radio" name="reserve" value="add3"> เข้าพัก  3 คน 
-          <input type="radio" name="reserve" value="add4"> เข้าพัก  4 คน 
+          <br /><br />
+          
+          @{
+              int maxcount =   Model.room.Room_Type.Max - Model.Reserved_num;
+              for (int i = 0; i < maxcount; i++)
+              {
+                  int val = i + 1;
+                <input type="radio" name="reserve" value="@val"    /><span>จองสำหรับ @val คน</span><br /><br />
+              }
+        }
          
 
-         <br/><br /><b>รายละเอียด :</b>
+         
+
+         <br /><b>รายละเอียด :</b>
           <br />
           <ul>
               <li>@Model.room.Room_Type.Type_Name</li>

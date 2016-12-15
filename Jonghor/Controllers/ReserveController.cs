@@ -43,16 +43,13 @@ namespace Jonghor.Controllers
             return View("Room", RoomViewList);
         }
 
-        public ActionResult Submit(string reserve)
+        public ActionResult Submit(int reserve)
         {
             int count = 0;
             int reserve_ID = 0;
             //new
-            if (reserve == "add1"){count = 1;}
-            else if (reserve == "add2"){ count = 2; }
-            else if (reserve == "add3") { count = 3; }
-            else if (reserve == "add4") { count = 4; }
-            
+            count = reserve;
+
 
             Room_Reserved reserved_input = new Room_Reserved();
             reserved_input.Room_ID = int.Parse(Session["room_id"]+"");
