@@ -53,5 +53,20 @@ namespace Jonghor.ViewModel
                 }
             }
         }
+        public void GetRoomListViewByOwnerName(string name, Status status)
+        {
+            PersonBusinessLayer userBa = new PersonBusinessLayer();
+            Person user = userBa.GetUser(name);
+            
+
+            foreach (var room in user.Dorm.First().Room)
+            {
+                if (room.Status == (int)status)
+                {
+                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status));
+                }
+            }
+        }
+
     }
 }
