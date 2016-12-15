@@ -161,7 +161,16 @@ namespace Jonghor.Controllers
                 }
             }
 
-            return View("Searchpage", DormSearch);
+            List<DormDetailViewModel> Dormviewmodel = new List<DormDetailViewModel>();
+
+            foreach (Dorm dorm in DormSearch)
+            {
+                DormDetailViewModel dormview = new DormDetailViewModel();
+                dormview.SetDorm(dorm.Dorm_ID);
+                Dormviewmodel.Add(dormview);
+            }
+
+            return View("Searchpage", Dormviewmodel);
 
         }
 

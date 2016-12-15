@@ -20,6 +20,7 @@ namespace Jonghor.Models
             this.Dorm_Option = new HashSet<Dorm_Option>();
             this.Dorm_Rate = new HashSet<Dorm_Rate>();
             this.Person1 = new HashSet<Person>();
+            this.Room = new HashSet<Room>();
         }
     
         public int Dorm_ID { get; set; }
@@ -49,5 +50,7 @@ namespace Jonghor.Models
         public virtual ICollection<Dorm_Rate> Dorm_Rate { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Person> Person1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Room> Room { get; set; }
     }
 }
