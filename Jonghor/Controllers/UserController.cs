@@ -40,7 +40,8 @@ namespace Jonghor.Controllers
             bool alreadyCheck = dormRate.Any();
             if (alreadyCheck)
             {
-                dormRate.First().Score = star;
+                Response.Write("<script>alert('You're already voted')</script>");
+                return Index();
             }
             else
             {
