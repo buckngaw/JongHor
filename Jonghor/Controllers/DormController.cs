@@ -117,6 +117,9 @@ namespace Jonghor.Controllers
             return View("../Host/RoomManagement_Host", roomListview);
 
         }
-       
+        public ActionResult Roomsort(string option)
+        {
+            return Content(option);
+        }
     }
 }

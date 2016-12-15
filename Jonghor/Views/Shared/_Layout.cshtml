@@ -4,186 +4,186 @@
 <html>
 
 <style>
-    /* Full-width input fields */
-    input[type=text], input[type=password] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-    }
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
 
-    /* Set a style for all buttons */
+/* Set a style for all buttons */
     button {
-        background-color: #FF8000;
-        color: white;
-        padding: 14px 20px;
-        margin: 10px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-    }
+    background-color: #FF8000;
+    color: white;
+    padding: 14px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
 
         button.trans {
-            background-color: transparent;
-            color: blue;
-            text-decoration: underline;
-        }
+    background-color: transparent;
+    color: blue;
+    text-decoration: underline;
+}
 
-    /* Extra styles for the cancel button */
-    .cancelbtn {
-        width: auto;
-        padding: 10px 18px;
-        background-color: #f44336;
-    }
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
 
     .registerbtn {
-        width: 100%;
-        color: Red;
-        text-decoration: underline;
-        padding: 14px 20px;
-        background-color: #FFFFFF;
-    }
+	 width: 100%;
+	 color: Red;
+	 text-decoration: underline;
+    padding: 14px 20px;
+    background-color: #FFFFFF;
+}
 
-    /* Center the image and position the close button */
-    .imgcontainer {
-        text-align: center;
-        margin: 24px 0 12px 0;
-        position: relative;
-    }
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
 
-    img.avatar {
-        width: 40%;
-    }
+img.avatar {
+    width: 40%;
+}
 
-    .container {
-        padding: 14px;
-    }
+.container {
+    padding: 14px;
+}
 
-    span.psw {
-        float: right;
-        padding-top: 16px;
-    }
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
 
-    /* The Modal (background) */
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         padding-top: 5px;
-    }
+}
 
-    /* Modal Content/Box */
-    .modal-content {
-        background-color: #fefefe;
-        margin: auto; /* 5% from the top, 15% from the bottom and centered */
-        border: 1px solid #888;
-        width: 30%; /* Could be more or less, depending on screen size */
-    }
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+}
 
-    /* The Close Button (x) */
-    .close {
-        position: absolute;
-        right: 25px;
-        top: 0;
-        color: #000;
-        font-size: 35px;
-        font-weight: bold;
-    }
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
 
-        .close:hover,
-        .close:focus {
-            color: red;
-            cursor: pointer;
-        }
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
 
-    /* Add Zoom Animation */
-    .animate {
-        -webkit-animation: animatezoom 0.6s;
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
         animation: animatezoom 0.6s;
-    }
+}
 
-    /*Background*/
+/*Background*/
 
-    body {
+body {
         background-image: url("../../Content/aerial_view_of_empire_state_building-wallpaper-2560x1440.jpg");
         background-size: 100% auto;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
     input[type=submit] {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 14px 30px;
-        text-decoration: none;
-        margin: 4px 2px;
-        cursor: pointer;
-    }
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 14px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
-    /* User layout */
-    div.container {
-    }
+/* User layout */
+div.container {
+}
 
     section {
-        padding: 1em;
-        color: white;
-        background-color: Orange;
+    padding: 1em;
+    color: white;
+    background-color: Orange;
         background-transporte clear: left;
-        text-align: center;
-    }
+    text-align: center;
+}
 
-    footer {
-        padding: 1em;
-        color: white;
-        background-color: #FFB529;
-        text-align: right;
-        clear: both;
-        position: relative;
-        z-index: 10;
-        margin-top: -3em;
-        opacity: 0.6;
-        filter: alpha(opacity=60);
-    }
+footer {
+    padding: 1em;
+    color: white;
+    background-color: #FFB529;
+    text-align: right;
+	clear: both;
+    position: relative;
+    z-index: 10;
+    margin-top: -3em;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
 
-    nav {
+nav {
         height: 100%;
         bottom: 0;
         top: 0;
-        float: right;
-        max-width: 15%;
-        margin: 5px 0px;
-        padding: 1em;
+    float: right;
+    max-width: 15%;
+    margin: 5px 0px;
+    padding: 1em;
         background-color: #FFCD90;
-    }
+}
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
 
-            nav ul a {
-                text-decoration: none;
-            }
-
-    article {
-        overflow: hidden;
-    }
+article {
+    overflow: hidden;
+}
 
     .user_photo {
-        width: 100%;
-        height: 100%;
-        margin: 10px 0;
-    }
+    width: 100%;
+    height: 100%;
+	margin: 10px 0;
+}
 
     .user_info_header {
         text-align: left;
@@ -195,109 +195,109 @@
         text-align: left;
         font-size: 25px;
         color: black;
-      
+
     }
     .user_info {
         text-align: left;
         font-size: 20px;
         color: #f44336;
         margin: 5px 0;
-    }
+}
 </style>
 
 
 
 <body>
-    <div id="id01" class="modal">
-
+<div id="id01" class="modal">
+  
         <form class="modal-content animate" action="/Login/DoLogin" method="post">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <img src="http://visualoop.com/wp-content/themes/visualoop/img/there-is-no-picture-for-this-user2.png" alt="Avatar" class="avatar">
-            </div>
+    </div>
 
-            <div class="container">
-                <label><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
 
-                <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-
-                <button type="submit">Login</button>
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
                 <input type="checkbox" checked="checked" name="isRemem" value="true"> Remember me
-            </div>
+    </div>
 
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
         </form>
     </div>
 
 
-    <script>
-        // Get the modal
-        var modal = document.getElementById('id01');
-        var modal2 = document.getElementById('id02');
-        // When the user clicks anywhere outside of the modal, close it
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+var modal2 = document.getElementById('id02');
+// When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-            else if (event.target == modal2) {
-                modal2.style.display = "none";
-            }
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+	else if (event.target == modal2) {
+        modal2.style.display = "none";
+	}
 
-        }
+    }
 
 
-    </script>
+</script>
 
-    <div class="container">
+<div class="container">
 
-        <section>
-            <h2><font color="White">JongHor</font></h2>
-        </section>
-
-        <nav>
-            <ul>
+<section>
+   <h2><font color="White">JongHor</font></h2> 
+</section>
+  
+<nav>
+  <ul>
                 @if (Session["Username"] != null)
                 {
-                    <ul>
-                        <button type="button" onclick="location.href='@Url.Action("DoLogout", "Login")' " style="width:auto; float:right;">Logout</button>
-                        <!--    <input type="image" src="http://image.flaticon.com/icons/png/512/3/3513.png" name="notification" width="20px" height="20px" style="float:left; margin:10px;">-->
-                        <input onclick="location.href='@Url.Action("Index", "Home")' " type="image" src="http://findicons.com/files/icons/1580/devine_icons_part_2/256/home.png" name="home" width="20px" height="20px" style="float:left; margin:10px;">
-                        @if ((bool)Session["Notify"] == true)
-                        {
-                            <input onclick="location.href='@Url.Action("Index", "Message")' " type="image" src="../Content/noti_message.png" name="notification" width="20px" height="20px" style="float:right; margin:10px;">
-                        }
-                        else
-                        {
-                            <input onclick="location.href='@Url.Action("Index", "Message")' " type="image" src="http://www.free-icons-download.net/images/new-message-icon-75691.png" name="notification" width="20px" height="20px" style="float:left; margin:10px;">
-                        }
+                        <ul>
+                            <button type="button" onclick="location.href='@Url.Action("DoLogout", "Login")' " style="width:auto; float:right;">Logout</button>
+                            <!--    <input type="image" src="http://image.flaticon.com/icons/png/512/3/3513.png" name="notification" width="20px" height="20px" style="float:left; margin:10px;">-->
+                            <input onclick="location.href='@Url.Action("Index", "Home")' " type="image" src="http://findicons.com/files/icons/1580/devine_icons_part_2/256/home.png" name="home" width="20px" height="20px" style="float:left; margin:10px;">
+                            @if ((bool)Session["Notify"] == true)
+                            {
+                                <input onclick="location.href='@Url.Action("Index", "Message")' " type="image" src="../Content/noti_message.png" name="notification" width="20px" height="20px" style="float:right; margin:10px;">
+                            }
+                            else
+                            {
+                                <input onclick="location.href='@Url.Action("Index", "Message")' " type="image" src="http://www.free-icons-download.net/images/new-message-icon-75691.png" name="notification" width="20px" height="20px" style="float:left; margin:10px;">
+                            }
 
-                    </ul>
-                    <img class="user_photo" src="https://skincareayurveda.com/photos/kayakalp-global-featured-image-1468303717.png">
+                        </ul>
+                        <img class="user_photo" src="https://skincareayurveda.com/photos/kayakalp-global-featured-image-1468303717.png">
                     <label class="user_info_header">Welcome @Session["Username"].ToString()</label> <br/>
                     if (Session["UserShortProfile"] != null && !((UserShortProfileViewModel)Session["UserShortProfile"]).OwnDorm)
                     {
-                        <button type="button" class="trans" onclick="location.href='@Url.Action("Index", "Dorm")' " style="width:auto; float:right;">Add Dorm</button>
-                    }
+                            <button type="button" class="trans" onclick="location.href='@Url.Action("Index", "Dorm")' " style="width:auto; float:right;">Add Dorm</button>
+                        }
                     
                 }
                 else
                 {
                     <button type="button" onclick="location.href='@Url.Action("Registation", "Register")' " style="width:auto; float:right;">Register</button>
-                    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right;">Login</button>
+                     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; float:right;">Login</button>
                 }
-            </ul>
-        </nav>
+      </ul>
+</nav>
 
-    </div>
+</div>
 
     @RenderBody()
-
-
+   
+    
 
 </body>
 </html>

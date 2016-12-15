@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Jonghor.ViewModel;
 
 namespace Jonghor.Controllers
 {
@@ -11,12 +12,25 @@ namespace Jonghor.Controllers
         // GET: User
         public ActionResult Index()
         {
-            return View("User");
+            UserProfileViewModel userViewModel = new UserProfileViewModel();
+            userViewModel.SetUser(Session["UserName"].ToString());
+
+            return View("User", userViewModel);
         }
 
         public ActionResult UserDetail()
         {
             return View("UserDetail");
+        }
+
+        public ActionResult StarCheck()
+        {
+            return View("User");
+        }
+
+        public ActionResult FeedbackSubmit()
+        {
+            return View("User");
         }
     }
 }

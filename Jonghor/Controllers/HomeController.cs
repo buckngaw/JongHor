@@ -20,7 +20,7 @@ namespace Jonghor.Controllers
             }
                
             else if (Session["Status"] != null && Session["Status"].ToString() == "User")
-                return View("../User/User");
+                return RedirectToAction("Index", "User");
             else
                 return View("Homepage");
         }

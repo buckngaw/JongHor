@@ -4,6 +4,7 @@
 }
 
 <html>
+
 <style>
     h1 {
         text-align: center;
@@ -15,7 +16,7 @@
     .photo_1 {
         margin: auto;
         width: 50% 500px;
-        height: 50% 500px;
+        height: 50% 499px;
     }
 
     .b {
@@ -37,18 +38,54 @@
 
         <div>
             <form action="/User/UserDetail" method="post">
+                
                 Name:<input type="text" name="Namse" required> <br></br>
-                Surname:<input type="text" name="information"></br></br>
-                identification card
-:<input type="text" name="BahtPerMonth"><font color="red">**** 13-character ; case sensitive</font></br></br>
-                Sex:<input type="text" name="BahtPerDay"></br></br>
-                Dorm Name:<input type="text" name="Deposit"><br></br>
-                Phone:<input type="text" name="E_Per_Unit"></br><font color="grey">10-character</font></br></br>               
-                Username:<input type="text" name="BahtPerMonth"></br></br>
-                Password:<input type="text" name="BahtPerDay"><font color="grey">6-character minimum; case sensitive</font></br></br>
+                Surname:<input type="text" name="Surname" required></br></br>
+                identification card:<input type="text" name="Ssn"><font color="red" required>
+                **** 13-character ; case sensitive</font></br></br>
+                                                 
+               
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                <div>
+                    Sex:
+                    <label>
+                        <input type="checkbox" class="radio" value="1" name="Sex[1][]" />Male
+                    </label>
+                    <label>
+                        <input type="checkbox" class="radio" value="1" name="Sex[1][]" />Female
+                    </label>
+                </div>   
+                <script>
+                    // the selector will match all input controls of type :checkbox
+                    // and attach a click event handler
+                    $("input:checkbox").on('click', function () {
+                        // in the handler, 'this' refers to the box clicked on
+                        var $box = $(this);
+                        if ($box.is(":checked")) {
+                            // the name of the box is retrieved using the .attr() method
+                            // as it is assumed and expected to be immutable
+                            var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                            // the checked state of the group/box on the other hand will change
+                            // and the current value is retrieved using .prop() method
+                            $(group).prop("checked", false);
+                            $box.prop("checked", true);
+                        } else {
+                            $box.prop("checked", false);
+                        }
 
-                <button class="b" type="submit">Submit</button>
-            </form>
+                    });
+                </script>               
+                    <br><br>
+
+                    Dorm Name:<input type="text" name="DormName" required><br></br>
+                    Phone:<input type="text" name="Phone"></br><font color="grey">10-character</font></br></br>
+                    Username:<input type="text" name="Username" required></br></br>
+                    Password:<input type="password" name="password"><font color="grey">
+                        6-character minimum; case sensitive
+                    </font></br></br>
+
+                    <button class="b" type="submit">Submit</button>
+</form>
         </div>
 
 
