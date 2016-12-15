@@ -232,8 +232,26 @@
                             <div align="left">
                                 <form action="">
                                     @{
-                                       
-                                    if(val.dormRates)
+                                        int avgrate = int.Parse(val.avgRate + "");
+                                        if (avgrate == 0)
+                                        {
+
+                                        }else if (avgrate == 1)
+                                        {
+
+
+                                        }else if (avgrate == 2)
+                                        {
+
+                                        }
+                                        else if (avgrate == 3)
+                                        {
+
+                                        }
+                                        else if (avgrate == 3)
+                                        {
+
+                                        }
                                      }
                                     <input class="star star-5" id="star-5" type="radio" name="star" disabled/>
                                     <label class="star star-5" for="star-5"></label>
