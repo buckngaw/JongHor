@@ -15,7 +15,7 @@ namespace Jonghor.ViewModel
         public string imageUrl { get; set; }
         public double avgRate { get; set; }
         public List<Dorm_Rate> dormRates = new List<Dorm_Rate>();
-
+        public RoomListViewModel roomListViewModel = new RoomListViewModel();
         
 
         public void SetDorm(int id)
@@ -33,6 +33,7 @@ namespace Jonghor.ViewModel
             dorm = layer.GetDorm(name);
             SetPrice();
             SetImage();
+            SetRooms(name);
         }
 
         
@@ -76,6 +77,14 @@ namespace Jonghor.ViewModel
                 avgRate = 0;
             }
            
+        }
+
+        public void SetRooms(string name)
+        {
+            PersonBusinessLayer pBal = new PersonBusinessLayer();
+            Person user = pBal.GetUser(name);
+            imageUrl = user.Dorm.First().Dorm_Picture.URL_Picture;
+            roomListViewModel.GetRoomListView(name, Status.Reserved);
         }
     }
 }

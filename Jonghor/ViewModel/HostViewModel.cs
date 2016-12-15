@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Jonghor.Models;
 
 namespace Jonghor.ViewModel
 {
@@ -12,7 +13,10 @@ namespace Jonghor.ViewModel
 
         public void SetHost(string name)
         {
-            //roomListViewModel.GetRoomListView(name, )
+            PersonBusinessLayer pBal = new PersonBusinessLayer();
+            Person user = pBal.GetUser(name);
+            imageUrl = user.Dorm.First().Dorm_Picture.URL_Picture;
+            roomListViewModel.GetRoomListView(name, Status.Reserved);
         }
     }
 }
