@@ -35,6 +35,14 @@ namespace Jonghor.ViewModel
             SetImage();
         }
 
+        public void SetDorm(string name)
+        {
+            DormLayer layer = new DormLayer();
+            dorm = layer.GetDorm(name);
+            SetPrice();
+            SetImage();
+        }
+
         public void SetPrice()
         {
             DormLayer layer = new DormLayer();
