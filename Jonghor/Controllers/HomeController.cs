@@ -26,7 +26,7 @@ namespace Jonghor.Controllers
         }
         public ActionResult Roommanage()
         {
-            return View("../Host/RoomManagement_Host");
+            return RedirectToAction("Index", "User");
         }
         public ActionResult Host()
         {
