@@ -137,7 +137,5 @@ namespace Jonghor.Controllers
             Session.Remove("Status");
             return RedirectToAction("Index", "Home");
         }
-
-
     }
 }

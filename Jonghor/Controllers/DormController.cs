@@ -15,7 +15,21 @@ namespace Jonghor.Controllers
         // GET: Dorm
         public ActionResult Index()
         {
-            return View("Edit");
+            if (Session["Status"] != null)
+            {
+                if(Session["Status"].ToString() == "Owner")
+                {
+                    return View("Edit");
+                }
+                else
+                {
+                    return View("Add");
+                }
+            }
+            else
+            {
+                return Content("Error");
+            }
         }
         public ActionResult Add()
         {
