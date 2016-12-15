@@ -31,6 +31,7 @@
         <AssociationConnector Association="JongHorDBModel1.FK_Room_Person" ManuallyRouted="false" />
         <AssociationConnector Association="JongHorDBModel1.FK_Room_Reserved_Room" ManuallyRouted="false" />
         <AssociationConnector Association="JongHorDBModel1.FK_Room_Option_Room_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="JongHorDBModel1.FK_Room_ToDorm" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

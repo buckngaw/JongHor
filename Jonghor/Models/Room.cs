@@ -32,5 +32,6 @@ namespace Jonghor.Models
         public virtual Room_Type Room_Type { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Room_Reserved> Room_Reserved { get; set; }
+        public virtual Dorm Dorm { get; set; }
     }
 }

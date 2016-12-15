@@ -20,6 +20,11 @@ namespace Jonghor.Controllers
         {
             return Json(!db.Person.Any(x => x.Username == Username), JsonRequestBehavior.AllowGet);
         }
+        [HttpGet]
+        public JsonResult IsSSNExists(String Ssn)
+        {
+            return Json(!db.Person.Any(x => x.Ssn == Ssn), JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult Registation()
         {
@@ -32,6 +37,11 @@ namespace Jonghor.Controllers
             if (bal.IsValidUser(p))
             {
                 ModelState.AddModelError("CredentialError", "Username is Exits");
+                return View("Register");
+            }
+            else if (bal.IsValidSsn(p))
+            {
+                ModelState.AddModelError("CredentialError2", "SSN is Exits");
                 return View("Register");
             }
             else

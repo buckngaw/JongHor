@@ -2,14 +2,18 @@
 @{
     Layout = "~/views/shared/_layout.cshtml";
 }
-
 <html>
 <style>
-	h1{
+h1{
 	text-align:center;
 	font-size:30px;
 	color:Orange;
 	font-weight:bold;
+}
+h2{
+    color:white;
+    font-weight:bold;
+    font-size:20px;
 }
 .photo_1{
 	margin:auto;
@@ -25,6 +29,15 @@
     cursor: pointer;
     width: auto;
 }
+
+.input1{
+    width: 50%;
+    padding: 0;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
 </style>
 <article>
 
@@ -34,27 +47,29 @@
 </h1>
 
         <div>
-            <form action="/Dorm/Edit" method="post">
-                Dorm name:<input type="text" name="Name" required> <br></br>
-                Description:<input type="text" name="information"></br></br>
-                Price per month:<input type="text" name="BahtPerMonth">Bath/month</br></br>
-                Price per day:<input type="text" name="BahtPerDay">Bath/day</br></br>
-                Bail:<input type="text" name="Deposit">Bath<br></br>
-                Electric's cost/Month:<input type="text" name="E_Per_Unit">Bath/Unit</br></br>
-                Water's cost/Month:<input type="text" name="W_Per_Unit">Bath/Unit</br></br>
-                Internet cost:<input type="text" name="Internet"> </br></br>
-			    
-                <form action="">
-                    url:<input type="text" name="url_picture0">
-                    url:<input type="text" name="url_picture0">
-                    url:<input type="text" name="url_picture0">
-                    url:<input type="text" name="url_picture0">
-                    url:<input type="text" name="url_picture0">
-                    <button class="c" type="submit">Send</button>
+            <h2>
+                <form action="/Dorm/Edit" method="post">
+                    Dorm name:<input class="input1" type="text" name="Name" required> <br></br>
+                    Description:<input type="text" name="information"></br></br>
+                    Price per month:<input type="text" name="BahtPerMonth">Bath/month</br></br>
+                    Price per day:<input type="text" name="BahtPerDay">Bath/day</br></br>
+                    Bail:<input type="text" name="Deposit">Bath<br></br>
+                    Electric's cost/Month:<input type="text" name="E_Per_Unit">Bath/Unit</br></br>
+                    Water's cost/Month:<input type="text" name="W_Per_Unit">Bath/Unit</br></br>
+                    Internet cost:<input type="text" name="Internet"> </br></br>
+                    <subbody>
+                        <form action="" style="margin 10px;">
+                            <label>URL of Dorm's Picture</label></br>
+                            url:<input class="input_url" type="text" name="url_picture0">
+                            url:<input class="input_url" type="text" name="url_picture1">
+                            url:<input class="input_url" type="text" name="url_picture2">
+                            url:<input class="input_url" type="text" name="url_picture3">
+                            url:<input class="input_url" type="text" name="url_picture4">
+                        </form>
+                    </subbody>
+                    <button class="b" type="submit">Submit</button>
                 </form>
-
-                <button class="b" type="submit">Submit</button>   
-            </form>
+            </h2>
         </div>
 
 

@@ -1,0 +1,197 @@
+﻿@using Jonghor.Models
+@using Jonghor.ViewModel
+@model List<Dorm>
+
+<!DOCTYPE html>
+<html>
+<style>
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    /* Set a style for all buttons */
+    button {
+        background-color: #FF8000;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
+
+    /* Center the image and position the close button */
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+        position: relative;
+    }
+
+    img.avatar {
+        width: 40%;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        padding-top: 60px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 25%; /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button (x) */
+    .close {
+        position: absolute;
+        right: 25px;
+        top: 0;
+        color: #000;
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+    /* Add Zoom Animation */
+    .animate {
+        -webkit-animation: animatezoom 0.6s;
+        animation: animatezoom 0.6s;
+    }
+
+    /*Background*/
+
+    body {
+        background-color: White;
+    }
+
+    input[type=submit] {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 14px 30px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+        .dormPic {
+        
+        width: 100%;
+        height: 200px;
+        }
+
+       .dormDetail {
+        
+         text-align:right;
+        }
+
+       .textonimage { 
+           position: relative; 
+           width: 100%; /* for IE 6 */
+        }
+
+       .textonimage_h2 { 
+           position: absolute; 
+           top: 540px; 
+           left: 0; 
+           width: 100%; 
+        }
+        .textonimage_h2_span { 
+           color: white; 
+           font: bold 24px/45px Helvetica, Sans-Serif; 
+           letter-spacing: -1px;  
+           background: rgb(0, 0, 0); /* fallback color */
+           background: rgba(0, 0, 0, 0.7);
+           padding: 10px; 
+          
+        }
+</style>
+<body>
+
+    <br /><br /><br />
+    <h2>
+        <center>
+           <div >
+               <img class="textonimage" style="width:100%; height:400px;" src="http://hpc-spain.com/img/mar-menor-golf-ich-poolarea.jpg" />
+               <h1 class=" textonimage_h2"><span class="textonimage_h2_span">VK</span></h1>
+           </div>
+        </center>
+    </h2>
+
+
+    <table border="0">
+        <tr >
+            <td><img style="width:50px; height:50px;" src="http://icons.iconarchive.com/icons/martz90/hex/512/line-icon.png" /></td>
+            <td><div><font style=" font-size:100%;">MyVKDorm</font></div></td>
+                          </tr>
+        <tr>
+            <td><img style="width:50px; height:50px;" src="http://icons.iconarchive.com/icons/martz90/hex/128/facebook-icon.png" /></td>
+            <td><div><font style=" font-size:100%;">ILoveVK</font></div></td>
+
+        </tr>
+
+        <tr>
+            <td><img style="width:50px; height:50px;" src="http://icons.iconarchive.com/icons/martz90/hex/512/instagram-2-icon.png" /></td>
+            <td><div><font style=" font-size:100%;">VKIneIne</font></div></td>
+        </tr>
+</table>
+
+
+
+            <script>
+                // Get the modal
+                var modal = document.getElementById('id01');
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+
+</body>
+
+
+
+</html>
