@@ -18,6 +18,8 @@ namespace Jonghor.ViewModel
         {
             DormLayer layer = new DormLayer();
             dorm = layer.GetDorm(id);
+            SetPrice();
+            SetImage();
         }
 
         public void SetPrice()
@@ -29,13 +31,23 @@ namespace Jonghor.ViewModel
             {
                 prices.Add(type.Price);
             }
+
+            if(prices.Capacity == 0) { prices.Add(0); }
             maxPrice = prices.Max();
             minPrice = prices.Min();
         }
 
         public void SetImage()
         {
-            imageUrl = dorm.Dorm_Picture.URL_Picture;
+            try
+            {
+                imageUrl = dorm.Dorm_Picture.URL_Picture;
+            }
+            catch
+            {
+                imageUrl = "http://www.novelupdates.com/img/noimagefound.jpg";
+            }
+           
         }
     }
 }
