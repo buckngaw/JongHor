@@ -42,6 +42,21 @@ namespace Jonghor.Controllers
 
             return View("Room", RoomViewList);
         }
+        
+        public ActionResult Filter(int Dormoption)
+        {
+            RoomViewLayer RoomDB = new RoomViewLayer();
+            List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm((int)Session["dorm_id"]);
+            List<RoomViewLayer> rooms = new List<RoomViewLayer>();
+            foreach (RoomViewLayer room in RoomViewList)
+            {
+                if(room.room.Status == Dormoption)
+                {
+                    rooms.Add(room);
+                }
+            }
+            return View("Room", rooms);
+        }
 
         public ActionResult Submit()
         {
