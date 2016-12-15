@@ -175,12 +175,18 @@ namespace Jonghor.Controllers
 
 
 
-           
-            //man->max
-                Dormviewmodel.Sort(delegate (DormDetailViewModel c1, DormDetailViewModel c2) { return c1.minPrice.CompareTo(c2.minPrice); });
-            //max->min
+           if( Dormoption == "pricemin")
+            {
+                //max->min
                 Dormviewmodel.Sort(delegate (DormDetailViewModel c1, DormDetailViewModel c2) { return c1.minPrice.CompareTo(c2.minPrice); });
 
+            }
+           else if (Dormoption == "pricemax")
+            {
+                //min->max
+                Dormviewmodel.Sort(delegate (DormDetailViewModel c1, DormDetailViewModel c2) { return c2.minPrice.CompareTo(c1.minPrice); });
+
+            }
 
 
 
