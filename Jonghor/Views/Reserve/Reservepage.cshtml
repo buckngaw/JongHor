@@ -125,9 +125,8 @@
           <br /><br /> <b>สถานะห้องพัก :</b>
           <br /><br />ห้องว่าง @Model.Reserved_num / @Model.room.Room_Type.Max คน
           
-          <br /><br /> <b>ประเภท :</b>
+          <br />
          
-          <br /><br />
           
           @{
               int maxcount =   Model.room.Room_Type.Max - Model.Reserved_num;
@@ -177,7 +176,7 @@
             
         } 
           <font style="color:red; font:  25px Helvetica, Sans-Serif;">@txt</font>
-          <br />  <br />  <input type="submit" value="Confirm">
+          <br />    <input type="submit" value="Confirm">
       </form>
 
 

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/15/2016 22:05:14
+-- Date Created: 12/15/2016 22:42:43
 -- Generated from EDMX file: C:\Users\WIN8.1\Source\Repos\JongHorV3\Jonghor\Models\JongHorModel.edmx
 -- --------------------------------------------------
 
