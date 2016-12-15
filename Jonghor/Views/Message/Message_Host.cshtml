@@ -5,52 +5,55 @@
 @model UserShortProfileViewModel
 
 <html>
-<style>
-    h1 {
-        text-align: center;
-        font-size: 30px;
-        color: Orange;
-        font-weight: bold;
-    }
+<article>
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 30px;
+            color: Orange;
+            font-weight: bold;
+        }
 
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 90%;
-        padding:50px
-        
-    }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 90%;
+            padding: 50px;
+        }
 
-    td, th {
-        border: 2px solid #dddddd;
-        text-align: left;
-        padding: 20px;
-    }
-
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
-</style>
-	<center><h1>Inbox Message</h1></center>
-<table>
-    
-    @foreach (Message item in Model.Messages)
-    {
-        <tr>
-            <td>@item.Title</td>
-            <td>
-               @item.Date
-            </td>
-            <td>@item.Text</td>
-            <td>@item.Sender_Username</td>
-           
-        </tr>
-    }
+        td, th {
+            border: 2px solid #dddddd;
+            text-align: left;
+            padding: 20px;
+        }
 
 
-</table>
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        tr:nth-child(odd) {
+            background-color: white;
+        }
+    </style>
+    <center><h1>Inbox Message</h1></center>
+    <table>
+
+        @foreach (Message item in Model.Messages)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>
+                    @item.Date
+                </td>
+                <td>@item.Text</td>
+                <td>@item.Sender_Username</td>
+
+            </tr>
+        }
 
 
+    </table>
 
+
+</article>
 </html>

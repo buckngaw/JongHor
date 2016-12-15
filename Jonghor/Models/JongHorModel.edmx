@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Dorm_ID" />
           </Key>
-          <Property Name="Dorm_ID" Type="int" Nullable="false" />
+          <Property Name="Dorm_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="M_username" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Lat" Type="varchar" MaxLength="50" />
@@ -95,11 +95,12 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <Key>
             <PropertyRef Name="Room_ID" />
           </Key>
-          <Property Name="Room_ID" Type="int" Nullable="false" />
+          <Property Name="Room_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Floor" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Dorm_ID" Type="int" Nullable="false" />
           <Property Name="Type_ID" Type="int" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Room_number" Type="nchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Room_Option' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -511,6 +512,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <NavigationProperty Name="Room_Type" Relationship="Self.FK_Room_Person" FromRole="Room" ToRole="Room_Type" />
           <NavigationProperty Name="Room_Reserved" Relationship="Self.FK_Room_Reserved_Room" FromRole="Room" ToRole="Room_Reserved" />
           <NavigationProperty Name="Dorm" Relationship="JongHorDBModel1.FK_Room_ToDorm" FromRole="Room" ToRole="Dorm" />
+          <Property Name="Room_number" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Room_Reserved">
           <Key>
@@ -836,150 +838,150 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="JongHorDBModel1StoreContainer" CdmEntityContainer="JongHorDBEntities3">
-          <EntitySetMapping Name="Dorm">
-            <EntityTypeMapping TypeName="JongHorDBModel1.Dorm">
-              <MappingFragment StoreEntitySet="Dorm">
-                <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="M_username" ColumnName="M_username" />
-                <ScalarProperty Name="Lat" ColumnName="Lat" />
-                <ScalarProperty Name="Long" ColumnName="Long" />
-                <ScalarProperty Name="information" ColumnName="information" />
-                <ScalarProperty Name="Line" ColumnName="Line" />
-                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
-                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
-                <ScalarProperty Name="Tel" ColumnName="Tel" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Deposit" ColumnName="Deposit" />
-                <ScalarProperty Name="W_minimum" ColumnName="W_minimum" />
-                <ScalarProperty Name="W_Per_Unit" ColumnName="W_Per_Unit" />
-                <ScalarProperty Name="Internet" ColumnName="Internet" />
-                <ScalarProperty Name="E_Minimum" ColumnName="E_Minimum" />
-                <ScalarProperty Name="E_Per_Unit" ColumnName="E_Per_Unit" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dorm_Label">
-            <EntityTypeMapping TypeName="JongHorDBModel1.Dorm_Label">
-              <MappingFragment StoreEntitySet="Dorm_Label">
-                <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
-                <ScalarProperty Name="Label_text" ColumnName="Label_text" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dorm_Picture">
-            <EntityTypeMapping TypeName="JongHorDBModel1.Dorm_Picture">
-              <MappingFragment StoreEntitySet="Dorm_Picture">
-                <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
-                <ScalarProperty Name="URL_Picture" ColumnName="URL_Picture" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Message">
-            <EntityTypeMapping TypeName="JongHorDBModel1.Message">
-              <MappingFragment StoreEntitySet="Message">
-                <ScalarProperty Name="Isread" ColumnName="Isread" />
-                <ScalarProperty Name="Sender_Username" ColumnName="Sender_Username" />
-                <ScalarProperty Name="Receiver_Username" ColumnName="Receiver_Username" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Text" ColumnName="Text" />
-                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Person">
-            <EntityTypeMapping TypeName="JongHorDBModel1.Person">
-              <MappingFragment StoreEntitySet="Person">
-                <ScalarProperty Name="Find_Mate" ColumnName="Find_Mate" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JongHorDBModel1StoreContainer" CdmEntityContainer="JongHorDBEntities3">
+    <EntitySetMapping Name="Dorm">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel1.Dorm)">
+        <MappingFragment StoreEntitySet="Dorm">
+          <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="M_username" ColumnName="M_username" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="Long" ColumnName="Long" />
+          <ScalarProperty Name="information" ColumnName="information" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Deposit" ColumnName="Deposit" />
+          <ScalarProperty Name="W_minimum" ColumnName="W_minimum" />
+          <ScalarProperty Name="W_Per_Unit" ColumnName="W_Per_Unit" />
+          <ScalarProperty Name="Internet" ColumnName="Internet" />
+          <ScalarProperty Name="E_Minimum" ColumnName="E_Minimum" />
+          <ScalarProperty Name="E_Per_Unit" ColumnName="E_Per_Unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dorm_Label">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel1.Dorm_Label)">
+        <MappingFragment StoreEntitySet="Dorm_Label">
+          <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
+          <ScalarProperty Name="Label_text" ColumnName="Label_text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dorm_Picture">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel1.Dorm_Picture)">
+        <MappingFragment StoreEntitySet="Dorm_Picture">
+          <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
+          <ScalarProperty Name="URL_Picture" ColumnName="URL_Picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Message">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel1.Message)">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="Sender_Username" ColumnName="Sender_Username" />
+          <ScalarProperty Name="Receiver_Username" ColumnName="Receiver_Username" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Isread" ColumnName="Isread" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Person">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel1.Person)">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Ssn" ColumnName="Ssn" />
+          <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Find_Mate" ColumnName="Find_Mate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel1.Room)">
+        <MappingFragment StoreEntitySet="Room">
+          <ScalarProperty Name="Room_number" ColumnName="Room_number" />
                 <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Ssn" ColumnName="Ssn" />
-                <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
-                <ScalarProperty Name="Sex" ColumnName="Sex" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Room">
-            <EntityTypeMapping TypeName="JongHorDBModel1.Room">
-              <MappingFragment StoreEntitySet="Room">
-                <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
-                <ScalarProperty Name="Floor" ColumnName="Floor" />
-                <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
-                <ScalarProperty Name="Type_ID" ColumnName="Type_ID" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Room_Reserved">
-            <EntityTypeMapping TypeName="JongHorDBModel1.Room_Reserved">
-              <MappingFragment StoreEntitySet="Room_Reserved">
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
-                <ScalarProperty Name="Count" ColumnName="Count" />
-                <ScalarProperty Name="Reserve_ID" ColumnName="Reserve_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Room_Type">
-            <EntityTypeMapping TypeName="JongHorDBModel1.Room_Type">
-              <MappingFragment StoreEntitySet="Room_Type">
-                <ScalarProperty Name="Type_Id" ColumnName="Type_Id" />
-                <ScalarProperty Name="Type_Name" ColumnName="Type_Name" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Max" ColumnName="Max" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Table">
-            <EntityTypeMapping TypeName="JongHorDBModel1.Table">
-              <MappingFragment StoreEntitySet="Table">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Floor" ColumnName="Floor" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dorm_Option">
-            <EntityTypeMapping TypeName="JongHorDBModel1.Dorm_Option">
-              <MappingFragment StoreEntitySet="Dorm_Option">
-                <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
-                <ScalarProperty Name="Option" ColumnName="Option" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dorm_Rate">
-            <EntityTypeMapping TypeName="JongHorDBModel1.Dorm_Rate">
-              <MappingFragment StoreEntitySet="Dorm_Rate">
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
-                <ScalarProperty Name="Score" ColumnName="Score" />
-                <ScalarProperty Name="Text" ColumnName="Text" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Room_Option">
-            <EntityTypeMapping TypeName="JongHorDBModel1.Room_Option">
-              <MappingFragment StoreEntitySet="Room_Option">
-                <ScalarProperty Name="Room_type" ColumnName="Room_type" />
-                <ScalarProperty Name="Option" ColumnName="Option" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+          <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
+          <ScalarProperty Name="Type_ID" ColumnName="Type_ID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room_Reserved">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel1.Room_Reserved)">
+        <MappingFragment StoreEntitySet="Room_Reserved">
+          <ScalarProperty Name="Reserve_ID" ColumnName="Reserve_ID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room_Type">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel1.Room_Type)">
+        <MappingFragment StoreEntitySet="Room_Type">
+          <ScalarProperty Name="Type_Id" ColumnName="Type_Id" />
+          <ScalarProperty Name="Type_Name" ColumnName="Type_Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel1.Table)">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dorm_Option">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel1.Dorm_Option)">
+        <MappingFragment StoreEntitySet="Dorm_Option">
+          <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
+          <ScalarProperty Name="Option" ColumnName="Option" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dorm_Rate">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel1.Dorm_Rate)">
+        <MappingFragment StoreEntitySet="Dorm_Rate">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Dorm_ID" ColumnName="Dorm_ID" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room_Option">
+      <EntityTypeMapping TypeName="IsTypeOf(JongHorDBModel1.Room_Option)">
+        <MappingFragment StoreEntitySet="Room_Option">
+          <ScalarProperty Name="Room_type" ColumnName="Room_type" />
+          <ScalarProperty Name="Option" ColumnName="Option" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -993,7 +995,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

@@ -31,8 +31,12 @@ namespace Jonghor.Controllers
                 return Content("Error");
             }
         }
+        public ActionResult Add()
+        {
+            return View("Add");
+        }
 
-        public ActionResult Add(Dorm dorm)
+        public ActionResult Add(Dorm dorm,String floorcount,String roomcount)
         {
             if (Session["Status"] != null && Session["Status"].ToString() == "User")
             {
@@ -43,6 +47,14 @@ namespace Jonghor.Controllers
                 if (dormSelect == null)
                 {
                     db.Dorm.Add(dorm);
+                    for(int i=0;i< Int32.Parse(floorcount);i++)
+                    {
+                        for(int j=0;j< Int32.Parse(roomcount);j++)
+                        {
+                            
+                        }
+                    }
+
                     Session["Status"] = "Owner";
                 }
                 else
@@ -76,6 +88,8 @@ namespace Jonghor.Controllers
             Response.Write("<script>alert('Error')</script>");
             return RedirectToAction("Index", "Home");
         }
+
+
 
         public ActionResult Edit(Dorm dorm)
         {
@@ -126,6 +140,9 @@ namespace Jonghor.Controllers
 
             return View("../Host/RoomManagement_Host", roomListview);
         }
-       
+        public ActionResult Roomsort(string option)
+        {
+            return Content(option);
+        }
     }
 }
