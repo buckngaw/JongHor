@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Dorm_ID" />
           </Key>
-          <Property Name="Dorm_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dorm_ID" Type="int" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="M_username" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Lat" Type="varchar" MaxLength="50" />
@@ -95,7 +95,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <Key>
             <PropertyRef Name="Room_ID" />
           </Key>
-          <Property Name="Room_ID" Type="int" Nullable="false" />
+          <Property Name="Room_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Floor" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Dorm_ID" Type="int" Nullable="false" />
           <Property Name="Type_ID" Type="int" Nullable="false" />
