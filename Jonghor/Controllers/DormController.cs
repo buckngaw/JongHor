@@ -111,7 +111,6 @@ namespace Jonghor.Controllers
             roomListview.GetRoomListView(name);
 
             return View("../Host/RoomManagement_Host", roomListview);
-
         }
        
     }
