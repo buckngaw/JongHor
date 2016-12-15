@@ -35,10 +35,7 @@ namespace Jonghor.ViewModel
         public void ResetReadMessage(string name)
         {
             JongHorDBEntities1 jonghor = new JongHorDBEntities1();
-
-
-            //IQueryable<Message> messages = jonghor.Message.Where(m => m.Receiver_Username == name);
-
+            
             foreach (var record in jonghor.Message.Where(m => m.Receiver_Username == name))
             {
                 record.Isread = 1;

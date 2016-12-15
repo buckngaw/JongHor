@@ -43,16 +43,13 @@ namespace Jonghor.Controllers
             return View("Room", RoomViewList);
         }
 
-        public ActionResult Submit(string reserve)
+        public ActionResult Submit(int reserve)
         {
             int count = 0;
             int reserve_ID = 0;
             //new
-            if (reserve == "add1"){count = 1;}
-            else if (reserve == "add2"){ count = 2; }
-            else if (reserve == "add3") { count = 3; }
-            else if (reserve == "add4") { count = 4; }
-            else if (reserve == "roommate") { count = 1; }
+            count = reserve;
+
 
             Room_Reserved reserved_input = new Room_Reserved();
             reserved_input.Room_ID = int.Parse(Session["room_id"]+"");
@@ -101,6 +98,11 @@ namespace Jonghor.Controllers
                     error = 4,
                     room = int.Parse(Session["room_id"] + "")
                 });
+             // check full
+            }else if(Roomview.room.Room_Type.Max == (Roomview.Reserved_num + count)) // เท่ากัน
+            {
+                db.Room.Find(Roomview.room.Room_ID).Status = (int)Status.NotAvaliable;
+                
             }
 
 
@@ -112,19 +114,29 @@ namespace Jonghor.Controllers
                 if(reserve_ID  == Roomreserved.Reserve_ID)
                 {
                     reserve_ID++;
+                   
                 }
 
             }
 
             reserved_input.Reserve_ID = reserve_ID;
 
+          
             try
             {
-                db.Room_Reserved.Add(reserved_input);
+
+
+
+
+
+                    db.Room_Reserved.Add(reserved_input);
                 db.SaveChanges();
 
                 RoomViewLayer RoomDB = new RoomViewLayer();
                 List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm(int.Parse(Session["dorm_id"] + ""));
+
+                
+
 
                 return View("Room", RoomViewList);
             }

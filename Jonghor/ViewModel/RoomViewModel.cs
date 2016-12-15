@@ -8,7 +8,7 @@ namespace Jonghor.ViewModel
 {
     public enum Status
     {
-        Avaliable, WaitRoomMate, NotAvaliable
+        Avaliable, NotAvaliable, WaitRoomMate, 
     }
 
     public class RoomViewModel

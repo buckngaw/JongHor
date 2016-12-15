@@ -113,7 +113,7 @@
         padding:20px;
         width:200px;
         height:100px;
-        background-color:darkcyan;
+        background-image: url('https://www.mx7.com/i/cce/0Ql951.png');
         color:white;
         margin:10px;
     }
@@ -122,7 +122,7 @@
 
     <h2>
         
-        <center> VK </center>
+        
        
     </h2>
 
@@ -152,12 +152,12 @@
 
       @foreach (RoomViewLayer val in Model)
       {
-        <a href="Reserve?room=@val.room.Room_ID"><div class="roomlist">
-            <br />@val.room.Room_ID
-            <br />@val.room.Room_Type.Type_Name
-            <br />@val.Reserved_num / @val.room.Room_Type.Max 
-
-        </div></a>
+        <div class="roomlist" style="color:black; padding:20px;">
+            <font style="color:white; font: bold 60px Helvetica, Sans-Serif; float:left; padding:5px;">@val.room.Room_ID</font>
+            <br /> ห้อง @val.room.Room_Type.Type_Name
+            <br /> <font style="font:  20px Helvetica, Sans-Serif;"> @val.Reserved_num / @val.room.Room_Type.Max  </font> คน
+            <br /><a href="Reserve?room=@val.room.Room_ID"><button style="width:150px; height:40px; float:right"> จองห้องพัก </button></a>
+        </div>
 
 
     }
