@@ -6,16 +6,24 @@ using Jonghor.Models;
 
 namespace Jonghor.ViewModel
 {
-    public class UserMessengerViewModel
+    public class UserShortProfileViewModel
     {
         public List<Message> Messages { get; set; }
-        public bool hasNotify { get; set; }
+        public bool HasNotify { get; set; }
+        public bool HasDorm { get; set; }
 
-
-        public UserMessengerViewModel(string name)
+        public UserShortProfileViewModel(string name)
         {
             SetMessages(name);
-            hasNotify = Messages.Select(m => m.Isread).Contains(0);
+            HasNotify = Messages.Select(m => m.Isread).Contains(0);
+            CheckDorm(name);
+        }
+
+        private void CheckDorm(string name)
+        {
+            PersonBusinessLayer layer = new PersonBusinessLayer();
+            Person user = layer.GetUser(name);
+            hasDorm = user.Dorm_ID != null;
         }
 
         public void SetMessages(string name)
