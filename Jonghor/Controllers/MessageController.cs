@@ -15,6 +15,8 @@ namespace Jonghor.Controllers
             if(Session["UserName"] != null)
             {
                 UserMessengerViewModel user = new UserMessengerViewModel(Session["UserName"].ToString());
+                Session["Notify"] = false;
+                user.ResetReadMessage(Session["UserName"].ToString());
                 return View("Message_Host",user);
             }
             else

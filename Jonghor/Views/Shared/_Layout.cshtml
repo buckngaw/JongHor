@@ -23,6 +23,12 @@ button{
     width: 100%;
 }
 
+button.trans{
+    background-color: transparent;
+    color: blue;
+    text-decoration: underline;
+}
+
 /* Extra styles for the cancel button */
 .cancelbtn {
     width: auto;
@@ -106,7 +112,10 @@ span.psw {
 /*Background*/
 
 body {
-    background-color: White;
+    background-image : url("../../Content/aerial_view_of_empire_state_building-wallpaper-2560x1440.jpg");
+    background-size : 100% auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 input[type=submit]{
@@ -128,6 +137,7 @@ section{
     padding: 1em;
     color: white;
     background-color: Orange;
+    background-transporte
     clear: left;
     text-align: center;
 }
@@ -141,6 +151,9 @@ footer {
     position: relative;
     z-index: 10;
     margin-top: -3em;
+
+    opacity: 0.6;
+    filter: alpha(opacity=60);
 }
 nav {
 	height:100%;
@@ -213,50 +226,6 @@ article {
         </form>
     </div>
 
-    <div id="id02" class="modal" >
-<!--
-        <form name="Regis" class="modal-content animate" action="/Register/CreateUser" method="post">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-            </div>
-
-            <div class="container">
-               
-                <label><b>Username</b><font color="red">*</font></label>
-                <input type="text" placeholder="username" name="Username" required>
-                   @Html.ValidationMessage("CredentialError", new { style = "color:red;" })
-                <script src="~/Scripts/jquery-1.10.2.js"></script>
-                <script src="~/Scripts/jquery.validate.js"></script>
-                <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>  
-                </br>
-
-                <label><b>Password</b><font color="red" font-size="1px">* (upper than 6 characters)</font></label>
-                <input type="password" pattern=".{6,}" placeholder="password" name="Password" required title="Password more than 6 characters">
-
-                <label><b>FirstName</b><font color="red">*</font></label>
-                <input type="text" placeholder="Enter FirstName" name="Name" required>
-
-                <label><b>LastName</b><font color="red">*</font></label>
-                <input type="text" placeholder="Enter LastName" name="Surname" required>
-
-                <label><b>Gender</b></label><br>
-                <form>
-                    <input type="radio" name="Sex" value="0" checked>Male<br>
-                    <input type="radio" name="Sex" value="1">Female<br>
-                </form>
-
-                <label><b>SSID</b><font color="red">*</font></label>
-                <input type="text" name="Ssn" maxlength="13" required>
-
-                <label><b>Phone Number</b></label>
-                <input type="text" name="Phone" maxlength="10" required>
-                
-                <button onclick="document.getElementById('id02').style.display='block'" type="submit">Submit</button>
-            
-            </div>
-            </form> -->
-</div>
-
 
 <script>
 // Get the modal
@@ -286,22 +255,45 @@ var modal2 = document.getElementById('id02');
   <ul>
                 @if (Session["Username"] != null)
                 {
-                    <ul>                   
-                        <button type="button" onclick="location.href='@Url.Action("DoLogout", "Login")' " style="width:auto; float:right;">Logout</button>                         
-                  <!--    <input type="image" src="http://image.flaticon.com/icons/png/512/3/3513.png" name="notification" width="20px" height="20px" style="float:left; margin:10px;">-->  
-                        <input onclick="location.href='@Url.Action("Index", "Home")' " type="image" src="http://findicons.com/files/icons/1580/devine_icons_part_2/256/home.png" name="home" width="20px" height="20px" style="float:left; margin:10px;"> 
-                        @if ((bool)Session["Notify"] == true)
-                        {
-                            <input onclick="location.href='@Url.Action("Index", "Message")' " type="image" src="../Content/noti_message.png" name="notification" width="20px" height="20px" style="float:right; margin:10px;">
-                        }
-                        else
-                        {
-                            <input onclick="location.href='@Url.Action("Index", "Message")' " type="image" src="http://www.free-icons-download.net/images/new-message-icon-75691.png" name="notification" width="20px" height="20px" style="float:left; margin:10px;">
-                        }
-                        
-                    </ul>
-                    <img class="user_photo" src="https://skincareayurveda.com/photos/kayakalp-global-featured-image-1468303717.png">
-                    <label class="user_info_header">Welcome @Session["Username"].ToString()</label>
+                    if (Session["Dorm_ID"] != null)
+                    {
+                        <ul>
+                            <button type="button" onclick="location.href='@Url.Action("DoLogout", "Login")' " style="width:auto; float:right;">Logout</button>
+                            <!--    <input type="image" src="http://image.flaticon.com/icons/png/512/3/3513.png" name="notification" width="20px" height="20px" style="float:left; margin:10px;">-->
+                            <input onclick="location.href='@Url.Action("Index", "Home")' " type="image" src="http://findicons.com/files/icons/1580/devine_icons_part_2/256/home.png" name="home" width="20px" height="20px" style="float:left; margin:10px;">
+                            @if ((bool)Session["Notify"] == true)
+                            {
+                                <input onclick="location.href='@Url.Action("Index", "Message")' " type="image" src="../Content/noti_message.png" name="notification" width="20px" height="20px" style="float:right; margin:10px;">
+                            }
+                            else
+                            {
+                                <input onclick="location.href='@Url.Action("Index", "Message")' " type="image" src="http://www.free-icons-download.net/images/new-message-icon-75691.png" name="notification" width="20px" height="20px" style="float:left; margin:10px;">
+                            }
+
+                        </ul>
+                        <img class="user_photo" src="https://skincareayurveda.com/photos/kayakalp-global-featured-image-1468303717.png">
+                        <label class="user_info_header">Welcome @Session["Username"].ToString()</label>
+                    }
+                    else
+                    {
+                        <ul>
+                            <button type="button" onclick="location.href='@Url.Action("DoLogout", "Login")' " style="width:auto; float:right;">Logout</button>
+                            <!--    <input type="image" src="http://image.flaticon.com/icons/png/512/3/3513.png" name="notification" width="20px" height="20px" style="float:left; margin:10px;">-->
+                            <input onclick="location.href='@Url.Action("Index", "Home")' " type="image" src="http://findicons.com/files/icons/1580/devine_icons_part_2/256/home.png" name="home" width="20px" height="20px" style="float:left; margin:10px;">
+                            @if ((bool)Session["Notify"] == true)
+                            {
+                                <input onclick="location.href='@Url.Action("Index", "Message")' " type="image" src="../Content/noti_message.png" name="notification" width="20px" height="20px" style="float:right; margin:10px;">
+                            }
+                            else
+                            {
+                                <input onclick="location.href='@Url.Action("Index", "Message")' " type="image" src="http://www.free-icons-download.net/images/new-message-icon-75691.png" name="notification" width="20px" height="20px" style="float:left; margin:10px;">
+                            }
+
+                        </ul>
+                        <img class="user_photo" src="https://skincareayurveda.com/photos/kayakalp-global-featured-image-1468303717.png">
+                        <label class="user_info_header">Welcome @Session["Username"].ToString()</label>
+                        <button type="button" class="trans" onclick="location.href='@Url.Action("Index", "Dorm")' " style="width:auto; float:right;">Add Dorm</button>
+                    }
                 }
                 else
                 {
