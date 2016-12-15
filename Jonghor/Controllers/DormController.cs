@@ -15,13 +15,9 @@ namespace Jonghor.Controllers
         // GET: Dorm
         public ActionResult Index()
         {
-            return View("Edit");
-        }
-        public ActionResult Add()
-        {
             return View("Add");
         }
-
+       
         public ActionResult Add(Dorm dorm,String floorcount,String roomcount)
         {
             if (Session["Status"] != null && Session["Status"].ToString() == "User")
@@ -37,7 +33,15 @@ namespace Jonghor.Controllers
                     {
                         for(int j=0;j< Int32.Parse(roomcount);j++)
                         {
-                            
+                            Room r = new Room();
+                            r.Dorm_ID = dorm.Dorm_ID;
+                            r.Floor = (i+1).ToString();
+                            r.Room_number = (j+1).ToString();
+                            if(j<10)
+                            {
+                                r.Room_number = '0' + r.Room_number;
+                            }
+                            db.Room.Add(r);
                         }
                     }
 
