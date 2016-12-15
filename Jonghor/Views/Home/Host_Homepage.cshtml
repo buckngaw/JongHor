@@ -1,6 +1,11 @@
 
+
+
 <!DOCTYPE html>
 <html>
+
+
+
 <style>
 h1{
 	text-align:center;
@@ -26,15 +31,15 @@ h1{
 </style>
 <article>
 <head>
-	<h1>V.K.<font color="Black">Dorm</font></h1>	
+	<h1>@Model.dorm.Name<font color="Black">Dorm</font></h1>	
 </head>
 
 <body>
         <center>
-            <img class="photo_1" src="http://insights.wsp-pb.com/images/articles/225/img_super_zero_net_weber_dorm_energy_md.jpg"><br>
+            <img class="photo_1" src="@Model.imageUrl"><br>
     <button class="button1" onclick="location.href='@Url.Action("Roommanagement", "Dorm")' " style="width:250px; height:75px; float:center;">ROOM MANAGEMENT</button>
 	<button class="button1" onclick="location.href='@Url.Action("Index", "Chat")' " style="width:250px; height:75px; float:center;">MESSAGE</button><br>
-	<button class="button1" onclick="" style="width:250px; height:75px; float:center;">FEEDBACK</button>
+	<button class="button1" onclick="location.href='@Url.Action("Index", "Message")' " style="width:250px; height:75px; float:center;">FEEDBACK</button>
 	<button class="button1" onclick="location.href='@Url.Action("Index", "Dorm")' " style="width:250px; height:75px; float:center;">EDIT</button>
 	</center>
 	

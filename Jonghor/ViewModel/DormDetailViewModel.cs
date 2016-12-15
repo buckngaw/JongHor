@@ -13,11 +13,24 @@ namespace Jonghor.ViewModel
         public int minPrice { get; set; }
         //public List<string> imageUrls = new List<string>();
         public string imageUrl { get; set; }
+        public double avgRate { get; set; }
+        public List<Dorm_Rate> dormRates = new List<Dorm_Rate>();
+
+        
 
         public void SetDorm(int id)
         {
             DormLayer layer = new DormLayer();
             dorm = layer.GetDorm(id);
+            SetPrice();
+            SetImage();
+            SetRate();
+        }
+
+        public void SetDorm(string name)
+        {
+            DormLayer layer = new DormLayer();
+            dorm = layer.GetDorm(name);
             SetPrice();
             SetImage();
         }
@@ -46,6 +59,19 @@ namespace Jonghor.ViewModel
             catch
             {
                 imageUrl = "http://www.novelupdates.com/img/noimagefound.jpg";
+            }
+        }
+
+        public void SetRate()
+        {
+            try
+            {
+                dormRates = dorm.Dorm_Rate.ToList<Dorm_Rate>();
+                avgRate = dormRates.Select(d => d.Score).Average();
+            }
+            catch
+            {
+                avgRate = 0;
             }
            
         }

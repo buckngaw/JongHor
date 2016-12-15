@@ -54,9 +54,9 @@ namespace Jonghor.Controllers
 
         // GET: Register
         public ActionResult Index()
-        {
-            var person = db.Person.Include(p => p.Room);
-            return View(person.ToList());
+        {      
+            Response.Write("<script>alert('Register Successed')</script>");
+            return View("../Home/Homepage");
         }
 
         // GET: Register/Details/5
