@@ -126,8 +126,17 @@
           <br /><br />ห้องว่าง @Model.Reserved_num / @Model.room.Room_Type.Max คน
           
           <br />
-          
          
+          
+          @{
+              int maxcount =   Model.room.Room_Type.Max - Model.Reserved_num;
+              for (int i = 0; i < maxcount; i++)
+              {
+                  int val = i + 1;
+                <input type="radio" name="reserve" value="@val"    /><span>จองสำหรับ @val คน</span><br /><br />
+              }
+        }  
+
          <br /><b>รายละเอียด :</b>
           <br />
           <ul>
@@ -165,7 +174,7 @@
               }
 
             
-        }           
+        } 
           <font style="color:red; font:  25px Helvetica, Sans-Serif;">@txt</font>
           <br />    <input type="submit" value="Confirm">
       </form>
