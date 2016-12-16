@@ -71,10 +71,15 @@
                         <td>@item.Status</td>
                         <td></td>
                         <td><center>
-                                <form action="/Home/Index">
-                                    <button type="submit" value="1" style="width:auto;">Accept</button>
-                                    <button type="submit" value="0" style="width:auto;">Decline</button>
-                                </form>
+                            @if (item.Status == Status.Reserved.ToString())
+                            {
+                                <form action="/Dorm/AcceptReservedRoom">
+                                    <button name="room_id" type="submit" value="@item.Room_ID" style="width:auto;">Accept</button>
+                                    </form>
+                                    <form action="/Dorm/DeclineReservedRoom">
+                                        <button name="room_id" type="submit" value="@item.Room_ID" style="width:auto;">Decline</button>
+                                    </form>
+                            }
                             </center>
                         </td>
                     </tr>

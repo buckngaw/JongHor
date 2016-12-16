@@ -168,10 +168,10 @@
 
     <h2>
         <center><h1>User</h1>
-            <form action="/User/isroommate" >
+            <form action="/User/SetRoommate" >
 
 
-                @if (Model.isRoomMateMode)
+                @if (!Model.isRoomMateMode)
                 {
                     <button type="submit" name="roommate" value="1" style="width:10%;">เปิดระบบมองหาเมท</button><br />
                 }

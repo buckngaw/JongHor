@@ -25,7 +25,7 @@ namespace Jonghor.ViewModel
             {
                 if (room.Dorm_ID == dormId)
                 {
-                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person,room.Status));
+                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person,room.Status, room.Room_ID));
                 }
             }
 
@@ -54,11 +54,11 @@ namespace Jonghor.ViewModel
                 {
                     Room_Reserved reserved = room.Room_Reserved.First();
                     room.Person.Add(reserved.Person);
-                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status));
+                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status, room.Room_ID));
                 }
                 else if(room.Status == (int)status)
                 {
-                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status));
+                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status, room.Room_ID));
                 }
             }
         }
@@ -71,7 +71,7 @@ namespace Jonghor.ViewModel
             {
                 if (room.Status == (int)status)
                 {
-                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status));
+                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status, room.Room_ID));
                 }
             }
         }
