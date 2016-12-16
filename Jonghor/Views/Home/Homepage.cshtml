@@ -1,19 +1,11 @@
-﻿@{
-    Layout = "~/views/shared/_layout.cshtml";
-}
+﻿
 
 <!DOCTYPE html>
 <html>
+
 <style>
     /* Full-width input fields */
-    input[type=text], input[type=password] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-    }
+ 
 
     /* Set a style for all buttons */
     button {
@@ -53,9 +45,9 @@
         padding-top: 16px;
     }
 
-   
-    
-   
+
+
+
 
     /* The Close Button (x) */
     .close {
@@ -97,42 +89,46 @@
         margin: 4px 2px;
         cursor: pointer;
     }
-</style>
-<body>
-
-    <form action="@Url.Action("ViewSearch","Search")" method="post">
-        Search Dorm:
-        <input type="text" name="dname"
-               style=" width: 25%;
-               box-sizing: border-box;
-               border 2px solid: #ccc;
-               border-radius: 4px;
-               font-size: 16px;
-               background-color: white;
-               background-image: url('http://www.freeiconspng.com/uploads/search-icon-png-0.png');
-               background-size: 5%;
-               background-position: 10px 10px;
-               background-repeat: no-repeat;
-               padding: 10px 20px 12px 40px;">
-
-        <input type="submit" value="Search">
-    </form>
-
-  
-
-    <script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    input.search_style{
+                    width 25%; 
+                    box-sizing: border-box;
+                   border: 2px solid #ccc;
+                   border-radius: 4px;
+                   font-size :16px;
+                   background-color: white; 
+                   background-image: url('http//www.freeiconspng.com/uploads/search-icon-png-0.png');
+                      background-size: 5%;
+                     background-position: 10px 10px;
+                 background-repeat: no-repeat;
+            padding: 10px 20px 12px 40px; 
+        
     }
-}
-    </script>
+</style>
 
-</body>
+    <body>
+
+        <form action="@Url.Action("ViewSearch","Search")" method="post">
+            Search Dorm:
+            <input class="search_style" type="text" name="dname">
+
+            <input type="submit" value="Search">
+        </form>
+
+
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+
+    </body>
 
 
 
