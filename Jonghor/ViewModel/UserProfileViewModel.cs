@@ -20,7 +20,7 @@ namespace Jonghor.ViewModel
             hasDorm = user.Dorm_ID != null;
             if (hasDorm)
             {
-                isRoomMateMode = (Status)user.Room.Status == Status.WaitRoomMate;
+                isRoomMateMode = (Status)user.Find_Mate == Status.WaitRoomMate;
                 var dormRate = user.Dorm_Rate.Where(u => u.Dorm_ID == user.Dorm_ID);
                 if (dormRate.Count() > 0)
                 {
