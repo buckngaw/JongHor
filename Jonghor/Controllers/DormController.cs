@@ -186,6 +186,10 @@ namespace Jonghor.Controllers
                 roomListview.GetRoomListView(name, Status.NotAvaliable);
                 return View("../Host/RoomManagement_Host", roomListview);
             }
+            else if(option == "Reserve")
+            {
+
+            }
 
             return Content(option);
         }
