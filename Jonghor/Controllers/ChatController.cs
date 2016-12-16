@@ -20,7 +20,7 @@ namespace Jonghor.Controllers
             {
                 case "AllRoom":
                     return CheckAllRoom(m);
-                    case "SelectRoom":
+                case "SelectRoom":
                     return CheckSpecificRoom(m,receiver);
             }
            //  return "";
@@ -35,8 +35,10 @@ namespace Jonghor.Controllers
         {
             MessageLayer memlayer = new MessageLayer();
             List<Message> mlist = memlayer.GetMessage();
-           
 
+            DormLayer layer = new DormLayer();
+            Dorm dorm = layer.GetDorm(Session["UserName"].ToString());
+            int sender_dorm = dorm.Dorm_ID;
 
             int mlistid = mlist.Count;
             Message mem = new Message();
@@ -44,28 +46,35 @@ namespace Jonghor.Controllers
             List<Room> RoomList = RoomDB.GetStatusRoom(); //only room that have person live
                foreach (Room r in RoomList)
               {
-                  PersonLayer PL = new PersonLayer();
-                  List<Person> personoomList = PL.GetPerson();
-                  foreach (Person person in personoomList)
-                  {
-                      if (person.Room_ID == r.Room_ID)
-                      {
-                        mem = new Message();
-                        mem.Receiver_Username = person.Username;
-                          mem.Sender_Username = "host";                      
-                          mem.MessageID = mlistid + 1;
-                          mem.Title = m.Subject;
-                          mem.Text = m.Message;
-                        mem.Isread = 0;
-                        mem.Date = DateTime.Now.ToString("dd-MM-yyyy") + " " +
-                              DateTime.Today.ToString("HH:mm:ss tt");  //Date + Time
+                if(r.Dorm_ID == sender_dorm) {
+                    PersonLayer PL = new PersonLayer();
+                    List<Person> personoomList = PL.GetPerson();
+                    foreach (Person person in personoomList)
+                    {
                         
-                          db.Message.Add(mem);
-                         db.SaveChanges();
-                        mlistid++;
-                       
-                      }
-                  }
+                            if (person.Room_ID == r.Room_ID)
+                        {
+                            mem = new Message();
+                            mem.Receiver_Username = person.Username;
+                            mem.Sender_Username = Session["UserName"].ToString();
+                            mem.MessageID = mlistid + 1;
+                            mem.Title = m.Subject;
+                            mem.Text = m.Message;
+                            mem.Isread = 0;
+                            mem.Date = DateTime.Now.ToString("dd-MM-yyyy") + " " +
+                                  DateTime.Today.ToString("HH:mm:ss tt");  //Date + Time
+
+                            db.Message.Add(mem);
+                            db.SaveChanges();
+                            mlistid++;
+
+                        }
+                        
+
+                            
+                    }
+                }
+                  
 
                 
             }
@@ -73,7 +82,7 @@ namespace Jonghor.Controllers
 
             //return mem.Receiver_Username + " " + mem.Sender_Username + " " +
             //   " " + mem.Date ;
-            return RedirectToAction("Index", new
+            return RedirectToAction("SubmitSent", new
             {
                 action = 1
 
@@ -93,31 +102,42 @@ namespace Jonghor.Controllers
             List<Message> mlist = memlayer.GetMessage();
 
 
+            DormLayer layer = new DormLayer();
+            Dorm dorm = layer.GetDorm(Session["UserName"].ToString());
+            int sender_dorm = dorm.Dorm_ID;
+
+
             /// scan username of room
             RoomLayer Rl = new RoomLayer();
              List<Room> roomList = Rl.GetStatusRoom(); //get only unavailable room
-             foreach (Room room in roomList)
-             { if (room.Room_ID == int.Parse(receiver))
-                 {
-                     PersonLayer PL = new PersonLayer();
-                     List<Person> personoomList = PL.GetPerson();
-                     foreach (Person person in personoomList)
-                     {
-                         if (person.Room_ID == room.Room_ID)
-                         {
-                             mem.Receiver_Username = person.Username;
-                             CheckRoom = true;
-                         }                        
-                     }
-                 }
-                 else
-                 {
-                     CheckRoom = false;
-                 }
-             }
+            foreach (Room room in roomList)
+            {
+
+                if (room.Dorm_ID == sender_dorm)
+                {
+                    //int.Parse(receiver)
+
+                    if (room.Room_number == receiver)
+                    {
+                        PersonLayer PL = new PersonLayer();
+                        List<Person> personoomList = PL.GetPerson();
+                        foreach (Person person in personoomList)
+                        {
+
+                            if (person.Room_ID == room.Room_ID)
+                            {
+                                mem.Receiver_Username = person.Username;
+                                CheckRoom = true;
+                            }
+                        }
+                    }
+                    
+
+                }
+            }
              ///
 
-                 mem.Sender_Username = "Host"; 
+                 mem.Sender_Username = Session["UserName"].ToString(); 
                  mem.MessageID = mlist.Count + 1;       
                  mem.Title = m.Subject;
                 mem.Isread = 0;
