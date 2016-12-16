@@ -137,9 +137,28 @@
                       background-color: white;
                       background-repeat: no-repeat;
                       padding: 8px 5px 12px 15px;">
-                  <option value="0">Avaiable </option>
-                  <option value="1">NotAvaiable</option>
-                  <option value="2">WaitRoommate</option>
+
+                  @{
+                      string option0 = "";
+                      string option1 = "";
+                      string option2 = "";
+
+                    foreach (RoomViewLayer val in Model)
+                    {
+                        if (val.filter == 0) { option0 = "selected"; }
+                        else if (val.filter == 1) { option1 = "selected"; }
+                        else if (val.filter == 2) { option2 = "selected"; }
+                        break;
+                    }
+
+                   
+
+                            <option value="0" @option0>Avaiable </option>
+                            <option value="1" @option1>NotAvaiable</option>
+                            <option value="2"@option2>WaitRoommate</option>
+
+                }
+
               </select>
           </form>
       </div>
@@ -152,7 +171,13 @@
             <font style="color:white; font: bold 60px Helvetica, Sans-Serif; float:left; padding:5px;">@val.room.Room_ID</font>
             <br /> ห้อง @val.room.Room_Type.Type_Name
             <br /> <font style="font:  20px Helvetica, Sans-Serif;"> @val.Reserved_num / @val.room.Room_Type.Max  </font> คน
-            <br /><a href="Reserve?room=@val.room.Room_ID"><button style="width:150px; height:40px; float:right"> จองห้องพัก </button></a>
+            
+            @{
+                if (val.filter != 1)
+                { <br /><a href="Reserve?room=@val.room.Room_ID"><button style="width:150px; height:40px; float:right"> จองห้องพัก </button></a> }
+
+            }
+           
         </div>
 
 
