@@ -45,9 +45,31 @@ namespace Jonghor.ViewModel
         {
             PersonBusinessLayer userBa = new PersonBusinessLayer();
             Person user = userBa.GetUser(name);
+
+            int dorm_id = user.Dorm.First().Dorm_ID;
+
             foreach (var room in user.Dorm.First().Room)
             {
-                if(room.Status == (int)status)
+                if(room.Status == (int)Status.Reserved)
+                {
+                    Room_Reserved reserved = room.Room_Reserved.First();
+                    room.Person.Add(reserved.Person);
+                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status));
+                }
+                else if(room.Status == (int)status)
+                {
+                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status));
+                }
+            }
+        }
+
+        public void GetRoomFilter(string name, Status status)
+        {
+            PersonBusinessLayer userBa = new PersonBusinessLayer();
+            Person user = userBa.GetUser(name);
+            foreach (var room in user.Dorm.First().Room)
+            {
+                if (room.Status == (int)status)
                 {
                     Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status));
                 }

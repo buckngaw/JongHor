@@ -186,6 +186,13 @@ namespace Jonghor.Controllers
                 roomListview.GetRoomListView(name, Status.NotAvaliable);
                 return View("../Host/RoomManagement_Host", roomListview);
             }
+            else if(option == "Reserved")
+            {
+                RoomListViewModel roomListview = new RoomListViewModel();
+                string name = Session["UserName"].ToString();
+                roomListview.GetRoomListView(name, Status.Reserved);
+                return View("../Host/RoomManagement_Host", roomListview);
+            }
 
             return Content(option);
         }

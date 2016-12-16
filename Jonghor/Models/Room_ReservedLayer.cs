@@ -16,5 +16,14 @@ namespace Jonghor.Models
 
             return dormDal.ToList<Room_Reserved>();
         }
+
+        public List<Room_Reserved> GetRoomReservedByDormID(int dormId)
+        {
+            JongHorDBEntities1 db = new JongHorDBEntities1();
+
+            var roomReservedDB = db.Room_Reserved.Where(r => r.Room.Dorm_ID == dormId);
+
+            return roomReservedDB.ToList<Room_Reserved>();
+        }
     }
 }

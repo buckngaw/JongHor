@@ -8,15 +8,36 @@ namespace Jonghor.ViewModel
 {
     public class HostViewModel
     {
+        public Dorm dorm { get; set; }
         public string imageUrl { get; set; }
-        public RoomListViewModel roomListViewModel = new RoomListViewModel();
 
-        public void SetHost(string name)
+
+        public void SetDorm(int id)
         {
-            PersonBusinessLayer pBal = new PersonBusinessLayer();
-            Person user = pBal.GetUser(name);
-            imageUrl = user.Dorm.First().Dorm_Picture.URL_Picture;
-            roomListViewModel.GetRoomListView(name, Status.Reserved);
+            DormLayer layer = new DormLayer();
+            dorm = layer.GetDorm(id);
+            SetImage();
         }
+
+        public void SetDorm(string name)
+        {
+            DormLayer layer = new DormLayer();
+            dorm = layer.GetDorm(name);
+            SetImage();
+        }
+
+        public void SetImage()
+        {
+            try
+            {
+                imageUrl = dorm.Dorm_Picture.URL_Picture;
+            }
+            catch
+            {
+                imageUrl = "http://www.novelupdates.com/img/noimagefound.jpg";
+            }
+        }
+        
+        
     }
 }
