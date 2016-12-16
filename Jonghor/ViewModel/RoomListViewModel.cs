@@ -53,8 +53,11 @@ namespace Jonghor.ViewModel
                 if(room.Status == (int)Status.Reserved)
                 {
                     Room_Reserved reserved = room.Room_Reserved.First();
-                    room.Person.Add(reserved.Person);
-                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status, room.Room_ID));
+                    if(reserved.Count <= reserved.Room.Room_Type.Max)
+                    {
+                        room.Person.Add(reserved.Person);
+                        Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status, room.Room_ID));
+                    }
                 }
                 else if(room.Status == (int)status)
                 {

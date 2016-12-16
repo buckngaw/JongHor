@@ -32,10 +32,12 @@ namespace Jonghor.Controllers
             if (roommate == 1)
             {
                 db.Room.Where(r => r.Room_ID == user.Room_ID).First().Status = (int)Status.WaitRoomMate;
+                db.Person.Where(r => r.Room_ID == user.Room_ID).First().Find_Mate = (int)Status.WaitRoomMate;
             }
             else
             {
                 db.Room.Where(r => r.Room_ID == user.Room_ID).First().Status = (int)Status.NotAvaliable;
+                db.Person.Where(r => r.Room_ID == user.Room_ID).First().Find_Mate = (int)Status.Avaliable;
             }
             try
             {
