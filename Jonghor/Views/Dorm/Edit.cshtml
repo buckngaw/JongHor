@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 @{
     Layout = "~/views/shared/_layout.cshtml";
+    
 }
+@using Jonghor.ViewModel
+@model DormDetailViewModel
 <html>
 <style>
 h1{
@@ -48,15 +51,18 @@ h2{
 
         <div>
             <h2>
-                <form action="/User/Filter" method="post">
-                    Dorm name:<input class="input1" type="text" name="Name" required> <br></br>
-                    Description:<input type="text" name="information"></br></br>
-                    Price per month:<input type="text" name="BahtPerMonth">Bath/month</br></br>
-                    Price per day:<input type="text" name="BahtPerDay">Bath/day</br></br>
-                    Bail:<input type="text" name="Deposit">Bath<br></br>
-                    Electric's cost/Month:<input type="text" name="E_Per_Unit">Bath/Unit</br></br>
-                    Water's cost/Month:<input type="text" name="W_Per_Unit">Bath/Unit</br></br>
-                    Internet cost:<input type="text" name="Internet"> </br></br>
+                <form action="/Dorm/Edit?dorm_id=@Model.dorm.Dorm_ID" method="post">
+
+                    Dorm name:<input class="input1" type="text" name="Name" value="@Model.dorm.Name" required><br></br>
+                    Description:<input type="text" name="information" value="@Model.dorm.information"></br></br>        
+                    Deposit:<input type="text" name="Deposit" value="@Model.dorm.Deposit">Bath<br></br>
+                    Electric's cost/Month:<input type="text" name="E_Per_Unit" value="@Model.dorm.E_Per_Unit">Bath/Unit</br></br>
+                    Water's cost/Month:<input type="text" name="W_Per_Unit" value="@Model.dorm.W_Per_Unit">Bath/Unit</br></br>
+                    Internet cost:<input type="text" name="Internet" value="@Model.dorm.Internet"> </br></br>
+                    Telephone cost:<input type="text" name="Internet" value="@Model.dorm.Tel"> </br></br>
+                    Line:<input type="text" name="Internet" value="@Model.dorm.Line"> </br></br>
+                    Facebook:<input type="text" name="Internet" value="@Model.dorm.Facebook"> </br></br>
+                    Instagram:<input type="text" name="Internet" value="@Model.dorm.Instagram"> </br></br>
                     <subbody>
                                                         
                     </subbody>

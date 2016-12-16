@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html>
+
 <style>
     /* Full-width input fields */
     input[type=text], input[type=password] {
@@ -109,7 +110,6 @@
         margin: 4px 2px;
         cursor: pointer;
     }
-
 </style>
 <body>
 
@@ -121,12 +121,22 @@
 
   <div style="padding:30px;">
      
-      <form method="post"  action="@Url.Action("Submit", "Reserve")" >
+            <form method="post" action="@Url.Action("Submit", "Reserve")">
           <br /><br /> <b>สถานะห้องพัก :</b>
           <br /><br />ห้องว่าง @Model.Reserved_num / @Model.room.Room_Type.Max คน
           
           <br />
          
+
+                @{
+                    int maxcount = Model.room.Room_Type.Max - Model.Reserved_num;
+                    for (int i = 0; i < maxcount; i++)
+                    {
+                        int val = i + 1;
+                        <input type="radio" name="reserve" value="@val" /><span>จองสำหรับ @val คน</span><br /><br />
+                    }
+                }
+
          <br /><b>รายละเอียด :</b>
           <br />
           <ul>
@@ -143,8 +153,9 @@
               catch { }
 
               string txt = "";
-              if ( error_txt==1 ) // no login
-              {   txt = "plz Login Before Reserve .....";
+                    if (error_txt == 1) // no login
+                    {
+                        txt = "plz Login Before Reserve .....";
                 
               }
               else if (error_txt == 2) // error with key
