@@ -4,157 +4,183 @@
 <!DOCTYPE html>
 <html>
 
-    <style>
-        /* Full-width input fields */
-        input[type=text], input[type=password] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
+<style>
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
 
-        /* Set a style for all buttons */
-        button {
-            background-color: #FF8000;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
+    /* Set a style for all buttons */
+    button {
+        background-color: #FF8000;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
 
-        /* Extra styles for the cancel button */
-        .cancelbtn {
-            width: auto;
-            padding: 10px 18px;
-            background-color: #f44336;
-        }
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
 
-        /* Center the image and position the close button */
-        .imgcontainer {
-            text-align: center;
-            margin: 24px 0 12px 0;
-            position: relative;
-        }
+    /* Center the image and position the close button */
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+        position: relative;
+    }
 
-        img.avatar {
-            width: 40%;
-        }
+    img.avatar {
+        width: 40%;
+    }
 
-        .container {
-            padding: 16px;
-        }
+    .container {
+        padding: 16px;
+    }
 
-        span.psw {
-            float: right;
-            padding-top: 16px;
-        }
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
 
-        /* The Modal (background) */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            padding-top: 60px;
-        }
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        padding-top: 60px;
+    }
 
-        /* Modal Content/Box */
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto; /* 5% from the top, 15% from the bottom and centered */
-            border: 1px solid #888;
-            width: 25%; /* Could be more or less, depending on screen size */
-        }
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 25%; /* Could be more or less, depending on screen size */
+    }
 
-        /* The Close Button (x) */
-        .close {
-            position: absolute;
-            right: 25px;
-            top: 0;
-            color: #000;
-            font-size: 35px;
-            font-weight: bold;
-        }
+    /* The Close Button (x) */
+    .close {
+        position: absolute;
+        right: 25px;
+        top: 0;
+        color: #000;
+        font-size: 35px;
+        font-weight: bold;
+    }
 
-            .close:hover,
-            .close:focus {
-                color: red;
-                cursor: pointer;
-            }
-
-
-
-        /*Background*/
-
-        body {
-            background-color: White;
-        }
-
-        input[type=submit] {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 14px 30px;
-            text-decoration: none;
-            margin: 4px 2px;
+        .close:hover,
+        .close:focus {
+            color: red;
             cursor: pointer;
         }
 
-        .roomlist {
+
+
+    /*Background*/
+
+    body {
+        background-color: White;
+    }
+
+    input[type=submit] {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 14px 30px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .roomlist {
             padding: 20px;
             width: 200px;
             height: 100px;
-            background-image: url('https://www.mx7.com/i/cce/0Ql951.png');
+        background-image: url('https://www.mx7.com/i/cce/0Ql951.png');
             color: white;
             margin: 10px;
-        }
-    </style>
-    <body>
+    }
+</style>
+<body>
 
         <h2></h2>
-
-        <div style="padding:30px;">
-
+       
+  <div style="padding:30px;">
+      
             <div>
-                <form action="/Reserve/Filter?dorm=@Request.Params["dorm"]" method="post">
+          <form action="/Reserve/Filter?dorm=@Request.Params["dorm"]" method="post">
 
-                    <select name="Dormoption"
-                            style=" width 13%;
-                            font-size 16px;
-                            background-color white;
-                            background-repeat no-repeat;
-                            padding 8px 5px 12px 15px;">
-                        <option value="0">Avaiable </option>
-                        <option value="1">NotAvaiable</option>
-                        <option value="2">WaitRoommate</option>
-                    </select>
-                </form>
-            </div>
+              <select name="Dormoption"
+                      style=" width: 13%;
+                      font-size: 16px;
+                      background-color: white;
+                      background-repeat: no-repeat;
+                      padding: 8px 5px 12px 15px;"
+                      onchange="this.form.submit()">
+                      
+                  @{
+                      string option0 = "";
+                      string option1 = "";
+                      string option2 = "";
 
-            <br />
+                    foreach (RoomViewLayer val in Model)
+                    {
+                        if (val.filter == 0) { option0 = "selected"; }
+                        else if (val.filter == 1) { option1 = "selected"; }
+                        else if (val.filter == 2) { option2 = "selected"; }
+                        break;
+                    }
 
-            @foreach (RoomViewLayer val in Model)
-            {
-                <div class="roomlist" style="color:black; padding:20px;">
-                    <font style="color:white; font: bold 60px Helvetica, Sans-Serif; float:left; padding:5px;">@val.room.Room_ID</font>
-                    <br /> ห้อง @val.room.Room_Type.Type_Name
-                    <br /> <font style="font:  20px Helvetica, Sans-Serif;"> @val.Reserved_num / @val.room.Room_Type.Max  </font> คน
-                    <br /><a href="Reserve?room=@val.room.Room_ID"><button style="width:150px; height:40px; float:right"> จองห้องพัก </button></a>
-                </div>
+                   
 
+                            <option value="0" @option0 >Avaiable </option>
+                            <option value="1" @option1>NotAvaiable</option>
+                            <option value="2"@option2>WaitRoommate</option>
+
+                }
+
+              </select>
+          </form>
+      </div>
+     
+      <br />
+
+      @foreach (RoomViewLayer val in Model)
+      {
+        <div class="roomlist" style="color:black; padding:20px;">
+            <font style="color:white; font: bold 60px Helvetica, Sans-Serif; float:left; padding:5px;">@val.room.Room_ID</font>
+            <br /> ห้อง @val.room.Room_Type.Type_Name
+            <br /> <font style="font:  20px Helvetica, Sans-Serif;"> @val.Reserved_num / @val.room.Room_Type.Max  </font> คน
+            
+            @{
+                if (val.filter != 1)
+                { <br /><a href="Reserve?room=@val.room.Room_ID"><button style="width:150px; height:40px; float:right"> จองห้องพัก </button></a> }
 
             }
+           
         </div>
-    </body>
+
+
+    }
+</div>
+</body>
 
 </html>

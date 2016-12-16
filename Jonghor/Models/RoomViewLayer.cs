@@ -10,6 +10,7 @@ namespace Jonghor.Models
     {
         public Room room;
         public int Reserved_num = 0;
+        public int filter = 0;
 
         public List<RoomViewLayer> GetRoomViewByDorm(int Dorm_ID)
         {

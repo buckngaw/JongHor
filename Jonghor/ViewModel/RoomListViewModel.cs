@@ -25,7 +25,7 @@ namespace Jonghor.ViewModel
             {
                 if (room.Dorm_ID == dormId)
                 {
-                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person,room.Status));
+                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person,room.Status, room.Room_ID));
                 }
             }
 
@@ -45,28 +45,35 @@ namespace Jonghor.ViewModel
         {
             PersonBusinessLayer userBa = new PersonBusinessLayer();
             Person user = userBa.GetUser(name);
+
+            int dorm_id = user.Dorm.First().Dorm_ID;
+
             foreach (var room in user.Dorm.First().Room)
             {
-                if(room.Status == (int)status)
+                if(room.Status == (int)Status.Reserved)
                 {
-                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status));
+                    Room_Reserved reserved = room.Room_Reserved.First();
+                    room.Person.Add(reserved.Person);
+                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status, room.Room_ID));
+                }
+                else if(room.Status == (int)status)
+                {
+                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status, room.Room_ID));
                 }
             }
         }
-        public void GetRoomListViewByOwnerName(string name, Status status)
+
+        public void GetRoomFilter(string name, Status status)
         {
             PersonBusinessLayer userBa = new PersonBusinessLayer();
             Person user = userBa.GetUser(name);
-            
-
             foreach (var room in user.Dorm.First().Room)
             {
                 if (room.Status == (int)status)
                 {
-                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status));
+                    Rooms.Add(new RoomViewModel(room.Floor + room.Room_number, room.Person, room.Status, room.Room_ID));
                 }
             }
         }
-
     }
 }

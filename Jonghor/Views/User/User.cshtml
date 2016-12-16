@@ -4,232 +4,231 @@
 <!DOCTYPE html>
 <html>
 <article>
-    <style>
-        /* Full-width input fields */
-        input[type=text], input[type=password] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
+<style>
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
 
-        /* Set a style for all buttons */
-        button {
-            background-color: #FF8000;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
+    /* Set a style for all buttons */
+    button {
+        background-color: #FF8000;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
 
-        /* Extra styles for the cancel button */
-        .cancelbtn {
-            width: auto;
-            padding: 10px 18px;
-            background-color: #f44336;
-        }
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
 
-        /* Center the image and position the close button */
-        .imgcontainer {
-            text-align: center;
-            margin: 24px 0 12px 0;
-            position: relative;
-        }
+    /* Center the image and position the close button */
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+        position: relative;
+    }
 
-        img.avatar {
-            width: 40%;
-        }
+    img.avatar {
+        width: 40%;
+    }
 
-        .container {
-            padding: 16px;
-        }
+    .container {
+        padding: 16px;
+    }
 
-        span.psw {
-            float: right;
-            padding-top: 16px;
-        }
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
 
-        /* The Modal (background) */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            padding-top: 60px;
-        }
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        padding-top: 60px;
+    }
 
-        /* Modal Content/Box */
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto; /* 5% from the top, 15% from the bottom and centered */
-            border: 1px solid #888;
-            width: 25%; /* Could be more or less, depending on screen size */
-        }
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 25%; /* Could be more or less, depending on screen size */
+    }
 
-        /* The Close Button (x) */
-        .close {
-            position: absolute;
-            right: 25px;
-            top: 0;
-            color: #000;
-            font-size: 35px;
-            font-weight: bold;
-        }
+    /* The Close Button (x) */
+    .close {
+        position: absolute;
+        right: 25px;
+        top: 0;
+        color: #000;
+        font-size: 35px;
+        font-weight: bold;
+    }
 
-            .close:hover,
-            .close:focus {
-                color: red;
-                cursor: pointer;
-            }
-
-
-
-        /*Background*/
-
-        body {
-            background-color: White;
-        }
-
-        input[type=submit] {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 14px 30px;
-            text-decoration: none;
-            margin: 4px 2px;
+        .close:hover,
+        .close:focus {
+            color: red;
             cursor: pointer;
         }
 
-        button {
-            background-color: #FF8000;
-            color: white;
+
+
+    /*Background*/
+
+    body {
+        background-color: White;
+    }
+
+    input[type=submit] {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 14px 30px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+     button {
+        background-color: #FF8000;
+        color: white;
             padding: 10px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-    </style>
-    <style>
-        div.stars {
-            width: 270px;
-            display: inline-block;
-        }
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+</style>
+<style>
+    div.stars {
+        width: 270px;
+        display: inline-block;
+    }
 
-        input.star {
-            display: none;
-        }
+    input.star {
+        display: none;
+    }
 
-        label.star {
-            float: right;
-            padding: 10px;
-            font-size: 36px;
-            color: #444;
-            transition: all .2s;
-        }
+    label.star {
+        float: right;
+        padding: 10px;
+        font-size: 36px;
+        color: #444;
+        transition: all .2s;
+    }
 
-        input.star:checked ~ label.star:before {
-            content: '\f005';
-            color: #FD5;
-            transition: all .25s;
-        }
+    input.star:checked ~ label.star:before {
+        content: '\f005';
+        color: #FD5;
+        transition: all .25s;
+    }
 
-        input.star-5:checked ~ label.star:before {
-            color: #FE6;
-            text-shadow: 0 0 20px #952;
-        }
+    input.star-5:checked ~ label.star:before {
+        color: #FE6;
+        text-shadow: 0 0 20px #952;
+    }
 
-        input.star-1:checked ~ label.star:before {
-            color: #F62;
-        }
+    input.star-1:checked ~ label.star:before {
+        color: #F62;
+    }
 
-        label.star:hover {
-            transform: rotate(-15deg) scale(1.3);
-        }
+    label.star:hover {
+        transform: rotate(-15deg) scale(1.3);
+    }
 
-        label.star:before {
-            content: '\f006';
-            font-family: FontAwesome;
-        }
-    </style>
-
-
-
-    <body>
-
-        <h2>
-            <center>
-                <h1>User</h1>
-                <form action="/User/isroommate">
+    label.star:before {
+        content: '\f006';
+        font-family: FontAwesome;
+    }
+</style>
 
 
-                    @if (Model.isRoomMateMode)
-                    {
-                        <button type="submit" name="roommate" value="1" style="width:10%;">เปิดระบบมองหาเมท</button><br />
-                    }
-                    else
-                    {
-                        <button type="submit" name="roommate" value="0" style="width:10%;">ปิดระบบมองหาเมท</button>
-                    }
-                </form>
-            </center>
 
-        </h2>
+<body>
 
-        <div style="padding:30px;">
-
-            <h1>Status</h1>
-            @if (Model.isRoomMateMode)
-            {
-                <p> มีห้องอยู่คนเดียว และกำลังมองหาเมทอยู่</p>
-            }
-            else
-            {
-                <p>ไม่ต้องการรูมเมท</p>
-            }
+    <h2>
+        <center><h1>User</h1>
+            <form action="/User/SetRoommate" >
 
 
-            <h1>Room Rate</h1>
-            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-            <form action="@Url.Action("StarCheck","User")">
-                <div class="stars">
+                @if (!Model.isRoomMateMode)
+                {
+                    <button type="submit" name="roommate" value="1" style="width:10%;">เปิดระบบมองหาเมท</button><br />
+                }
+                else
+                {
+                    <button type="submit" name="roommate" value="0" style="width:10%;">ปิดระบบมองหาเมท</button>
+                }
+            </form>  
+        </center>
+        
+    </h2>
 
-                    <input onclick="this.form.submit()" class="star star-5" id="star-5" @((Model.rate == 5) ? "checked='checked'" : "") type="radio" name="star" value="5" />
-                    <label class="star star-5" for="star-5"></label>
-                    <input onclick="this.form.submit()" class="star star-4" id="star-4" @((Model.rate == 4) ? "checked='checked'" : "") type="radio" name="star" value="4" />
-                    <label class="star star-4" for="star-4"></label>
-                    <input onclick="this.form.submit()" class="star star-3" id="star-3" @((Model.rate == 3) ? "checked='checked'" : "") type="radio" name="star" value="3" />
-                    <label class="star star-3" for="star-3"></label>
-                    <input onclick="this.form.submit()" class="star star-2" id="star-2" @((Model.rate == 2) ? "checked='checked'" : "") type="radio" name="star" value="2" />
-                    <label class="star star-2" for="star-2"></label>
-                    <input onclick="this.form.submit()" class="star star-1" id="star-1" @((Model.rate == 1) ? "checked='checked'" : "") type="radio" name="star" value="1" />
-                    <label class="star star-1" for="star-1"></label>
+  <div style="padding:30px;">
+     
+   <h1>Status</h1>
+    @if (Model.isRoomMateMode)
+    {
+        <p> มีห้องอยู่คนเดียว และกำลังมองหาเมทอยู่</p>
+    }
+    else
+    {
+        <p>ไม่ต้องการรูมเมท</p>
+    }
+      
 
-                </div>
-            </form>
-            <form action="@Url.Action("FeedbackSubmit","User")">
-                <h1>Feedback</h1>
+   <h1>Room Rate</h1>
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+      <form action="@Url.Action("StarCheck","User")">
+          <div class="stars">
 
-                <textarea style="width:40%;" rows="6" cols="50" name="detail_feedback"></textarea><br />
-                <button type="submit" style="width:40%;">Send</button><br />
-            </form>
+              <input onclick="this.form.submit()" class="star star-5" id="star-5" @((Model.rate == 5) ? "checked='checked'" : "") type="radio" name="star" value="5" />
+              <label class="star star-5" for="star-5"></label>
+              <input onclick="this.form.submit()" class="star star-4" id="star-4" @((Model.rate == 4) ? "checked='checked'" : "") type="radio" name="star" value="4" />
+              <label class="star star-4" for="star-4"></label>
+              <input onclick="this.form.submit()" class="star star-3" id="star-3" @((Model.rate == 3) ? "checked='checked'" : "") type="radio" name="star" value="3" />
+              <label class="star star-3" for="star-3"></label>
+              <input onclick="this.form.submit()" class="star star-2" id="star-2" @((Model.rate == 2) ? "checked='checked'" : "") type="radio" name="star" value="2" />
+              <label class="star star-2" for="star-2"></label>
+              <input onclick="this.form.submit()" class="star star-1" id="star-1" @((Model.rate == 1) ? "checked='checked'" : "") type="radio" name="star" value="1" />
+              <label class="star star-1" for="star-1"></label>
 
-            <h1>Findmate</h1>
-            <form>
-                <textarea style="width:40%;" rows="6" cols="50" name="detail_feedback"></textarea><br />
-                <button type="submit" style="width:40%;">Send</button><br />
-            </form>
-        </div>
+          </div>
+      </form>
+      <form action="@Url.Action("FeedbackSubmit","User")">
+          <h1>Feedback</h1>
 
-    </body>
+          <textarea style="width:40%;" rows="6" cols="50" name="detail_feedback"></textarea><br />
+          <button type="submit" style="width:40%;">Send</button><br />
+      </form>
+
+      <h1>Findmate</h1>
+      <form>
+          <textarea style="width:40%;" rows="6" cols="50" name="detail_feedback"></textarea><br />
+          <button type="submit" style="width:40%;">Send</button><br />
+      </form>
+  </div>
+
+</body>
 </article>
 </html>

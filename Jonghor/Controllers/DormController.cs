@@ -168,6 +168,78 @@ namespace Jonghor.Controllers
 
             return View("../Host/RoomManagement_Host", roomListview);
         }
+
+        public ActionResult DeclineReservedRoom(int room_id)
+        {
+            JongHorDBEntities1 jonghor = new JongHorDBEntities1();
+
+            Room_Reserved roomReserved = jonghor.Room_Reserved.Where(r => r.Room_ID == room_id).First();
+            jonghor.Room_Reserved.Remove(roomReserved);
+
+            jonghor.Room.Find(room_id).Status = (int)Status.Avaliable;
+
+            try
+            {
+                jonghor.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Combine the original exception message with the new one.
+                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+            }
+            Response.Write("<script>alert('New Dorm Added')</script>");
+
+            return Roomsort("All");
+        }
+
+        public ActionResult AcceptReservedRoom(int room_id)
+        {
+            JongHorDBEntities1 jonghor = new JongHorDBEntities1();
+            Room_Reserved roomReserved = jonghor.Room_Reserved.Where(r => r.Room_ID == room_id).First();
+
+            jonghor.Person.Find(roomReserved.Username).Room_ID = room_id;
+            jonghor.Person.Find(roomReserved.Username).Dorm_ID = roomReserved.Room.Dorm_ID;
+            jonghor.Room_Reserved.Remove(roomReserved);
+
+            jonghor.Room.Find(room_id).Status = (int)Status.NotAvaliable;
+
+            
+
+            try
+            {
+                jonghor.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Combine the original exception message with the new one.
+                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+            }
+            Response.Write("<script>alert('New Dorm Added')</script>");
+            return Roomsort("All");
+        }
+
         public ActionResult Roomsort(string option)
         {
             if (option == "All")
@@ -195,9 +267,12 @@ namespace Jonghor.Controllers
                 roomListview.GetRoomListView(name, Status.NotAvaliable);
                 return View("../Host/RoomManagement_Host", roomListview);
             }
-            else if(option == "Reserve")
+            else if(option == "Reserved")
             {
-
+                RoomListViewModel roomListview = new RoomListViewModel();
+                string name = Session["UserName"].ToString();
+                roomListview.GetRoomListView(name, Status.Reserved);
+                return View("../Host/RoomManagement_Host", roomListview);
             }
 
             return Content(option);
