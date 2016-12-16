@@ -48,14 +48,15 @@
            
     
 
-   
+   <br />
         <center>
             <table>
                 <tr>
                     <th width="10px"><center>Room Number</center></th>
                     <th>Name</th>
+                    <th>Phone</th>
                     <th>Status</th>
-                    <th>Person Reserve</th>
+                   
                     <th>Response</th>
                 </tr>
                 @foreach (RoomViewModel item in Model.Rooms)
@@ -68,8 +69,14 @@
                                 @name <br />                       
                             }
                         </td>
+                        <td>
+                            @foreach (string phone in item.PeoplePhone)
+                            {
+                                @phone <br />
+                            }
+                        </td>
                         <td>@item.Status</td>
-                        <td></td>
+                      
                         <td><center>
                             @if (item.Status == Status.Reserved.ToString())
                             {

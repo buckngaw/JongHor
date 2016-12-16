@@ -169,14 +169,11 @@ namespace Jonghor.Controllers
             {
 
 
-
-
-
                 db.Room_Reserved.Add(reserved_input);
                 db.SaveChanges();
 
                 RoomViewLayer RoomDB = new RoomViewLayer();
-                List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm(int.Parse(Session["dorm_id"] + ""));
+                List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm(reserved_input.Room.Dorm_ID);
 
                 
 

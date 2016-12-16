@@ -93,11 +93,11 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
             <PropertyRef Name="Room_ID" />
           </Key>
           <Property Name="Room_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Floor" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Floor" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Dorm_ID" Type="int" Nullable="false" />
           <Property Name="Type_ID" Type="int" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
-          <Property Name="Room_number" Type="nchar" MaxLength="10" />
+          <Property Name="Room_number" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP_DATA\JONGHORDB.MDF.dbo.Room_Option' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -494,7 +494,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
             <PropertyRef Name="Room_ID" />
           </Key>
           <Property Name="Room_ID" Type="Int32" Nullable="false" />
-          <Property Name="Floor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Floor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Dorm_ID" Type="Int32" Nullable="false" />
           <Property Name="Type_ID" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
@@ -502,7 +502,7 @@ warning 6002: The table/view 'C:\USERS\WIN8.1\SOURCE\REPOS\JONGHORV3\JONGHOR\APP
           <NavigationProperty Name="Room_Type" Relationship="Self.FK_Room_Person" FromRole="Room" ToRole="Room_Type" />
           <NavigationProperty Name="Room_Reserved" Relationship="Self.FK_Room_Reserved_Room" FromRole="Room" ToRole="Room_Reserved" />
           <NavigationProperty Name="Dorm" Relationship="JongHorDBModel1.FK_Room_ToDorm" FromRole="Room" ToRole="Dorm" />
-          <Property Name="Room_number" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Room_number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Room_Reserved">
           <Key>
