@@ -69,9 +69,13 @@ namespace Jonghor.Controllers
             {
                 if(room.room.Status == Dormoption)
                 {
+                    room.filter = Dormoption;
                     rooms.Add(room);
+
                 }
+
             }
+           
             return View("Room", rooms);
         }
 
