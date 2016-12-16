@@ -18,7 +18,7 @@ namespace Jonghor.Controllers
         private JongHorDBEntities1 db = new JongHorDBEntities1();
 
 
-       
+
 
         ////// GET: Serach
         //public async Task<ActionResult> Index()
@@ -145,7 +145,7 @@ namespace Jonghor.Controllers
 
 
         // Search Page MuMu Dont Touch = - =--------------------------------------
-        public ActionResult ViewSearch(string dname , string Dormoption)
+        public ActionResult ViewSearch(string dname, string Dormoption)
         {
             DormLayer DormDB = new DormLayer();
             List<Dorm> DormList = DormDB.GetDorm();
@@ -158,8 +158,8 @@ namespace Jonghor.Controllers
                 {
 
                     DormSearch.Add(dorm);
-               
-                    
+
+
                 }
             }
 
@@ -169,23 +169,31 @@ namespace Jonghor.Controllers
                 DormDetailViewModel dormview = new DormDetailViewModel();
                 dormview.SetDorm(dorm.Dorm_ID);
                 Dormviewmodel.Add(dormview);
-              
+
             }
 
 
 
 
-           if( Dormoption == "pricemin")
+            if (Dormoption == "pricemin")
             {
                 //max->min
                 Dormviewmodel.Sort(delegate (DormDetailViewModel c1, DormDetailViewModel c2) { return c1.minPrice.CompareTo(c2.minPrice); });
 
             }
-           else if (Dormoption == "pricemax")
+            else if (Dormoption == "pricemax")
             {
                 //min->max
                 Dormviewmodel.Sort(delegate (DormDetailViewModel c1, DormDetailViewModel c2) { return c2.minPrice.CompareTo(c1.minPrice); });
 
+            }
+            else if (Dormoption == "ratemax")
+            {
+                Dormviewmodel.Sort(delegate (DormDetailViewModel c1, DormDetailViewModel c2) { return c2.avgRate.CompareTo(c1.avgRate); });
+            }
+            else if (Dormoption == "ratemin")
+            {
+                Dormviewmodel.Sort(delegate (DormDetailViewModel c1, DormDetailViewModel c2) { return c1.avgRate.CompareTo(c2.avgRate); });
             }
 
 
@@ -204,7 +212,7 @@ namespace Jonghor.Controllers
             List<Dorm> DormList = DormDB.GetDorm();
             List<DormDetailViewModel> Dormviewmodel = new List<DormDetailViewModel>();
 
-            foreach(Dorm dorm in DormList)
+            foreach (Dorm dorm in DormList)
             {
                 DormDetailViewModel dormview = new DormDetailViewModel();
                 dormview.SetDorm(dorm.Dorm_ID);
@@ -219,7 +227,7 @@ namespace Jonghor.Controllers
         {
             DormDetailViewModel dormview = new DormDetailViewModel();
             dormview.SetDorm(dorm);
-           
+
             return View("Dormdetail", dormview);
         }
 
