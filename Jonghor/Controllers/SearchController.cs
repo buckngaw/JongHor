@@ -187,6 +187,14 @@ namespace Jonghor.Controllers
                 Dormviewmodel.Sort(delegate (DormDetailViewModel c1, DormDetailViewModel c2) { return c2.minPrice.CompareTo(c1.minPrice); });
 
             }
+           else if (Dormoption == "ratemax")
+            {
+                Dormviewmodel.Sort(delegate (DormDetailViewModel c1, DormDetailViewModel c2) { return c2.avgRate.CompareTo(c1.avgRate); });
+            }
+           else if (Dormoption == "ratemin")
+            {
+                Dormviewmodel.Sort(delegate (DormDetailViewModel c1, DormDetailViewModel c2) { return c1.avgRate.CompareTo(c2.avgRate); });
+            }
 
 
 
