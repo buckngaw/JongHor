@@ -11,15 +11,16 @@ namespace Jonghor.ViewModel
         public bool hasDorm { get; set; }
         public bool isRoomMateMode { get; set; }
         public int rate { get; set; }
+        public Person user { get; set; }
 
         public void SetUser(string name)
         {
             PersonBusinessLayer layer = new PersonBusinessLayer();
-            Person user = layer.GetUser(name);
+            user = layer.GetUser(name);
             hasDorm = user.Dorm_ID != null;
             if (hasDorm)
             {
-                isRoomMateMode = (Status)user.Room.Status == Status.WaitRoomMate;
+                isRoomMateMode = (Status)user.Find_Mate == Status.WaitRoomMate;
                 var dormRate = user.Dorm_Rate.Where(u => u.Dorm_ID == user.Dorm_ID);
                 if (dormRate.Count() > 0)
                 {

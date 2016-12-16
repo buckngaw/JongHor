@@ -114,16 +114,14 @@
         cursor: pointer;
     }
 
-        .dormPic {
-        
+    .dormPic {
         width: 100%;
         height: 200px;
-        }
+    }
 
-       .dormDetail {
-        
-         text-align:right;
-        }
+    .dormDetail {
+        text-align: right;
+    }
 
     div.stars {
         width: 270px;
@@ -173,11 +171,11 @@
 
     <h2>
         <center>ค้นหา</center>
-       
+
     </h2>
 
     <center>
-        
+
         <form action="@Url.Action("ViewSearch","Search")" method="post">
             Search Dorm:
             <input type="text" name="dname"
@@ -188,21 +186,23 @@
                    font-size: 16px;
                    background-color: white;
                    background-image: url('http://www.freeiconspng.com/uploads/search-icon-png-0.png');
-                   background-size: 5%;
-                   background-position: 10px 10px;
-                   background-repeat: no-repeat;
-                   padding: 10px 20px 12px 40px;">
+            background-size: 5%;
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding: 10px 20px 12px 40px;">
 
             <select name="Dormoption"
                     style=" width: 13%;
-                   font-size: 16px;
-                   background-color: white;
-                   background-repeat: no-repeat;
-                   padding: 8px 5px 12px 15px;">
+                    font-size: 16px;
+                    background-color: white;
+                    background-repeat: no-repeat;
+                    padding: 8px 5px 12px 15px;">
 
                 <option value="pricemax">ราคามากไปน้อย </option>
                 <option value="pricemin">ราคาน้อยไปมาก</option>
                 <option value="near">บริเวณใกล้เคียง</option>
+                <option value="ratemax">เรทมากที่สุด</option>
+                <option value="ratemin">เรทน้อยที่สุด</option>
 
             </select>
 
@@ -212,10 +212,11 @@
 
         </form>
 
-       
 
 
-        <div><br/>
+
+        <div>
+            <br />
             <table style="width:60%; ">
 
                 @foreach (DormDetailViewModel val in Model)
@@ -223,49 +224,80 @@
 
                     <tr>
                         <td style="width:30%; border:solid; ">
-                           <img style="width:100%;" class="dormPic" src="@val.imageUrl">
+                            <img style="width:100%;" class="dormPic" src="@val.imageUrl">
                         </td>
                         <td style="width:60%; padding:30px; border:solid ">
                             <font style="font-size:160%;" class="dormDetail">@val.dorm.Name</font><br />
                             <font style="margin-bottom:10px;" class="dormDetail">@val.minPrice - @val.maxPrice บาท</font><br />
-                            
+
                             <div align="left">
                                 <form action="">
                                     @{
-                                       
-                                    if(val.dormRates)
-                                     }
-                                    <input class="star star-5" id="star-5" type="radio" name="star" disabled/>
+                                        int avgrate = (int)val.avgRate;
+                                        string star1 = "";
+                                        string star2 = "";
+                                        string star3 = "";
+                                        string star4 = "";
+                                        string star5 = "";
+                                        if (avgrate == 0)
+                                        {
+
+                                        }
+                                        else if (avgrate == 1)
+                                        {
+                                            star1 = "checked=checked";
+
+                                        }
+                                        else if (avgrate == 2)
+                                        {
+                                            star2 = "checked=checked";
+                                        }
+                                        else if (avgrate == 3)
+                                        {
+                                            star3 = "checked=checked";
+                                        }
+                                        else if (avgrate == 4)
+                                        {
+                                            star4 = "checked=checked";
+                                        }
+                                        else if (avgrate == 5)
+                                        {
+                                            star5 = "checked=checked";
+                                        }
+                                    }
+
+
+                                    <input class="star star-5" id="star-5" @star5 type="radio" name="star" disabled />
                                     <label class="star star-5" for="star-5"></label>
-                                    <input class="star star-4" id="star-4" type="radio" name="star" disabled/>
+                                    <input class="star star-4" id="star-4" @star4 type="radio" name="star" disabled />
                                     <label class="star star-4" for="star-4"></label>
-                                    <input class="star star-3" id="star-3" checked="checked" type="radio" name="star" disabled/>
+                                    <input class="star star-3" id="star-3" @star3 type="radio" name="star" disabled />
                                     <label class="star star-3" for="star-3"></label>
-                                    <input class="star star-2" id="star-2" type="radio" name="star" disabled/>
+                                    <input class="star star-2" id="star-2" @star2 type="radio" name="star" disabled />
                                     <label class="star star-2" for="star-2"></label>
-                                    <input class="star star-1" id="star-1" type="radio" name="star" disabled/>
+                                    <input class="star star-1" id="star-1" @star1 type="radio" name="star" disabled />
                                     <label class="star star-1" for="star-1"></label>
                                 </form>
                             </div>
-                                <br /><br /><br /><br />
+                            <br /><br /><br /><br />
 
 
-                                <div align="right">
-                                    <a href="/Reserve/Room?dorm=@val.dorm.Dorm_ID"><button style="width:150px; height:40px;"> จองห้องพัก </button></a>
-                                    <a href="/Search/Dormdetail?dorm=@val.dorm.Dorm_ID"><button style="width:150px; height:40px;"> ดูรายละเอียด </button></a>
-                                </div>
-</td>
+                            <div align="right">
+                                <a href="/Reserve/Room?dorm=@val.dorm.Dorm_ID"><button style="width:150px; height:40px;"> จองห้องพัก </button></a>
+                                <a href="/Search/Dormdetail?dorm=@val.dorm.Dorm_ID"><button style="width:150px; height:40px;"> ดูรายละเอียด </button></a>
+                            </div>
+                        </td>
 
                     </tr>
-                   }
+                                        }
 
-              
+
             </table>
         </div>
 
     </center>
 
-            <script>
+    <script>
                 // Get the modal
                 var modal = document.getElementById('id01');
 
@@ -275,7 +307,7 @@
                         modal.style.display = "none";
                     }
                 }
-            </script>
+    </script>
 
 </body>
 

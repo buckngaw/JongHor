@@ -12,7 +12,7 @@
     }
 
     h2 {
-        color: white;
+        color: black;
         font-weight: bold;
         font-size: 20px;
     }
@@ -50,7 +50,7 @@
 
         <div>
             <h2>
-                <form action="/Dorm/Edit" method="post">
+                <form action="/Dorm/Add" method="post">
                     Dorm name:<input class="input1" type="text" name="Name" required> <br></br>
                     Description:<input type="text" name="information"></br></br>
                     Price per month:<input type="text" name="BahtPerMonth">Bath/month</br></br>
@@ -59,15 +59,16 @@
                     Electric's cost/Month:<input type="text" name="E_Per_Unit">Bath/Unit</br></br>
                     Water's cost/Month:<input type="text" name="W_Per_Unit">Bath/Unit</br></br>
                     Internet cost:<input type="text" name="Internet"> </br></br>
-
-
+                    Line:<input type="text" name="Internet" > </br></br>
+                    Facebook:<input type="text" name="Internet" > </br></br>
+                    Instagram:<input type="text" name="Internet" > </br></br>
                     <label>URL of Dorm's Picture</label></br>
-                    url:<input class="input_url" type="text" name="url_picture0">
-                    url:<input class="input_url" type="text" name="url_picture1">
-                    url:<input class="input_url" type="text" name="url_picture2">
-                    url:<input class="input_url" type="text" name="url_picture3">
-                    url:<input class="input_url" type="text" name="url_picture4">
+                    url:<input class="input_url" type="text" name="url_picture">
+                    
 
+                    Add Room:
+                    How many room per floor:<input type="text" name="roomcount">
+                    How many floor:<input type="text" name="floorcount">
 
                     <button class="b" type="submit">Submit</button>
                 </form>

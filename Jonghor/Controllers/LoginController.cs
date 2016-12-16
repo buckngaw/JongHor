@@ -72,7 +72,8 @@ namespace Jonghor.Controllers
                 }
                 else
                 {
-                    Response.Write("<script>alert('Username or Password is not correct')</script>");
+
+                    Response.Write("<script>alert('Username or Password is incorrect')</script>");
                     return View("../Home/Homepage");
                 }
                 
@@ -136,7 +137,5 @@ namespace Jonghor.Controllers
             Session.Remove("Status");
             return RedirectToAction("Index", "Home");
         }
-
-
     }
 }

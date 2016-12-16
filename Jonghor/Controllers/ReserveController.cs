@@ -21,7 +21,17 @@ namespace Jonghor.Controllers
         // GET: Reserve
         public ActionResult Index()
         {
-            return View("Room");
+            RoomViewLayer RoomDB = new RoomViewLayer();
+            List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm(0);
+            List<RoomViewLayer> rooms = new List<RoomViewLayer>();
+            foreach (RoomViewLayer room in RoomViewList)
+            {
+                if (room.room.Status == (int)Status.Avaliable)
+                {
+                    rooms.Add(room);
+                }
+            }
+            return View("Room", rooms);
         }
 
         public ActionResult Reserve(int room)
@@ -36,23 +46,46 @@ namespace Jonghor.Controllers
         public ActionResult Room(int dorm)
         {
 
+
             RoomViewLayer RoomDB = new RoomViewLayer();
             List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm(dorm);
-            Session["dorm_id"] = dorm;
+            List<RoomViewLayer> rooms = new List<RoomViewLayer>();
+            foreach (RoomViewLayer room in RoomViewList)
+            {
+                if (room.room.Status == (int)Status.Avaliable)
+                {
+                    rooms.Add(room);
+                }
+            }
+            return View("Room", rooms);
+        }
+        
+        public ActionResult Filter(int dorm,int Dormoption)
+        {
+            RoomViewLayer RoomDB = new RoomViewLayer();
+            List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm(dorm);
+            List<RoomViewLayer> rooms = new List<RoomViewLayer>();
+            foreach (RoomViewLayer room in RoomViewList)
+            {
+                if(room.room.Status == Dormoption)
+                {
+                    room.filter = Dormoption;
+                    rooms.Add(room);
 
-            return View("Room", RoomViewList);
+                }
+
+            }
+           
+            return View("Room", rooms);
         }
 
-        public ActionResult Submit(string reserve)
+        public ActionResult Submit()
         {
             int count = 0;
             int reserve_ID = 0;
             //new
-            if (reserve == "add1"){count = 1;}
-            else if (reserve == "add2"){ count = 2; }
-            else if (reserve == "add3") { count = 3; }
-            else if (reserve == "add4") { count = 4; }
-            else if (reserve == "roommate") { count = 1; }
+            count = 1;
+
 
             Room_Reserved reserved_input = new Room_Reserved();
             reserved_input.Room_ID = int.Parse(Session["room_id"]+"");
@@ -82,7 +115,7 @@ namespace Jonghor.Controllers
                 
 
             }
-            if (ReserveCount >= 2)
+            if (ReserveCount >= 1)
             {
                 return RedirectToAction("Reserve", new
                 {
@@ -101,8 +134,20 @@ namespace Jonghor.Controllers
                     error = 4,
                     room = int.Parse(Session["room_id"] + "")
                 });
+            
             }
+            
+            /*
+            // check full
+            else if (Roomview.room.Room_Type.Max == (Roomview.Reserved_num + count)) // เท่ากัน
+            {
+                db.Room.Find(Roomview.room.Room_ID).Status = (int)Status.NotAvaliable;
+                
+            }*/
 
+
+            // change status to reserve
+            db.Room.Find(Roomview.room.Room_ID).Status = (int)Status.Reserved;
 
             //check Reserved_ID
             Room_ReservedLayer Room_ReservedDB = new Room_ReservedLayer();
@@ -112,19 +157,29 @@ namespace Jonghor.Controllers
                 if(reserve_ID  == Roomreserved.Reserve_ID)
                 {
                     reserve_ID++;
+                   
                 }
 
             }
 
             reserved_input.Reserve_ID = reserve_ID;
 
+          
             try
             {
+
+
+
+
+
                 db.Room_Reserved.Add(reserved_input);
                 db.SaveChanges();
 
                 RoomViewLayer RoomDB = new RoomViewLayer();
                 List<RoomViewLayer> RoomViewList = RoomDB.GetRoomViewByDorm(int.Parse(Session["dorm_id"] + ""));
+
+                
+
 
                 return View("Room", RoomViewList);
             }

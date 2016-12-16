@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/15/2016 16:19:51
+-- Date Created: 12/15/2016 22:42:43
 -- Generated from EDMX file: C:\Users\WIN8.1\Source\Repos\JongHorV3\Jonghor\Models\JongHorModel.edmx
 -- --------------------------------------------------
 
@@ -29,11 +29,11 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Dorm_Picture_Dorm]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Dorm_Picture] DROP CONSTRAINT [FK_Dorm_Picture_Dorm];
 GO
-IF OBJECT_ID(N'[JongHorDBModel1StoreContainer].[FK_Dorm_Rate_Dorm]', 'F') IS NOT NULL
-    ALTER TABLE [JongHorDBModel1StoreContainer].[Dorm_Rate] DROP CONSTRAINT [FK_Dorm_Rate_Dorm];
+IF OBJECT_ID(N'[dbo].[FK_Dorm_Rate_Dorm]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Dorm_Rate] DROP CONSTRAINT [FK_Dorm_Rate_Dorm];
 GO
-IF OBJECT_ID(N'[JongHorDBModel1StoreContainer].[FK_Dorm_Rate_Person]', 'F') IS NOT NULL
-    ALTER TABLE [JongHorDBModel1StoreContainer].[Dorm_Rate] DROP CONSTRAINT [FK_Dorm_Rate_Person];
+IF OBJECT_ID(N'[dbo].[FK_Dorm_Rate_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Dorm_Rate] DROP CONSTRAINT [FK_Dorm_Rate_Person];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Message_Person]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Message] DROP CONSTRAINT [FK_Message_Person];
@@ -76,6 +76,9 @@ GO
 IF OBJECT_ID(N'[dbo].[Dorm_Picture]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Dorm_Picture];
 GO
+IF OBJECT_ID(N'[dbo].[Dorm_Rate]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Dorm_Rate];
+GO
 IF OBJECT_ID(N'[dbo].[Message]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Message];
 GO
@@ -96,9 +99,6 @@ IF OBJECT_ID(N'[dbo].[Table]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[JongHorDBModel1StoreContainer].[Dorm_Option]', 'U') IS NOT NULL
     DROP TABLE [JongHorDBModel1StoreContainer].[Dorm_Option];
-GO
-IF OBJECT_ID(N'[JongHorDBModel1StoreContainer].[Dorm_Rate]', 'U') IS NOT NULL
-    DROP TABLE [JongHorDBModel1StoreContainer].[Dorm_Rate];
 GO
 IF OBJECT_ID(N'[JongHorDBModel1StoreContainer].[Room_Option]', 'U') IS NOT NULL
     DROP TABLE [JongHorDBModel1StoreContainer].[Room_Option];
@@ -177,7 +177,8 @@ CREATE TABLE [dbo].[Room] (
     [Floor] nchar(10)  NOT NULL,
     [Dorm_ID] int  NOT NULL,
     [Type_ID] int  NOT NULL,
-    [Status] int  NOT NULL
+    [Status] int  NOT NULL,
+    [Room_number] nchar(10)  NULL
 );
 GO
 
@@ -224,7 +225,8 @@ CREATE TABLE [dbo].[Dorm_Rate] (
     [Username] varchar(50)  NOT NULL,
     [Dorm_ID] int  NOT NULL,
     [Score] float  NOT NULL,
-    [Text] varchar(200)  NULL
+    [Text] varchar(200)  NULL,
+    [Rate_id] int IDENTITY(1,1) NOT NULL
 );
 GO
 
@@ -299,10 +301,10 @@ ADD CONSTRAINT [PK_Dorm_Option]
     PRIMARY KEY CLUSTERED ([Dorm_ID], [Option] ASC);
 GO
 
--- Creating primary key on [Username], [Dorm_ID], [Score] in table 'Dorm_Rate'
+-- Creating primary key on [Username], [Dorm_ID], [Score], [Rate_id] in table 'Dorm_Rate'
 ALTER TABLE [dbo].[Dorm_Rate]
 ADD CONSTRAINT [PK_Dorm_Rate]
-    PRIMARY KEY CLUSTERED ([Username], [Dorm_ID], [Score] ASC);
+    PRIMARY KEY CLUSTERED ([Username], [Dorm_ID], [Score], [Rate_id] ASC);
 GO
 
 -- Creating primary key on [Room_type], [Option] in table 'Room_Option'

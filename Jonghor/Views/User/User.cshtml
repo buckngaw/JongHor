@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html>
-
+<article>
 <style>
     /* Full-width input fields */
     input[type=text], input[type=password] {
@@ -113,7 +113,7 @@
      button {
         background-color: #FF8000;
         color: white;
-        padding: 10px ;
+            padding: 10px;
         border: none;
         cursor: pointer;
         width: 100%;
@@ -168,71 +168,67 @@
 
     <h2>
         <center><h1>User</h1>
-            @if (Model.isRoomMateMode)
-            {
-                <button type="submit" style="width:10%;">เปิดระบบมองหาเมท</button><br />
-            }
-            else
-            {
-                <button type="submit" style="width:10%;">ปิดระบบมองหาเมท</button>
-            } 
+            <form action="/User/SetRoommate" >
+
+
+                @if (!Model.isRoomMateMode)
+                {
+                    <button type="submit" name="roommate" value="1" style="width:10%;">เปิดระบบมองหาเมท</button><br />
+                }
+                else
+                {
+                    <button type="submit" name="roommate" value="0" style="width:10%;">ปิดระบบมองหาเมท</button>
+                }
+            </form>  
         </center>
         
-       
-
     </h2>
 
   <div style="padding:30px;">
      
    <h1>Status</h1>
-      <p> มีห้องอยู่คนเดียว และกำลังมองหาเมทอยู่</p>
+    @if (Model.isRoomMateMode)
+    {
+        <p> มีห้องอยู่คนเดียว และกำลังมองหาเมทอยู่</p>
+    }
+    else
+    {
+        <p>ไม่ต้องการรูมเมท</p>
+    }
+      
 
    <h1>Room Rate</h1>
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-      <form action="@Url.Action("FeedbackSubmit","User")">
+      <form action="@Url.Action("StarCheck","User")">
           <div class="stars">
 
-              <input class="star star-5" id="star-5" @((Model.rate == 5) ? "checked='checked'" : "") type="radio" name="star" value="5"/>
+              <input onclick="this.form.submit()" class="star star-5" id="star-5" @((Model.rate == 5) ? "checked='checked'" : "") type="radio" name="star" value="5" />
               <label class="star star-5" for="star-5"></label>
-              <input class="star star-4" id="star-4" @((Model.rate == 4) ? "checked='checked'" : "") type="radio" name="star" value="4"/>
+              <input onclick="this.form.submit()" class="star star-4" id="star-4" @((Model.rate == 4) ? "checked='checked'" : "") type="radio" name="star" value="4" />
               <label class="star star-4" for="star-4"></label>
-              <input class="star star-3" id="star-3" @((Model.rate == 3) ? "checked='checked'" : "") type="radio" name="star" value="3"/>
+              <input onclick="this.form.submit()" class="star star-3" id="star-3" @((Model.rate == 3) ? "checked='checked'" : "") type="radio" name="star" value="3" />
               <label class="star star-3" for="star-3"></label>
-              <input class="star star-2" id="star-2" @((Model.rate == 2) ? "checked='checked'" : "") type="radio" name="star" value="2"/>
+              <input onclick="this.form.submit()" class="star star-2" id="star-2" @((Model.rate == 2) ? "checked='checked'" : "") type="radio" name="star" value="2" />
               <label class="star star-2" for="star-2"></label>
-              <input class="star star-1" id="star-1" @((Model.rate == 1) ? "checked='checked'" : "") type="radio" name="star" value="1"/>
+              <input onclick="this.form.submit()" class="star star-1" id="star-1" @((Model.rate == 1) ? "checked='checked'" : "") type="radio" name="star" value="1" />
               <label class="star star-1" for="star-1"></label>
 
           </div>
-
+      </form>
+      <form action="@Url.Action("FeedbackSubmit","User")">
           <h1>Feedback</h1>
 
           <textarea style="width:40%;" rows="6" cols="50" name="detail_feedback"></textarea><br />
           <button type="submit" style="width:40%;">Send</button><br />
       </form>
-     
 
       <h1>Findmate</h1>
       <form>
           <textarea style="width:40%;" rows="6" cols="50" name="detail_feedback"></textarea><br />
           <button type="submit" style="width:40%;">Send</button><br />
       </form>
-
-      @{
-
-
-      }
-
   </div>
 
-      
-
-
-     
-   
-
 </body>
-
-
-
+</article>
 </html>

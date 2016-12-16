@@ -35,10 +35,11 @@
          <form action="/Dorm/Roomsort" method="post">
              <center>
                  <select name="option" onchange="this.form.submit()">
-                     <option value="Avaliable">Avaliable</option>
-                     <option value="Wait">Wait Roommate </option>
-                     <option value="Not">Not Avaliable</option>
-                     <option value="All" select>All Room</option>
+                     <option value="Avaliable">Avaliable Rooms</option>
+                     <option value="Wait">Wait Roommate Rooms</option>
+                     <option value="Not">Not Avaliable Rooms</option>
+                     <option value="All" select>All Rooms</option>
+                     <option value="Reserved" select>Reserved Rooms</option>
                  </select>
              </center>
             
@@ -54,6 +55,8 @@
                     <th width="10px"><center>Room Number</center></th>
                     <th>Name</th>
                     <th>Status</th>
+                    <th>Person Reserve</th>
+                    <th>Response</th>
                 </tr>
                 @foreach (RoomViewModel item in Model.Rooms)
                 {
@@ -62,12 +65,23 @@
                         <td>
                             @foreach (string name in item.PeopleNames)
                             {
-
-                                @name <br />
-
+                                @name <br />                       
                             }
                         </td>
                         <td>@item.Status</td>
+                        <td></td>
+                        <td><center>
+                            @if (item.Status == Status.Reserved.ToString())
+                            {
+                                <form action="/Dorm/AcceptReservedRoom">
+                                    <button name="room_id" type="submit" value="@item.Room_ID" style="width:auto;">Accept</button>
+                                    </form>
+                                    <form action="/Dorm/DeclineReservedRoom">
+                                        <button name="room_id" type="submit" value="@item.Room_ID" style="width:auto;">Decline</button>
+                                    </form>
+                            }
+                            </center>
+                        </td>
                     </tr>
                 }
 
