@@ -128,14 +128,6 @@
           <br />
          
 
-                @{
-                    int maxcount = Model.room.Room_Type.Max - Model.Reserved_num;
-                    for (int i = 0; i < maxcount; i++)
-                    {
-                        int val = i + 1;
-                        <input type="radio" name="reserve" value="@val" /><span>จองสำหรับ @val คน</span><br /><br />
-                    }
-                }
 
          <br /><b>รายละเอียด :</b>
           <br />

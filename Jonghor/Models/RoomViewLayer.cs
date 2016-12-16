@@ -30,6 +30,14 @@ namespace Jonghor.Models
 
                     roomviewlayer.room = room;
 
+                    foreach (Person p in jonghor.Person)
+                    {
+                        if(p.Room_ID == room.Room_ID)
+                        {
+                            roomviewlayer.Reserved_num += 1;
+                        }
+                    }
+                        
 
                     foreach (Room_Reserved roomreserved in RoomReservedQuery)
                     {
@@ -63,7 +71,14 @@ namespace Jonghor.Models
                 if (room.Room_ID == Room_ID)
                 {
                     roomviewlayer.room = room;
-                  
+
+                    foreach (Person p in jonghor.Person)
+                    {
+                        if (p.Room_ID == room.Room_ID)
+                        {
+                            roomviewlayer.Reserved_num += 1;
+                        }
+                    }
 
                     foreach (Room_Reserved roomreserved in RoomReservedQuery)
                     {
