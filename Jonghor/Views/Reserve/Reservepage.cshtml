@@ -127,7 +127,19 @@
           
           <br />
          
+                @{ 
+                    
+                  
+                        <p>เจ้าของห้อง :</p>
+                        foreach(var person in Model.room.Person)
+                        {
+                            <p> @person.Name @person.Surname @person.Phone</p>
+                        }
 
+
+                    
+                }
+        
 
          <br /><b>รายละเอียด :</b>
           <br />

@@ -54,6 +54,7 @@
                 <tr>
                     <th width="10px"><center>Room Number</center></th>
                     <th>Name</th>
+                    <th>Phone</th>
                     <th>Status</th>
                    
                     <th>Response</th>
@@ -66,6 +67,12 @@
                             @foreach (string name in item.PeopleNames)
                             {
                                 @name <br />                       
+                            }
+                        </td>
+                        <td>
+                            @foreach (string phone in item.PeoplePhone)
+                            {
+                                @phone <br />
                             }
                         </td>
                         <td>@item.Status</td>

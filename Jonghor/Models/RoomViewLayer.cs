@@ -48,8 +48,11 @@ namespace Jonghor.Models
                     }
 
                     if (Reserved_num < roomviewlayer.room.Room_Type.Max)
-                    { Roomview.Add(roomviewlayer); }
+                    {
+                        filter = roomviewlayer.room.Status;
+                        Roomview.Add(roomviewlayer); }
 
+                    
                 }
 
             }

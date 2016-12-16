@@ -155,7 +155,7 @@ namespace Jonghor.Controllers
                     throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
                 }
                 Response.Write("<script>alert('Dorm Edited')</script>");
-                return View("../Home/Homepage");
+                return RedirectToAction("Index","Home");
             }
             Response.Write("<script>alert('Error cannot add new Dorm')</script>");
             return View("Edit");

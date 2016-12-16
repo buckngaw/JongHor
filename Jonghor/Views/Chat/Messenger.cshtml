@@ -3,24 +3,25 @@
 
 <html>
 <style>
-h1{
-	text-align:center;
-	font-size:30px;
-	color:Orange;
-	font-weight:bold;
-}
-h2{
-    color:black;
-    font-size: 20px;
-}
+    h1 {
+        text-align: center;
+        font-size: 30px;
+        color: Orange;
+        font-weight: bold;
+    }
+
+    h2 {
+        color: white;
+        font-size: 20px;
+    }
 </style>
 <head>
-	<center><h1>MESSAGE</h1></center>	
+    <center><h1>MESSAGE</h1></center>
 </head>
 
 <article>
     <h2>
-        <form action="@Url.Action("Checkbox", "Chat")">
+        <form action="@Url.Action("Checkbox", "Chat")" style="color:black;">
             <center>
                 <input type="checkbox" name="checkblock" value="AllRoom">All Room
                 <input type="checkbox" name="checkblock" value="SelectRoom">Select Room<br>

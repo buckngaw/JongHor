@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using Jonghor.ViewModel;
+using Jonghor.Models;
 
 namespace Jonghor.Models
 {
@@ -26,7 +28,7 @@ namespace Jonghor.Models
             List<Room> status = new List<Room>();
             foreach (Room r in RoomList)
             {
-                if(r.Status == 1)
+                if(r.Status == (int)Status.NotAvaliable || r.Status == (int)Status.WaitRoomMate)
                 {
                     status.Add(r);
                 }
