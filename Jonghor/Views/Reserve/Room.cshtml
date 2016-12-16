@@ -136,8 +136,9 @@
                       font-size: 16px;
                       background-color: white;
                       background-repeat: no-repeat;
-                      padding: 8px 5px 12px 15px;">
-
+                      padding: 8px 5px 12px 15px;"
+                      onchange="this.form.submit()">
+                      
                   @{
                       string option0 = "";
                       string option1 = "";
@@ -153,7 +154,7 @@
 
                    
 
-                            <option value="0" @option0>Avaiable </option>
+                            <option value="0" @option0 >Avaiable </option>
                             <option value="1" @option1>NotAvaiable</option>
                             <option value="2"@option2>WaitRoommate</option>
 
