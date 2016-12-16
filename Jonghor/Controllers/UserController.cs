@@ -24,7 +24,7 @@ namespace Jonghor.Controllers
                 return View("../Home/Homepage");
             }
         }
-        public ActionResult isroommate(int roommate)
+        public ActionResult SetRoommate(int roommate)
         {
             JongHorDBEntities1 db = new JongHorDBEntities1();
             PersonBusinessLayer layer = new PersonBusinessLayer();
