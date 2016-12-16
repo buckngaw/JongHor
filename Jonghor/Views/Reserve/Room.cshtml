@@ -3,6 +3,7 @@
 @model List<RoomViewLayer>
 <!DOCTYPE html>
 <html>
+
 <style>
     /* Full-width input fields */
     input[type=text], input[type=password] {
@@ -110,25 +111,21 @@
     }
 
     .roomlist {
-        padding:20px;
-        width:200px;
-        height:100px;
+            padding: 20px;
+            width: 200px;
+            height: 100px;
         background-image: url('https://www.mx7.com/i/cce/0Ql951.png');
-        color:white;
-        margin:10px;
+            color: white;
+            margin: 10px;
     }
 </style>
 <body>
 
-    <h2>
-        
-        
+        <h2></h2>
        
-    </h2>
-
   <div style="padding:30px;">
       
-      <div >   
+            <div>
           <form action="/Reserve/Filter?dorm=@Request.Params["dorm"]" method="post">
 
               <select name="Dormoption"
@@ -185,4 +182,5 @@
     }
 </div>
 </body>
+
 </html>

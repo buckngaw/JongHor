@@ -19,7 +19,9 @@ namespace Jonghor.Controllers
             {
                 if(Session["Status"].ToString() == "Owner")
                 {
-                    return View("Edit");
+                    DormDetailViewModel dt = new DormDetailViewModel();
+                    dt.SetDorm(Session["UserName"].ToString());
+                    return View("Edit", dt);
                 }
                 else
                 {
@@ -109,22 +111,29 @@ namespace Jonghor.Controllers
 
 
 
-        public ActionResult Edit(Dorm dorm,string url_picture)
+        public ActionResult Edit(Dorm dorm,int dorm_id)
         {
             if (Session["Status"] != null && Session["Status"].ToString() == "Owner")
             {
+
                 dorm.M_username = Session["UserName"].ToString();
                 dorm.Tel = "000";
                 dorm.Address = "111";
-                Dorm dormSelect = db.Dorm.SingleOrDefault(d => d.Name == dorm.Name);
-                if (dormSelect == null)
-                {
-                    db.Dorm.Add(dorm);
-                }
-                else
-                {              
-                    dormSelect = dorm;
-                }
+
+                    var edit = db.Dorm.Find(dorm.Dorm_ID);
+                    edit.Name = dorm.Name;
+                    edit.information = dorm.information;
+                    edit.Line = dorm.Line;
+                    edit.Facebook = dorm.Facebook;
+                    edit.Instagram = dorm.Instagram;
+                    edit.Tel = dorm.Tel;
+                    edit.E_Per_Unit = dorm.E_Per_Unit;
+                    edit.W_Per_Unit = dorm.W_Per_Unit;
+                    edit.Deposit = dorm.Deposit;
+                    edit.Internet = dorm.Internet;
+                      
+                
+
                 try
                 {
                     db.SaveChanges();
@@ -145,7 +154,7 @@ namespace Jonghor.Controllers
                     // Throw a new DbEntityValidationException with the improved exception message.
                     throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
                 }
-                Response.Write("<script>alert('New Dorm Added')</script>");
+                Response.Write("<script>alert('Dorm Edited')</script>");
                 return View("../Home/Homepage");
             }
             Response.Write("<script>alert('Error cannot add new Dorm')</script>");
